@@ -171,7 +171,7 @@ public class StalagmiteEnemy : MonoBehaviour
                     {
                         timeUntilSleep = sleepDelay;
                     }
-
+                    
                     timeUntilSleep -= Time.deltaTime;
 
                     if (timeUntilSleep <= 0)
