@@ -27,7 +27,6 @@ public class MazeBuilder : MonoBehaviour
         int maxY = maze.positiveHeight - 1;
         for (int x = minX; x <= maxX; x++)
         {
-            Debug.Log("X = " + x);
             for (int y = minY; y <= maxY; y++)
             {
                 Instantiate(GetTile(maze[x][y].tileType), GetWorldPosition(new Vector2(x,y)), Quaternion.identity);
