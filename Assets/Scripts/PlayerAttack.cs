@@ -7,11 +7,12 @@ using static UnityEngine.GraphicsBuffer;
 public class PlayerAttack : MonoBehaviour
 {
     public Vector2 hitDirection;
+    public float reach; // The maximum distance something can be from the player for the player to still be able to hit it
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        reach = 3;
     }
 
     // Update is called once per frame
@@ -29,7 +30,7 @@ public class PlayerAttack : MonoBehaviour
             Vector2 raycastOrigin = (Vector2)transform.position + direction; // Offset by 1 unit
 
             // Create the raycast
-            RaycastHit2D hit = Physics2D.Raycast(raycastOrigin, direction); // Send raycast
+            RaycastHit2D hit = Physics2D.Raycast(raycastOrigin, direction, reach); // Send raycast
 
             if (hit.collider != null) // If a hitObj is found
             {
