@@ -303,11 +303,11 @@ MonoBehaviour:
   sleepDelay: 3
   maxDistance: 7
   minDistance: 1.5
-  sleepColor: {r: 0.42352942, g: 0.42352942, b: 0.42352942, a: 0}
-  chaseColor: {r: 1, g: 0, b: 0, a: 0}
-  chaseLKPColor: {r: 1, g: 0.3882353, b: 0, a: 0}
-  chaseEndColor: {r: 1, g: 0.8627451, b: 0, a: 0}
-  inRangeColor: {r: 0, g: 1, b: 0.039215688, a: 0}
+  sleepColor: {r: 0.42352942, g: 0.42352942, b: 0.42352942, a: 1}
+  chaseColor: {r: 1, g: 0, b: 0, a: 1}
+  chaseLKPColor: {r: 1, g: 0.3882353, b: 0, a: 1}
+  chaseEndColor: {r: 1, g: 0.8627451, b: 0, a: 1}
+  inRangeColor: {r: 0, g: 1, b: 0.039215688, a: 1}
 --- !u!50 &581770406
 Rigidbody2D:
   serializedVersion: 4
