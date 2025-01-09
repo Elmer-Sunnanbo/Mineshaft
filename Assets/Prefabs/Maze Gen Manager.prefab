@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5035603883769917538
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6600483203385077763}
+  - component: {fileID: 9150426172592953922}
+  - component: {fileID: 7952275539440254616}
+  m_Layer: 0
+  m_Name: Maze Gen Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6600483203385077763
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5035603883769917538}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &9150426172592953922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5035603883769917538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d56e12c30b31aa54d96d2aa4ea71291d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7952275539440254616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5035603883769917538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c38331f82b63654a9273aa0d9529b0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomSize: 9
+  Rooms0:
+  - {fileID: 1445517258856974119, guid: c7120a002c1bbe94d8730ff67b4c539c, type: 3}
+  Roomsi:
+  - {fileID: 5550601674650118448, guid: ecedde241009e4941bf5f07d5ad4b192, type: 3}
+  RoomsI:
+  - {fileID: 3536228525885852388, guid: 31f6205b7eaa4e840961dbe4778ba2af, type: 3}
+  RoomsL:
+  - {fileID: 3186265054505339031, guid: bb24fdfc28ae9994690d82d3c1b0e096, type: 3}
+  RoomsT:
+  - {fileID: 8912497245900101308, guid: df8466e28c1314848b5068d275f39333, type: 3}
+  RoomsPlus:
+  - {fileID: 3237608999501031451, guid: 2bc104bdfb88f024483eb15ba69f2c86, type: 3}
+  RoomsStart:
+  - {fileID: 2394447277109171560, guid: df3375294440fb1458cf18b845a43955, type: 3}
+  RoomsTreasure:
+  - {fileID: 4724053357382668749, guid: c3e08e79c7481b14cba9c6ed5051af14, type: 3}
+  RoomsEnd:
+  - {fileID: 6008529828183136191, guid: 1479037ebb6b56648a6c29c61fe3fcab, type: 3}

@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 9712cf5547db3e5468aedb512fde31c9
+guid: a1d5ab122addff24bb7450e09c224469
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7694718964160755737
-    second: Room_End_0
+      213: 1807334874192081005
+    second: RoomT_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -72,9 +72,9 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
+    maxTextureSize: 256
+    resizeAlgorithm: 1
+    textureFormat: 4
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Room_End_0
+      name: RoomT_0
       rect:
         serializedVersion: 2
         x: 0
@@ -114,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7e78cb6deddd63590800000000000000
-      internalID: -7694718964160755737
+      spriteID: d60f46e0e71f41910800000000000000
+      internalID: 1807334874192081005
       vertices: []
       indices: 
       edges: []
@@ -131,7 +131,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Room_End_0: -7694718964160755737
+      RoomT_0: 1807334874192081005
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
