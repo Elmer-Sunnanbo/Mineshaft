@@ -81,6 +81,7 @@ public class RailTile : MonoBehaviour
         position.x *= -1;
         position.x += 0.5f;
         position.y -= 0.5f;
+        
 
         position = TurnVector(position, startDirection.direction);
 
@@ -101,11 +102,9 @@ public class RailTile : MonoBehaviour
 
     Vector2 GetCurvePosition(float progress)
     {
-        Debug.Log("Angle: " + progress*90);
         float angle = progress * 90;
         float x = Mathf.Cos(angle * Mathf.Deg2Rad);
         float y = Mathf.Sin(angle * Mathf.Deg2Rad);
-        Debug.Log("Pos: " + new Vector2(x,y));
         return new Vector2(x, y);
     }
 
@@ -113,7 +112,7 @@ public class RailTile : MonoBehaviour
     {
         for(int i = 0; i < turns; i++)
         {
-            vector = new Vector2(vector.y * -1, vector.x);
+            vector = new Vector2(vector.y, vector.x * -1);
         }
         return vector;
     }
