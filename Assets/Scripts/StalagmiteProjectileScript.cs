@@ -4,19 +4,24 @@ using UnityEngine;
 
 public class StalagmiteProjectileScript : MonoBehaviour
 {
-    private float speed = 6;
+    private float speed = 7;
     private float instantiateTimer;
     private float projectileLongetivityTimer;
-    private float prefireTimer;//Instantiate does not run the first couple of milliseconds.
+    private float prefireTimer;//Instantiate and colliders does not run the first couple of milliseconds.
 
     [SerializeField] GameObject Stalagmites;
 
     Rigidbody2D myRigidBody;
+    BoxCollider2D myCollider;
+
+
     void Start()
     {
-        projectileLongetivityTimer = 3.5f;
-        prefireTimer = 0.7f;
+        projectileLongetivityTimer = 1;
+        prefireTimer = 0.2f;
         myRigidBody = GetComponent<Rigidbody2D>();
+        myCollider = GetComponent<BoxCollider2D>();
+        myCollider.enabled = false;
     }
 
     
@@ -27,19 +32,27 @@ public class StalagmiteProjectileScript : MonoBehaviour
             if (instantiateTimer < 0)
             {
                 Instantiate(Stalagmites, transform.position, Quaternion.identity);
-                instantiateTimer = 0.2f;
+                instantiateTimer = 0.1f;
             }
+            myCollider.enabled = true;
             instantiateTimer -= Time.deltaTime;
         }
         prefireTimer -= Time.deltaTime;
     }
     void FixedUpdate()
     {
-        myRigidBody.AddForce(transform.forward * speed, ForceMode2D.Impulse);
+        myRigidBody.velocity = transform.right * speed;
         if (projectileLongetivityTimer < 0)
         {
             Destroy(gameObject);
         }
         projectileLongetivityTimer -= Time.deltaTime;
+    }
+    private void OnCollisionEnter2D(Collision2D col)
+    {
+        if(col.gameObject.TryGetComponent<PathfindingBlocker>(out _))
+        {
+            Destroy(gameObject);
+        }
     }
 }

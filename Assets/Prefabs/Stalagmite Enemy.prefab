@@ -176,11 +176,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   stalagmiteProjectile: {fileID: 4230843036859359607, guid: c7112113b722eb643bb10c51f5e40a6c, type: 3}
-  speed: 1.2
-  wakeUpDistance: 10
+  speed: 0.5
+  wakeUpDistance: 8
   sleepDelay: 3
-  maxDistance: 15
-  minDistance: 5
+  maxDistance: 10
+  minDistance: 6
   sleepColor: {r: 0.18238991, g: 0.18238991, b: 0.18238991, a: 1}
   chaseColor: {r: 0.509434, g: 0.10269139, b: 0, a: 1}
   chaseLKPColor: {r: 0.6855345, g: 0.26013952, b: 0, a: 1}
