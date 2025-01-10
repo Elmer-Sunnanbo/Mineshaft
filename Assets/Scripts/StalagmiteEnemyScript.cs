@@ -24,6 +24,7 @@ public class StalagmiteEnemy : MonoBehaviour
 
     float? timeUntilSleep = null;
     float lastKnownPosMinDistance = 0.2f;
+    float attackReloadTimer;
     Rigidbody2D myRigidbody;
     SpriteRenderer mySpriteRenderer;
     Vector2 lastKnownPosition;
@@ -43,6 +44,18 @@ public class StalagmiteEnemy : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         state = States.Sleeping;
+    }
+    private void FixedUpdate()
+    {
+        if(state == States.Chasing||state == States.InRange)
+        {
+            if(attackReloadTimer < 0)
+            {
+                SummonStalagmite();
+                attackReloadTimer = 4;
+            }
+            attackReloadTimer -= Time.deltaTime;
+        }
     }
 
     void Update()
@@ -85,8 +98,6 @@ public class StalagmiteEnemy : MonoBehaviour
                 else if (vectorToTarget.magnitude < minDistance && hasLOS) //If we've reached the target
                 {
                     //Stay in range and do whatever it is we do there (likely attack)
-                    Vector2 MoveDir = (targetPos - (Vector2)transform.position).normalized;
-                    GameObject latestSpawn = Instantiate(stalagmiteProjectile, transform.position, Quaternion.Euler(MoveDir));
                     myRigidbody.velocity = Vector2.zero;
                     lastKnownPosition = targetPos;
                     lastKnownPositionActive = true;
@@ -213,6 +224,12 @@ public class StalagmiteEnemy : MonoBehaviour
     /// <summary>
     /// Changes the color of the object to represent it's state
     /// </summary>
+    void SummonStalagmite()
+    {
+        Vector2 angleTarget = target.transform.position - transform.position;
+        float angle = Mathf.Atan2(angleTarget.y, angleTarget.x) * Mathf.Rad2Deg;
+        GameObject latestSpawn = Instantiate(stalagmiteProjectile, transform.position, Quaternion.Euler(0, 0, angle));//Instantiating the stalagmite bullet in the direction of the player.
+    }
     void RenderState()
     {
         switch (state)
