@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class MinecartMovement : MonoBehaviour
 {
-    [SerializeField] RailTile currentTile;
-    void Start()
+    [SerializeField] RailTile startTile;
+    [SerializeField] Directions startDir;
+    [SerializeField] float speed;
+    float currentTileProgress = 0;
+    RailTile currentTile;
+    Direction currentDirection;
+
+    private void Start()
     {
-        
+        currentTile = startTile;
+        currentDirection = new Direction((int) startDir);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        transform.position = currentTile.GetPosition(0.7f);
+        currentTileProgress += Time.deltaTime * speed;
+        if(currentTileProgress > 1)
+        {
+            currentTileProgress -= 1;
+            currentDirection = currentTile.GetDirectionAfterTravel(currentDirection);
+            currentTile = currentTile.GetNextTile(currentDirection);
+        }
+        transform.position = currentTile.GetPosition(currentTileProgress, currentDirection);
     }
 }

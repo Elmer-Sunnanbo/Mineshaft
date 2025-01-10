@@ -246,12 +246,4 @@ public class MazeBuilder : MonoBehaviour
         if (tile.GetPath(new Direction(3))) { openPaths++; }
         return openPaths;
     }
-
-    enum Directions
-    {
-        North,
-        East,
-        South,
-        West,
-    }
 }
