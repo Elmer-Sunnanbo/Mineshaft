@@ -2,13 +2,45 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class RailTile : MonoBehaviour
 {
+    UnityEvent turnTurntable = new UnityEvent();
+    
     public RailTile[] neighbours;
     public bool isStop;
+    public bool isTurntable;
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.B) && isTurntable)
+        {
+            RotateTurntable();
+        }
+    }
+
+    public void EnterTurntable(MinecartMovement minecart)
+    {
+        turnTurntable.AddListener(minecart.TurnTableRotation);
+    }
+    public void ExitTurntable(MinecartMovement minecart)
+    {
+        turnTurntable.RemoveListener(minecart.TurnTableRotation);
+    }
+
     public Direction GetDirectionAfterTravel(Direction startDir)
     {
+        if(isTurntable)
+        {
+            if (neighbours[startDir.direction] != null)
+            {
+                return startDir;
+            }
+            else
+            {
+                return startDir.Rotated(2);
+            }
+        }
         if (neighbours[0] != null && neighbours[1] != null && neighbours[2] != null && neighbours[3] != null) //If this is a cross rail
         {
             return startDir;
@@ -42,7 +74,11 @@ public class RailTile : MonoBehaviour
             Debug.LogError("A rail tile was tasked with finding a position for a progress value above 1");
             return GetPosition(1, startDirection);
         }
-        if (neighbours[startDirection.direction] != null)
+        if(isTurntable && neighbours[startDirection.direction] == null)
+        {
+            return GetPositionBounceStraight(progress, startDirection);
+        }
+        if (neighbours[startDirection.direction] != null || isTurntable)
         {
             return GetPositionStraight(progress, startDirection);
         }
@@ -131,5 +167,10 @@ public class RailTile : MonoBehaviour
             vector = new Vector2(vector.y, vector.x * -1);
         }
         return vector;
+    }
+
+    private void RotateTurntable()
+    {
+        turnTurntable.Invoke();
     }
 }

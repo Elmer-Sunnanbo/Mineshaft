@@ -22,7 +22,21 @@ public class RailwayTools : MonoBehaviour
     [MenuItem("Railway Tools/Snap and connect")]
     static void SnapAndConnectRails()
     {
-        List<RailTile> tiles = FindObjectsByType<RailTile>(FindObjectsSortMode.None).ToList();
+        List<RailTile> tiles = new List<RailTile>();
+        if (Selection.gameObjects.Length > 0)
+        {
+            foreach (GameObject tile in Selection.gameObjects)
+            {
+                if(tile.TryGetComponent(out RailTile foundRailTile))
+                {
+                    tiles.Add(foundRailTile);
+                }
+            }
+        }
+        else
+        {
+            tiles = FindObjectsByType<RailTile>(FindObjectsSortMode.None).ToList();
+        }
         List<Vector2> positions = new List<Vector2>();
         foreach (RailTile tile in tiles)
         {
@@ -52,13 +66,23 @@ public class RailwayTools : MonoBehaviour
             if (serializedRailTile.FindProperty("neighbours").GetArrayElementAtIndex(2).objectReferenceValue != null) { count++; }
             if (serializedRailTile.FindProperty("neighbours").GetArrayElementAtIndex(3).objectReferenceValue != null) { count++; }
             if (count == 0) { Debug.LogWarning("SnapAndConnectRails found orphan rail"); }
-            if (count == 3) { Debug.LogWarning("SnapAndConnectRails found T rail"); }
+            if (count == 3 && !serializedRailTile.FindProperty("isTurntable").boolValue) { Debug.LogWarning("SnapAndConnectRails found T rail"); }
 
             serializedRailTile.ApplyModifiedProperties();
         }
+    }
 
-
-        EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+    [MenuItem("Railway Tools/Visibility")]
+    static void Visibility()
+    {
+        List<RailTile> tiles = FindObjectsByType<RailTile>(FindObjectsSortMode.None).ToList();
+        Menu.SetChecked("Railway Tools/Visibility", !Menu.GetChecked("Railway Tools/Visibility"));
+        foreach (RailTile tile in tiles)
+        {
+            SerializedObject serializedSpriteRenderer = new SerializedObject(tile.GetComponent<SpriteRenderer>());
+            serializedSpriteRenderer.FindProperty("m_Enabled").boolValue = Menu.GetChecked("Railway Tools/Visibility");
+            serializedSpriteRenderer.ApplyModifiedProperties();
+        }
     }
 
     static RailTile CheckForTileAtVector(Vector2 vector, List<RailTile> tiles, List<Vector2> vectors)
