@@ -1,14 +1,18 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class RailTile : MonoBehaviour
 {
-    [SerializeField] RailTile[] neighbours;
+    public RailTile[] neighbours;
     public bool isStop;
-    public bool isDeadEnd;
     public Direction GetDirectionAfterTravel(Direction startDir)
     {
+        if (neighbours[0] != null && neighbours[1] != null && neighbours[2] != null && neighbours[3] != null) //If this is a cross rail
+        {
+            return startDir;
+        }
         for(int dir = 0; dir < 4; dir++)
         {
             if (neighbours[dir] == null || dir == startDir.Rotated(2).direction)
