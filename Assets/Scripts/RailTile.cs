@@ -5,7 +5,8 @@ using UnityEngine;
 public class RailTile : MonoBehaviour
 {
     [SerializeField] RailTile[] neighbours;
-
+    public bool isStop;
+    public bool isDeadEnd;
     public Direction GetDirectionAfterTravel(Direction startDir)
     {
         for(int dir = 0; dir < 4; dir++)
@@ -16,8 +17,8 @@ public class RailTile : MonoBehaviour
             }
             return new Direction(dir);
         }
-        Debug.LogError("A railtile's GetDirectionAfterTravel found no direction to give");
-        return new Direction(0);
+        //Must be a dead end, turn around
+        return startDir.Rotated(2);
     }
 
     public RailTile GetNextTile(Direction direction)
@@ -51,7 +52,7 @@ public class RailTile : MonoBehaviour
         }
         else //This rail tile must be a dead end
         {
-            return GetPositionStraight(progress, startDirection);
+            return GetPositionBounceStraight(progress, startDirection);
         }
     }
 
@@ -70,6 +71,17 @@ public class RailTile : MonoBehaviour
             default:
                 Debug.LogError("A rail tile was tasked with finding a position with an invalid direction");
                 return transform.position;
+        }
+    }
+    Vector2 GetPositionBounceStraight(float progress, Direction startDirection)
+    {
+        if(progress <= 0.5f)
+        {
+            return GetPositionStraight(progress, startDirection);
+        }
+        else
+        {
+            return GetPositionStraight(1- progress, startDirection);
         }
     }
 

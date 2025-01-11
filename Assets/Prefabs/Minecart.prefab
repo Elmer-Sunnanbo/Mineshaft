@@ -101,4 +101,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startTile: {fileID: 0}
   startDir: 0
-  speed: 2
+  speed: 5.5
