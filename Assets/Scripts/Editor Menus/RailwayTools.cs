@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 using System.Linq;
 using UnityEditor.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class RailwayTools : MonoBehaviour
 {
@@ -72,16 +73,31 @@ public class RailwayTools : MonoBehaviour
         }
     }
 
-    [MenuItem("Railway Tools/Visibility")]
-    static void Visibility()
+    [MenuItem("Railway Tools/Auto Sprite")]
+    static void AutoSprite()
     {
-        List<RailTile> tiles = FindObjectsByType<RailTile>(FindObjectsSortMode.None).ToList();
-        Menu.SetChecked("Railway Tools/Visibility", !Menu.GetChecked("Railway Tools/Visibility"));
+        List<RailTile> tiles = new List<RailTile>();
+        if (Selection.gameObjects.Length > 0)
+        {
+            foreach (GameObject tile in Selection.gameObjects)
+            {
+                if (tile.TryGetComponent(out RailTile foundRailTile))
+                {
+                    tiles.Add(foundRailTile);
+                }
+            }
+        }
+        else
+        {
+            tiles = FindObjectsByType<RailTile>(FindObjectsSortMode.None).ToList();
+        }
         foreach (RailTile tile in tiles)
         {
-            SerializedObject serializedSpriteRenderer = new SerializedObject(tile.GetComponent<SpriteRenderer>());
-            serializedSpriteRenderer.FindProperty("m_Enabled").boolValue = Menu.GetChecked("Railway Tools/Visibility");
-            serializedSpriteRenderer.ApplyModifiedProperties();
+            tile.AutoSetSprite();
+        }
+        if(tiles.Count > 0)
+        {
+            EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
         }
     }
 
