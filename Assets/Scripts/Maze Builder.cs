@@ -5,6 +5,7 @@ using UnityEngine;
 public class MazeBuilder : MonoBehaviour
 {
     [SerializeField] int roomSize;
+    [SerializeField] GameObject player;
     [Header("Rooms")]
     [SerializeField] List<GameObject> Rooms0;
     [SerializeField] List<GameObject> Roomsi;
@@ -209,13 +210,16 @@ public class MazeBuilder : MonoBehaviour
             }
         }
         
-        //Connect rails on tiles
         for (int x = minX; x <= maxX; x++)
         {
             for (int y = minY; y <= maxY; y++)
             {
                 if (mazeObjects[x][y].TryGetComponent(out RoomManager manager))
                 {
+                    //Prep enemies
+                    manager.PrepEnemies(player);
+
+                    //Connect rails
                     RoomManager neighbourManager;
                     //North
                     if (y == maxY) //If we can't go further north

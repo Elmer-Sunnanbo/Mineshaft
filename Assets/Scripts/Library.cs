@@ -14,3 +14,13 @@ public enum Directions
     South,
     West,
 }
+
+public interface IHittable
+{
+    void Hit();
+}
+
+public interface IEnemy
+{
+    GameObject target { get; set; }
+}
