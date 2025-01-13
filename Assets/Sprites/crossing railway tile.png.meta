@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      crossing railway tile_0: -4271505084360096204
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
