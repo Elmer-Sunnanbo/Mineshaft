@@ -41,6 +41,15 @@ public class MazeBuilder : MonoBehaviour
         int maxX = maze.positiveWidth - 1;
         int minY = -maze.negativeHeight + 1;
         int maxY = maze.positiveHeight - 1;
+        
+        ExtendedArray<ExtendedArray<GameObject>> mazeObjects = new ExtendedArray<ExtendedArray<GameObject>>(maze.mazeTiles.positiveLength, maze.mazeTiles.negativeLength);
+        for(int i = minX; i <= maxX; i++)
+        {
+            mazeObjects[i] = new ExtendedArray<GameObject>(maze.positiveHeight, maze.negativeHeight);
+        }
+        
+
+        //Place tiles
         for (int x = minX; x <= maxX; x++)
         {
             for (int y = minY; y <= maxY; y++)
@@ -191,6 +200,7 @@ public class MazeBuilder : MonoBehaviour
                 {
                     GameObject latestRoom = Instantiate(selectedTile, GetWorldPosition(new Vector2(x, y)), Quaternion.identity);
                     latestRoom.transform.parent = transform;
+                    //mazeObjects[x][y] = latestRoom;
                 }
                 else
                 {
@@ -198,31 +208,112 @@ public class MazeBuilder : MonoBehaviour
                 }
             }
         }
+        
+        //Connect rails on tiles
+        for (int x = minX; x <= maxX; x++)
+        {
+            for (int y = minY; y <= maxY; y++)
+            {   
+                if (mazeObjects[x][y].TryGetComponent(out RoomManager manager))
+                {
+                    RoomManager neighbourManager;
+                    //North
+                    if (y == maxY) //If we can't go further north
+                    {
+                        continue;
+                    }
+                    if (mazeObjects[x][y + 1].TryGetComponent(out neighbourManager))
+                    {
+                        if (manager.borderRailNorth != null)
+                        {
+                            if (neighbourManager.borderRailSouth != null)
+                            {
+                                manager.borderRailNorth.neighbours[0] = neighbourManager.borderRailSouth;
+                                manager.borderRailNorth.AutoSetSprite();
+                            }
+                        }
+                        else
+                        {
+                            Debug.LogWarning("Maze builder found manager with missing connection at " + x + ", " + y + " - north");
+                        }
+                    }
+                    //East
+                    if (x == maxX) //If we can't go further east
+                    {
+                        continue;
+                    }
+                    if (mazeObjects[x + 1][y].TryGetComponent(out neighbourManager))
+                    {
+                        if (manager.borderRailEast != null)
+                        {
+                            if (neighbourManager.borderRailWest != null)
+                            {
+                                manager.borderRailEast.neighbours[1] = neighbourManager.borderRailWest;
+                                manager.borderRailEast.AutoSetSprite();
+                            }
+                        }
+                        else
+                        {
+                            Debug.LogWarning("Maze builder found manager with missing connection at " + x + ", " + y + " - east");
+                        }
+                    }
+                    //South
+                    if (y == minY) //If we can't go further north
+                    {
+                        continue;
+                    }
+                    if (mazeObjects[x][y - 1].TryGetComponent(out neighbourManager))
+                    {
+                        if (manager.borderRailSouth != null)
+                        {
+                            if (neighbourManager.borderRailSouth != null)
+                            {
+                                manager.borderRailSouth.neighbours[2] = neighbourManager.borderRailNorth;
+                                manager.borderRailSouth.AutoSetSprite();
+                            }
+                        }
+                        else
+                        {
+                            Debug.LogWarning("Maze builder found manager with missing connection at " + x + ", " + y + " - south");
+                        }
+                    }
+                    //West
+                    if (x == minX) //If we can't go further west
+                    {
+                        continue;
+                    }
+                    if (mazeObjects[x - 1][y].TryGetComponent(out neighbourManager))
+                    {
+                        if (manager.borderRailWest != null)
+                        {
+                            if (neighbourManager.borderRailEast != null)
+                            {
+                                manager.borderRailWest.neighbours[3] = neighbourManager.borderRailEast;
+                                manager.borderRailWest.AutoSetSprite();
+                            }
+                        }
+                        else
+                        {
+                            Debug.LogWarning("Maze builder found manager with missing connection at " + x + ", " + y + " - west");
+                        }
+                    }
+                }
+                else
+                {
+                    Debug.LogWarning("Maze builder found room without manager at " + x + ", " + y);
+                }
+
+            }
+        }
     }
+
 
     Vector2 GetWorldPosition(Vector2 tilePosition)
     {
         return tilePosition * roomSize;
     }
 
-    GameObject GetTileBasic(MazeTile tile)
-    {
-        switch(tile.tileType)
-        {
-            case TileTypes.Empty:
-                return GetRandomFromlist(Rooms0);
-            case TileTypes.Passage:
-                Debug.LogError("MazeBuilder's GetTile was fed a passage");
-                return GetRandomFromlist(RoomsPlus);
-            case TileTypes.Treasure:
-                return GetRandomFromlist(RoomsTreasure);
-            case TileTypes.Start:
-                return GetRandomFromlist(RoomsStart);
-            case TileTypes.End:
-                return GetRandomFromlist(RoomsEnd);
-        }
-        return GetComponent<GameObject>();
-    }
+    
     Type GetRandomFromlist<Type>(List<Type> List)
     {
         return List[Random.Range(0, List.Count)];

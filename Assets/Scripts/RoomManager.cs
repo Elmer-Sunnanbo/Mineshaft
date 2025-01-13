@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class RoomManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public RailTile borderRailNorth;
+    public RailTile borderRailEast;
+    public RailTile borderRailSouth;
+    public RailTile borderRailWest;
 }
