@@ -8,13 +8,29 @@ public class MazeBuilder : MonoBehaviour
     [Header("Rooms")]
     [SerializeField] List<GameObject> Rooms0;
     [SerializeField] List<GameObject> Roomsi;
+    [SerializeField] List<GameObject> Roomsi1;
+    [SerializeField] List<GameObject> Roomsi2;
+    [SerializeField] List<GameObject> Roomsi3;
     [SerializeField] List<GameObject> RoomsI;
+    [SerializeField] List<GameObject> RoomsI1;
     [SerializeField] List<GameObject> RoomsL;
+    [SerializeField] List<GameObject> RoomsL1;
+    [SerializeField] List<GameObject> RoomsL2;
+    [SerializeField] List<GameObject> RoomsL3;
     [SerializeField] List<GameObject> RoomsT;
+    [SerializeField] List<GameObject> RoomsT1;
+    [SerializeField] List<GameObject> RoomsT2;
+    [SerializeField] List<GameObject> RoomsT3;
     [SerializeField] List<GameObject> RoomsPlus;
     [SerializeField] List<GameObject> RoomsStart;
     [SerializeField] List<GameObject> RoomsTreasure;
+    [SerializeField] List<GameObject> RoomsTreasure1;
+    [SerializeField] List<GameObject> RoomsTreasure2;
+    [SerializeField] List<GameObject> RoomsTreasure3;
     [SerializeField] List<GameObject> RoomsEnd;
+    [SerializeField] List<GameObject> RoomsEnd1;
+    [SerializeField] List<GameObject> RoomsEnd2;
+    [SerializeField] List<GameObject> RoomsEnd3;
 
     MazeGenerator mazeGen;
     void Start()
@@ -29,7 +45,6 @@ public class MazeBuilder : MonoBehaviour
         {
             for (int y = minY; y <= maxY; y++)
             {
-                int turns = 0;
                 GameObject selectedTile = null; //Only assigned because it needs to be something
                 //Determine room type and how many times to turn it
                 switch(maze[x][y].tileType)
@@ -39,59 +54,42 @@ public class MazeBuilder : MonoBehaviour
                         break;
                     case TileTypes.Start:
                         selectedTile = GetRandomFromlist(RoomsStart);
-                        if (maze[x][y].GetPath(new Direction(0)))
-                        {
-                            turns = 0;
-                        }
-                        if (maze[x][y].GetPath(new Direction(1)))
-                        {
-                            turns = 3;
-                        }
-                        if (maze[x][y].GetPath(new Direction(2)))
-                        {
-                            turns = 2;
-                        }
-                        if (maze[x][y].GetPath(new Direction(3)))
-                        {
-                            turns = 1;
-                        }
                         break;
                     case TileTypes.End:
-                        selectedTile = GetRandomFromlist(RoomsEnd);
                         if (maze[x][y].GetPath(new Direction(0)))
                         {
-                            turns = 0;
+                            selectedTile = GetRandomFromlist(RoomsEnd);
                         }
                         if (maze[x][y].GetPath(new Direction(1)))
                         {
-                            turns = 3;
+                            selectedTile = GetRandomFromlist(RoomsEnd1);
                         }
                         if (maze[x][y].GetPath(new Direction(2)))
                         {
-                            turns = 2;
+                            selectedTile = GetRandomFromlist(RoomsEnd2);
                         }
                         if (maze[x][y].GetPath(new Direction(3)))
                         {
-                            turns = 1;
+                            selectedTile = GetRandomFromlist(RoomsEnd3);
                         }
                         break;
                     case TileTypes.Treasure:
-                        selectedTile = GetRandomFromlist(RoomsTreasure);
+                        
                         if (maze[x][y].GetPath(new Direction(0)))
                         {
-                            turns = 0;
+                            selectedTile = GetRandomFromlist(RoomsTreasure);
                         }
                         if (maze[x][y].GetPath(new Direction(1)))
                         {
-                            turns = 3;
+                            selectedTile = GetRandomFromlist(RoomsTreasure1);
                         }
                         if (maze[x][y].GetPath(new Direction(2)))
                         {
-                            turns = 2;
+                            selectedTile = GetRandomFromlist(RoomsTreasure2);
                         }
                         if (maze[x][y].GetPath(new Direction(3)))
                         {
-                            turns = 1;
+                            selectedTile = GetRandomFromlist(RoomsTreasure3);
                         }
                         break;
                     case TileTypes.Passage:
@@ -104,22 +102,21 @@ public class MazeBuilder : MonoBehaviour
                                 break;
                             case 1:
                                 //It's dead end tile
-                                selectedTile = GetRandomFromlist(Roomsi);
                                 if (maze[x][y].GetPath(new Direction(0)))
                                 {
-                                    turns = 0;
+                                    selectedTile = GetRandomFromlist(Roomsi);
                                 }
                                 if (maze[x][y].GetPath(new Direction(1)))
                                 {
-                                    turns = 3;
+                                    selectedTile = GetRandomFromlist(Roomsi1);
                                 }
                                 if (maze[x][y].GetPath(new Direction(2)))
                                 {
-                                    turns = 2;
+                                    selectedTile = GetRandomFromlist(Roomsi2);
                                 }
                                 if (maze[x][y].GetPath(new Direction(3)))
                                 {
-                                    turns = 1;
+                                    selectedTile = GetRandomFromlist(Roomsi3);
                                 }
                                 break;
                             case 2:
@@ -140,8 +137,7 @@ public class MazeBuilder : MonoBehaviour
                                     {
                                         //N-W curve
                                         //Only option left
-                                        selectedTile = GetRandomFromlist(RoomsL);
-                                        turns = 1;
+                                        selectedTile = GetRandomFromlist(RoomsL3);
                                     }
                                 }
                                 else if (maze[x][y].GetPath(new Direction(1)))
@@ -149,43 +145,39 @@ public class MazeBuilder : MonoBehaviour
                                     if (maze[x][y].GetPath(new Direction(3)))
                                     {
                                         //E-W straight
-                                        selectedTile = GetRandomFromlist(RoomsI);
-                                        turns = 1;
+                                        selectedTile = GetRandomFromlist(RoomsI1);
                                     }
                                     else
                                     {
                                         //E-S curve
                                         //Only option left (N-E curve was chaught above)
-                                        selectedTile = GetRandomFromlist(RoomsL);
-                                        turns = 3;
+                                        selectedTile = GetRandomFromlist(RoomsL1);
                                     }
                                 }
                                 else
                                 {
                                     //W-S curve
                                     //Only option left if north and east don't have rail
-                                    selectedTile = GetRandomFromlist(RoomsL);
-                                    turns = 2;
+                                    selectedTile = GetRandomFromlist(RoomsL2);
                                 }
                                 break;
                             case 3:
                                 //It's a T
-                                selectedTile = GetRandomFromlist(RoomsT);
                                 if (!maze[x][y].GetPath(new Direction(0)))
                                 {
-                                    turns = 0;
+                                    selectedTile = GetRandomFromlist(RoomsT);
                                 }
                                 if (!maze[x][y].GetPath(new Direction(1)))
                                 {
-                                    turns = 3;
+                                    selectedTile = GetRandomFromlist(RoomsT1);
                                 }
                                 if (!maze[x][y].GetPath(new Direction(2)))
                                 {
-                                    turns = 2;
+                                    selectedTile = GetRandomFromlist(RoomsT2);
                                 }
                                 if (!maze[x][y].GetPath(new Direction(3)))
                                 {
-                                    turns = 1;
+                                    selectedTile = GetRandomFromlist(RoomsT3);
                                 }
                                 break;
                             case 4:
@@ -195,10 +187,9 @@ public class MazeBuilder : MonoBehaviour
                         }
                         break;
                 }
-                Quaternion rotation = Quaternion.Euler(0,0,turns * 90);
                 if(selectedTile != null)
                 {
-                    GameObject latestRoom = Instantiate(selectedTile, GetWorldPosition(new Vector2(x, y)), rotation);
+                    GameObject latestRoom = Instantiate(selectedTile, GetWorldPosition(new Vector2(x, y)), Quaternion.identity);
                     latestRoom.transform.parent = transform;
                 }
                 else
