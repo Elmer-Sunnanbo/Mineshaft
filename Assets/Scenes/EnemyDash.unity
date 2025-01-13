@@ -904,11 +904,11 @@ MonoBehaviour:
   sleepDelay: 3
   maxDistance: 7
   minDistance: 3
-  sleepColor: {r: 0.42352945, g: 1, b: 0.1137255, a: 0}
-  chaseColor: {r: 0.9058824, g: 0.37647063, b: 0.121568635, a: 0}
-  chaseLKPColor: {r: 1, g: 1, b: 1, a: 0}
-  chaseEndColor: {r: 0.27450982, g: 0.37647063, b: 0.48627454, a: 0}
-  inRangeColor: {r: 0, g: 0, b: 0, a: 0}
+  sleepColor: {r: 0.2784314, g: 0.2784314, b: 0.2784314, a: 0}
+  chaseColor: {r: 1, g: 0.14046009, b: 0.040880322, a: 0}
+  chaseLKPColor: {r: 0.98742133, g: 0.5555352, b: 0.046576355, a: 0}
+  chaseEndColor: {r: 0.9102732, g: 1, b: 0, a: 0}
+  inRangeColor: {r: 0.37254903, g: 0.9960785, b: 0.10588236, a: 0}
   enemyHealth: 0
   dashDuration: 0.5
 --- !u!212 &1033835286

@@ -29,7 +29,7 @@ public class EnamyDash : MonoBehaviour
     bool lastKnownPositionActive;
     States state;
 
-    public float enemyHealth;
+    public float enemyDashHealth;
     public float dashDuration = 0.5f; // Duration of the dash
     private bool isDashing = false;
 
@@ -43,9 +43,12 @@ public class EnamyDash : MonoBehaviour
     }
     void Start()
     {
+        // Set components, start state and amount of lives
         myRigidbody = GetComponent<Rigidbody2D>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         state = States.Sleeping;
+
+        enemyDashHealth = 3; // Set enemy health
     }
 
     void Update()
@@ -55,6 +58,11 @@ public class EnamyDash : MonoBehaviour
         Vector2 vectorToTarget = targetPos - (Vector2)transform.position;
         bool hasLOS = LineOfSightCheck();
         int StateCheckPasses = 0;
+
+        if (enemyDashHealth < 1) // If enemy has a health of less than 1 it dies and is destroyed
+        {
+            Destroy(gameObject);
+        }
 
     CheckStatesAgain:
 
@@ -145,7 +153,6 @@ public class EnamyDash : MonoBehaviour
                 if (vectorToTarget.magnitude < minDistance && hasLOS && !isDashing) //If the target is still in range
                 {
                     //Attack or something
-                    //myRigidbody.velocity = Vector2.zero; /// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                     StartCoroutine(DashTowardsPlayer(lastKnownPosition));
                 }
                 else
