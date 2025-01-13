@@ -707,6 +707,11 @@ public class ExtendedArray<Type>
     {
         baseArray = new Type[length];
     }
+    public ExtendedArray(int positiveLength, int negativeLength)
+    {
+        baseArray = new Type[positiveLength + negativeLength - 1];
+        zeroPosition = negativeLength - 1;
+    }
 
     public int length => baseArray.Length;
     public int positiveLength => baseArray.Length - zeroPosition;

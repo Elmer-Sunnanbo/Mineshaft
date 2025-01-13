@@ -62,17 +62,49 @@ MonoBehaviour:
   - {fileID: 1445517258856974119, guid: c7120a002c1bbe94d8730ff67b4c539c, type: 3}
   Roomsi:
   - {fileID: 5550601674650118448, guid: ecedde241009e4941bf5f07d5ad4b192, type: 3}
+  Roomsi1:
+  - {fileID: 5550601674650118448, guid: 905db78cf41dfd64ebbeebc79371b378, type: 3}
+  Roomsi2:
+  - {fileID: 5550601674650118448, guid: 4da3b9582b1f3e04daf7f221b506de2b, type: 3}
+  Roomsi3:
+  - {fileID: 5550601674650118448, guid: 21b68f3843411f44382d6219be5314fd, type: 3}
   RoomsI:
   - {fileID: 3536228525885852388, guid: 31f6205b7eaa4e840961dbe4778ba2af, type: 3}
+  RoomsI1:
+  - {fileID: 3536228525885852388, guid: 7d7bc07c8a69ac043b9ac024d0788cd8, type: 3}
   RoomsL:
   - {fileID: 3186265054505339031, guid: bb24fdfc28ae9994690d82d3c1b0e096, type: 3}
+  RoomsL1:
+  - {fileID: 3186265054505339031, guid: 27ce12004d02fb54aac4c337fb688752, type: 3}
+  RoomsL2:
+  - {fileID: 3186265054505339031, guid: 86b8248361a85164fa99e4e4b5089ddf, type: 3}
+  RoomsL3:
+  - {fileID: 3186265054505339031, guid: fc0ca2298100e87428a7a74ce21020d8, type: 3}
   RoomsT:
   - {fileID: 8912497245900101308, guid: df8466e28c1314848b5068d275f39333, type: 3}
+  RoomsT1:
+  - {fileID: 8912497245900101308, guid: 0421358d601a6e14187947d15b1dcde1, type: 3}
+  RoomsT2:
+  - {fileID: 8912497245900101308, guid: 7e3beb80d1448f3448485a45d5fd77e9, type: 3}
+  RoomsT3:
+  - {fileID: 8912497245900101308, guid: 83de27c6ad567c143822db993a1b1303, type: 3}
   RoomsPlus:
   - {fileID: 3237608999501031451, guid: 2bc104bdfb88f024483eb15ba69f2c86, type: 3}
   RoomsStart:
   - {fileID: 2394447277109171560, guid: df3375294440fb1458cf18b845a43955, type: 3}
   RoomsTreasure:
   - {fileID: 4724053357382668749, guid: c3e08e79c7481b14cba9c6ed5051af14, type: 3}
+  RoomsTreasure1:
+  - {fileID: 4724053357382668749, guid: 9805054523c01d64ab0db95c2862fb3c, type: 3}
+  RoomsTreasure2:
+  - {fileID: 4724053357382668749, guid: ca85fa170b2e4e949a183f9c6fdbd189, type: 3}
+  RoomsTreasure3:
+  - {fileID: 4724053357382668749, guid: 25a5b2103304211459fac9ab75f1e27a, type: 3}
   RoomsEnd:
   - {fileID: 6008529828183136191, guid: 1479037ebb6b56648a6c29c61fe3fcab, type: 3}
+  RoomsEnd1:
+  - {fileID: 6008529828183136191, guid: d68909d04defb1c40b1876648f7de249, type: 3}
+  RoomsEnd2:
+  - {fileID: 6008529828183136191, guid: f35d4bc685ae2494d9a5eea19a557db9, type: 3}
+  RoomsEnd3:
+  - {fileID: 6008529828183136191, guid: a8e7ea4ed5303094382c82a5a9d894ad, type: 3}
