@@ -51,6 +51,10 @@ public class PlayerAttack : MonoBehaviour
                     {
                         projectileEnemy.ProEnemyHealth -= 1;
                     }
+                    if(hit.collider.TryGetComponent(out EnemyDash enemyDash))
+                    {
+                        enemyDash.enemyDashHealth -= 1;
+                    }
                 }
                 timer = attackReloadTimer;
             }
