@@ -31,6 +31,7 @@ public class EnamyDash : MonoBehaviour
 
     public float enemyHealth;
     public float dashDuration = 0.5f; // Duration of the dash
+    private bool isDashing = false;
 
     enum States
     {
@@ -141,7 +142,7 @@ public class EnamyDash : MonoBehaviour
                 break;
 
             case States.InRange:
-                if (vectorToTarget.magnitude < minDistance && hasLOS) //If the target is still in range
+                if (vectorToTarget.magnitude < minDistance && hasLOS && !isDashing) //If the target is still in range
                 {
                     //Attack or something
                     //myRigidbody.velocity = Vector2.zero; /// !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -238,6 +239,7 @@ public class EnamyDash : MonoBehaviour
 
     private IEnumerator DashTowardsPlayer(Vector2 playerPosition)
     {
+        isDashing = true;
         Vector2 startPosition = transform.position;
         float elapsedTime = 0;
 
@@ -249,6 +251,16 @@ public class EnamyDash : MonoBehaviour
         }
 
         // Ensure the final position is exactly the player's position
-        //transform.position = lastKnownPosition;
+        transform.position = lastKnownPosition;
+
+        // Start the countdown coroutine
+        yield return StartCoroutine(DashCountDown());
+    }
+
+    private IEnumerator DashCountDown()
+    {
+        int duration = 2; // Wait time
+        yield return new WaitForSeconds(duration); // Wait for durantion-amount of seconds 
+        isDashing = false; // Set isDashing to false thereby enabling enemy to be able to dash again
     }
 }
