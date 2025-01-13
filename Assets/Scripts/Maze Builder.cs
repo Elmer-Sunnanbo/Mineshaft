@@ -42,7 +42,7 @@ public class MazeBuilder : MonoBehaviour
         int minY = -maze.negativeHeight + 1;
         int maxY = maze.positiveHeight - 1;
         
-        ExtendedArray<ExtendedArray<GameObject>> mazeObjects = new ExtendedArray<ExtendedArray<GameObject>>(maze.mazeTiles.positiveLength, maze.mazeTiles.negativeLength);
+        ExtendedArray<ExtendedArray<GameObject>> mazeObjects = new ExtendedArray<ExtendedArray<GameObject>>(maze.positiveWidth, maze.negativeWidth);
         for(int i = minX; i <= maxX; i++)
         {
             mazeObjects[i] = new ExtendedArray<GameObject>(maze.positiveHeight, maze.negativeHeight);
@@ -200,7 +200,7 @@ public class MazeBuilder : MonoBehaviour
                 {
                     GameObject latestRoom = Instantiate(selectedTile, GetWorldPosition(new Vector2(x, y)), Quaternion.identity);
                     latestRoom.transform.parent = transform;
-                    //mazeObjects[x][y] = latestRoom;
+                    mazeObjects[x][y] = latestRoom;
                 }
                 else
                 {
@@ -213,7 +213,7 @@ public class MazeBuilder : MonoBehaviour
         for (int x = minX; x <= maxX; x++)
         {
             for (int y = minY; y <= maxY; y++)
-            {   
+            {
                 if (mazeObjects[x][y].TryGetComponent(out RoomManager manager))
                 {
                     RoomManager neighbourManager;
