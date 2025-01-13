@@ -23,6 +23,7 @@ public class ProjectileEnemy : MonoBehaviour
     [SerializeField] Color inRangeColor;
 
     float? timeUntilSleep = null;
+    public float ProEnemyHealth;
     float lastKnownPosMinDistance = 0.2f;
     float attackReloadTimer;
     Rigidbody2D myRigidbody;
@@ -44,6 +45,7 @@ public class ProjectileEnemy : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         state = States.Sleeping;
+        ProEnemyHealth = 2;
     }
     private void FixedUpdate()
     {
@@ -55,6 +57,10 @@ public class ProjectileEnemy : MonoBehaviour
                 attackReloadTimer = 3;
             }
             attackReloadTimer -= Time.deltaTime;
+        }
+        if(ProEnemyHealth < 1)
+        {
+            Destroy(gameObject);
         }
     }
     void Update()
