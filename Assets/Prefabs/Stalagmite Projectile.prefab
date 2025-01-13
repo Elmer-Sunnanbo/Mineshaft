@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4471514760909529085}
   - component: {fileID: -8585729594462627920}
   - component: {fileID: 1590830593481621697}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stalagmite Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
