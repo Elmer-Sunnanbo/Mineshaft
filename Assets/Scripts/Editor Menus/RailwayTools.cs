@@ -169,14 +169,19 @@ public class RailwayTools : MonoBehaviour
                     bottomMostTile = tile;
                 }
             }
-            Debug.Log(leftMostTile);
-            Debug.Log(rightMostTile);
-            Debug.Log(topMostTile);
-            Debug.Log(bottomMostTile);
+
             latestManager.borderRailNorth = topMostTile;
             latestManager.borderRailSouth = bottomMostTile;
             latestManager.borderRailEast = rightMostTile;
             latestManager.borderRailWest = leftMostTile;
+
+            for (int i = 0; i < room.transform.childCount; i++)
+            {
+                if (room.transform.GetChild(i).TryGetComponent<IEnemy>(out _))
+                {
+                    latestManager.enemiesInRoom.Add(room.transform.GetChild(i).gameObject);
+                }
+            }
         }
 
 
