@@ -8,6 +8,7 @@ public class PlayerAttack : MonoBehaviour
 {
     public Vector2 hitDirection;
     public float reach; // The maximum distance something can be from the player for the player to still be able to hit it
+    public float playerHealth; // The playerHealth of the player
 
     // Start is called before the first frame update
     void Start()
