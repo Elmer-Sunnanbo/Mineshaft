@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 
-public class EnamyDash : MonoBehaviour
+public class EnemyDash : MonoBehaviour
 {
     [Header("Chase parameters")]
     [SerializeField] GameObject target;
