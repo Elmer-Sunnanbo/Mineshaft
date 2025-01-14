@@ -5,6 +5,7 @@ using UnityEditor;
 using System.Linq;
 using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 
 public class RailwayTools : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class RailwayTools : MonoBehaviour
         
     }
 
-    [MenuItem("Railway Tools/Snap and connect")]
+    [MenuItem("Building Tools/Snap and connect")]
     static void SnapAndConnectRails()
     {
         List<RailTile> tiles = new List<RailTile>();
@@ -73,7 +74,7 @@ public class RailwayTools : MonoBehaviour
         }
     }
 
-    [MenuItem("Railway Tools/Auto Sprite")]
+    [MenuItem("Building Tools/Auto Sprite")]
     static void AutoSprite()
     {
         List<RailTile> tiles = new List<RailTile>();
@@ -101,7 +102,7 @@ public class RailwayTools : MonoBehaviour
         }
     }
 
-    [MenuItem("Railway Tools/Auto Roommanager")]
+    [MenuItem("Building Tools/Auto Roommanager")]
     static void AutoManager()
     {
         List<GameObject> rooms = Selection.gameObjects.ToList();
@@ -181,6 +182,35 @@ public class RailwayTools : MonoBehaviour
                 if (room.transform.GetChild(i).TryGetComponent<IEnemy>(out _))
                 {
                     latestManager.enemiesInRoom.Add(room.transform.GetChild(i).gameObject);
+                }
+            }
+        }
+
+
+        if (rooms.Count > 0)
+        {
+            EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+        }
+    }
+
+    [MenuItem("Building Tools/Align Room")]
+    static void AlignRoom()
+    {
+        List<GameObject> rooms = Selection.gameObjects.ToList();
+        foreach (GameObject room in rooms)
+        {
+            if(!room.TryGetComponent<RoomManager>(out _)) //If it's not a room
+            {
+                continue;
+            }
+
+            room.transform.position = Vector2.zero;
+            for(int roomChildIndex = 0; roomChildIndex < room.transform.childCount; roomChildIndex++)
+            {
+                GameObject currentChild = room.transform.GetChild(roomChildIndex).gameObject;
+                if(currentChild.TryGetComponent(out Grid foundGrid))
+                {
+                    foundGrid.transform.position = Vector2.zero;
                 }
             }
         }
