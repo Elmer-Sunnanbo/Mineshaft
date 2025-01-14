@@ -15,7 +15,7 @@ public class CoalHolder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("Amount of coal: " + amountCoal);
         }

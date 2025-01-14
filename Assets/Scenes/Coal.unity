@@ -524,7 +524,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28ad672993dca974185c922c53485c91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  amountCoal: 0
+  coalHolder: {fileID: 1350551370}
 --- !u!212 &1117053753
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -568,7 +568,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 26189725996238681, guid: c982e0f1a03e2634eac256682f206d84, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -608,6 +608,7 @@ GameObject:
   - component: {fileID: 1350551366}
   - component: {fileID: 1350551365}
   - component: {fileID: 1350551364}
+  - component: {fileID: 1350551370}
   m_Layer: 0
   m_Name: Test Player
   m_TagString: Untagged
@@ -786,6 +787,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1350551370
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1350551363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eda21bfbb96aabb4c803a20f1d5c2dde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  amountCoal: 0
 --- !u!1001 &1391372194
 PrefabInstance:
   m_ObjectHideFlags: 0
