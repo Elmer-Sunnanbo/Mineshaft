@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class StalagmiteEnemy : MonoBehaviour
+public class StalagmiteEnemy : MonoBehaviour, IHittable, IEnemy
 {
     [Header("Chase parameters")]
     [SerializeField] GameObject target;
@@ -256,5 +256,14 @@ public class StalagmiteEnemy : MonoBehaviour
                 mySpriteRenderer.color = inRangeColor;
                 break;
         }
+    }
+
+    public void Hit()
+    {
+        StalagmiteHealth--;
+    }
+    public void SetTarget(GameObject target)
+    {
+        this.target = target;
     }
 }
