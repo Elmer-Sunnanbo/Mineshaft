@@ -4,10 +4,10 @@ using Unity.Mathematics;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class ProjectileEnemy : MonoBehaviour
+public class ProjectileEnemy : MonoBehaviour, IHittable, IEnemy
 {
     [Header("Chase parameters")]
-    [SerializeField] GameObject target;
+    public GameObject target;
     [SerializeField] GameObject projectile;
     [SerializeField] float speed;
     [SerializeField] float wakeUpDistance;
@@ -23,6 +23,7 @@ public class ProjectileEnemy : MonoBehaviour
     [SerializeField] Color inRangeColor;
 
     float? timeUntilSleep = null;
+    public float ProEnemyHealth;
     float lastKnownPosMinDistance = 0.2f;
     float attackReloadTimer;
     Rigidbody2D myRigidbody;
@@ -44,6 +45,7 @@ public class ProjectileEnemy : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         state = States.Sleeping;
+        ProEnemyHealth = 2;
     }
     private void FixedUpdate()
     {
@@ -55,6 +57,10 @@ public class ProjectileEnemy : MonoBehaviour
                 attackReloadTimer = 3;
             }
             attackReloadTimer -= Time.deltaTime;
+        }
+        if(ProEnemyHealth < 1)
+        {
+            Destroy(gameObject);
         }
     }
     void Update()
@@ -250,5 +256,14 @@ public class ProjectileEnemy : MonoBehaviour
                 mySpriteRenderer.color = inRangeColor;
                 break;
         }
+    }
+
+    public void Hit()
+    {
+        ProEnemyHealth--;
+    }
+    public void SetTarget(GameObject target)
+    {
+        this.target = target;
     }
 }

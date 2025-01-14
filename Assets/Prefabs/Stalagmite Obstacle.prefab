@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 7701838509171384414}
   - component: {fileID: 5275410545849121145}
   - component: {fileID: 1722356585940229744}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stalagmite Obstacle
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

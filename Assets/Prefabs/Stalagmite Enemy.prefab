@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 2476124061269050635}
   - component: {fileID: 8668928001678260918}
   - component: {fileID: 3372214438332468965}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Stalagmite Enemy
-  m_TagString: Untagged
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,3 +186,4 @@ MonoBehaviour:
   chaseLKPColor: {r: 0.6855345, g: 0.26013952, b: 0, a: 1}
   chaseEndColor: {r: 0.76729554, g: 0.5985276, b: 0, a: 1}
   inRangeColor: {r: 0, g: 0.51572317, b: 0.006394799, a: 1}
+  StalagmiteHealth: 0

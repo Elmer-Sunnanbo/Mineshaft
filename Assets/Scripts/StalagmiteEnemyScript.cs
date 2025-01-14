@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class StalagmiteEnemy : MonoBehaviour
+public class StalagmiteEnemy : MonoBehaviour, IHittable, IEnemy
 {
     [Header("Chase parameters")]
     [SerializeField] GameObject target;
@@ -25,6 +25,7 @@ public class StalagmiteEnemy : MonoBehaviour
     float? timeUntilSleep = null;
     float lastKnownPosMinDistance = 0.2f;
     float attackReloadTimer;
+    public int StalagmiteHealth;
     Rigidbody2D myRigidbody;
     SpriteRenderer mySpriteRenderer;
     Vector2 lastKnownPosition;
@@ -44,6 +45,7 @@ public class StalagmiteEnemy : MonoBehaviour
         myRigidbody = GetComponent<Rigidbody2D>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         state = States.Sleeping;
+        StalagmiteHealth = 4;
     }
     private void FixedUpdate()
     {
@@ -55,6 +57,10 @@ public class StalagmiteEnemy : MonoBehaviour
                 attackReloadTimer = 4;
             }
             attackReloadTimer -= Time.deltaTime;
+        }
+        if(StalagmiteHealth < 1)
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -250,5 +256,14 @@ public class StalagmiteEnemy : MonoBehaviour
                 mySpriteRenderer.color = inRangeColor;
                 break;
         }
+    }
+
+    public void Hit()
+    {
+        StalagmiteHealth--;
+    }
+    public void SetTarget(GameObject target)
+    {
+        this.target = target;
     }
 }
