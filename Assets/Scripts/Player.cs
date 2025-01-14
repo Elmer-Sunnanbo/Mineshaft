@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        iFrameTimer -= Time.deltaTime;
         myRigidbody.velocity = GetMoveVector() * speed;
         if(GetMoveVector().magnitude != 0)
         {
@@ -57,7 +58,7 @@ public class Player : MonoBehaviour
         else
         {
             PlayerAni.SetBool("Walk_F", false);
-        iFrameTimer -= Time.deltaTime;
+        }
         if(playerHP < 1)
         {
             Debug.Log("Player died now and here");
