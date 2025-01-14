@@ -14,6 +14,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         myRigidbody.velocity = GetMoveVector() * speed;
+        if(GetMoveVector().magnitude != 0)
+        {
+            //We are walking
+        }
     }
 
     Vector2 GetMoveVector()
