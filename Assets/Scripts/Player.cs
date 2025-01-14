@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class Player : MonoBehaviour
         if(playerHP < 1)
         {
             Debug.Log("Player died now and here");
+            SceneManager.LoadScene(1);
         }
     }
     private void OnCollisionStay2D(Collision2D col)
