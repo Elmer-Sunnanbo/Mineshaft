@@ -677,6 +677,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6889635341000687473}
+  - component: {fileID: 127205348243212312}
   m_Layer: 0
   m_Name: RoomV2-IUpDownVari2
   m_TagString: Untagged
@@ -713,6 +714,23 @@ Transform:
   - {fileID: 6710741898724274302}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &127205348243212312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3058963019889859490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7503f6be8e86ea4ba3207487c8ef2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  borderRailNorth: {fileID: 9165923882942756347}
+  borderRailEast: {fileID: 8811912576983828827}
+  borderRailSouth: {fileID: 8811912576983828827}
+  borderRailWest: {fileID: 420671896045151253}
+  enemiesInRoom: []
 --- !u!1 &5360119791623860264
 GameObject:
   m_ObjectHideFlags: 0

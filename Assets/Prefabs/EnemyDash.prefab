@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -108,11 +108,11 @@ MonoBehaviour:
   sleepDelay: 3
   maxDistance: 7
   minDistance: 3
-  sleepColor: {r: 0.2784314, g: 0.2784314, b: 0.2784314, a: 0}
-  chaseColor: {r: 1, g: 0.14046009, b: 0.040880322, a: 0}
-  chaseLKPColor: {r: 0.98742133, g: 0.5555352, b: 0.046576355, a: 0}
-  chaseEndColor: {r: 0.9102732, g: 1, b: 0, a: 0}
-  inRangeColor: {r: 0.37254903, g: 0.9960785, b: 0.10588236, a: 0}
+  sleepColor: {r: 0.2784314, g: 0.2784314, b: 0.2784314, a: 1}
+  chaseColor: {r: 1, g: 0.14046009, b: 0.040880322, a: 1}
+  chaseLKPColor: {r: 0.98742133, g: 0.5555352, b: 0.046576355, a: 1}
+  chaseEndColor: {r: 0.9102732, g: 1, b: 0, a: 1}
+  inRangeColor: {r: 0.37254903, g: 0.9960785, b: 0.10588236, a: 1}
   enemyDashHealth: 0
   dashDuration: 0.5
 --- !u!61 &4252233045710730619

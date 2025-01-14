@@ -1200,6 +1200,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4959175089725712063}
+  - component: {fileID: 3583292198534330095}
   m_Layer: 0
   m_Name: RoomV2-TreasureUpBase
   m_TagString: Untagged
@@ -1228,6 +1229,23 @@ Transform:
   - {fileID: 6038082500111607993}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3583292198534330095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7856692808511676403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7503f6be8e86ea4ba3207487c8ef2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  borderRailNorth: {fileID: 8203635527216246076}
+  borderRailEast: {fileID: 5521336098954748248}
+  borderRailSouth: {fileID: 5521336098954748248}
+  borderRailWest: {fileID: 5521336098954748248}
+  enemiesInRoom: []
 --- !u!1001 &392997635143520808
 PrefabInstance:
   m_ObjectHideFlags: 0

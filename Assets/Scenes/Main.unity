@@ -171,6 +171,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7952275539440254616, guid: 1f997101f1fcd5941a4a6329af8c9603, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1454454035}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -293,6 +297,14 @@ PrefabInstance:
     - target: {fileID: 4837868057007593676, guid: 0156cd583051a224d847777e7c757b03, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6462673467511928697, guid: 0156cd583051a224d847777e7c757b03, type: 3}
+      propertyPath: attackReloadTimer
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6731164022150818749, guid: 0156cd583051a224d847777e7c757b03, type: 3}
+      propertyPath: playerHP
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

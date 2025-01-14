@@ -1226,6 +1226,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3476508917608506224}
+  - component: {fileID: 5098691116779875263}
   m_Layer: 0
   m_Name: RoomV2-PlusBase
   m_TagString: Untagged
@@ -1266,6 +1267,23 @@ Transform:
   - {fileID: 8653967472609621897}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5098691116779875263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6845809811432316100}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7503f6be8e86ea4ba3207487c8ef2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  borderRailNorth: {fileID: 1088519550378321362}
+  borderRailEast: {fileID: 5022576283654264297}
+  borderRailSouth: {fileID: 3899846075669948168}
+  borderRailWest: {fileID: 4275143946933061133}
+  enemiesInRoom: []
 --- !u!1001 &455371348255785315
 PrefabInstance:
   m_ObjectHideFlags: 0
