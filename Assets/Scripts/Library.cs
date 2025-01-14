@@ -22,5 +22,5 @@ public interface IHittable
 
 public interface IEnemy
 {
-    GameObject target { get; set; }
+    void SetTarget(GameObject target);
 }

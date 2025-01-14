@@ -4,10 +4,10 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 
-public class EnemyDash : MonoBehaviour
+public class EnemyDash : MonoBehaviour, IHittable, IEnemy
 {
     [Header("Chase parameters")]
-    [SerializeField] GameObject target;
+    public GameObject target;
     [SerializeField] float speed;
     [SerializeField] float wakeUpDistance;
     [SerializeField] float sleepDelay;
@@ -269,5 +269,15 @@ public class EnemyDash : MonoBehaviour
         int duration = 2; // Wait time
         yield return new WaitForSeconds(duration); // Wait for durantion-amount of seconds 
         isDashing = false; // Set isDashing to false thereby enabling enemy to be able to dash again
+    }
+
+    public void Hit()
+    {
+        enemyDashHealth--;
+    }
+
+    public void SetTarget(GameObject target)
+    {
+        this.target = target;
     }
 }

@@ -18,7 +18,7 @@ public class RoomManager : MonoBehaviour
             //Set target to player
             foreach(IEnemy enemyScript in enemy.GetComponents<IEnemy>())
             {
-                enemyScript.target = target;
+                enemyScript.SetTarget(target);
             }
             //Detach from room
             enemy.transform.SetParent(null);
