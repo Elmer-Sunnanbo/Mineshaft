@@ -193,6 +193,35 @@ public class RailwayTools : MonoBehaviour
         }
     }
 
+    [MenuItem("Building Tools/Align Room")]
+    static void AlignRoom()
+    {
+        List<GameObject> rooms = Selection.gameObjects.ToList();
+        foreach (GameObject room in rooms)
+        {
+            if(!room.TryGetComponent<RoomManager>(out _)) //If it's not a room
+            {
+                continue;
+            }
+
+            room.transform.position = Vector2.zero;
+            for(int roomChildIndex = 0; roomChildIndex < room.transform.childCount; roomChildIndex++)
+            {
+                GameObject currentChild = room.transform.GetChild(roomChildIndex).gameObject;
+                if(currentChild.TryGetComponent(out Grid foundGrid))
+                {
+                    foundGrid.transform.position = Vector2.zero;
+                }
+            }
+        }
+
+
+        if (rooms.Count > 0)
+        {
+            EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+        }
+    }
+
     static RailTile CheckForTileAtVector(Vector2 vector, List<RailTile> tiles, List<Vector2> vectors)
     {
         for(int i = 0; i < vectors.Count; i++)
