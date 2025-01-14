@@ -298,14 +298,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 6462673467511928697, guid: 0156cd583051a224d847777e7c757b03, type: 3}
-      propertyPath: attackReloadTimer
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6731164022150818749, guid: 0156cd583051a224d847777e7c757b03, type: 3}
-      propertyPath: playerHP
-      value: 4
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

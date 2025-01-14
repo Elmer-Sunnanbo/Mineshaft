@@ -5,6 +5,7 @@ using UnityEditor;
 using System.Linq;
 using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 
 public class RailwayTools : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class RailwayTools : MonoBehaviour
         
     }
 
-    [MenuItem("Railway Tools/Snap and connect")]
+    [MenuItem("Building Tools/Snap and connect")]
     static void SnapAndConnectRails()
     {
         List<RailTile> tiles = new List<RailTile>();
@@ -73,7 +74,7 @@ public class RailwayTools : MonoBehaviour
         }
     }
 
-    [MenuItem("Railway Tools/Auto Sprite")]
+    [MenuItem("Building Tools/Auto Sprite")]
     static void AutoSprite()
     {
         List<RailTile> tiles = new List<RailTile>();
@@ -101,7 +102,7 @@ public class RailwayTools : MonoBehaviour
         }
     }
 
-    [MenuItem("Railway Tools/Auto Roommanager")]
+    [MenuItem("Building Tools/Auto Roommanager")]
     static void AutoManager()
     {
         List<GameObject> rooms = Selection.gameObjects.ToList();
