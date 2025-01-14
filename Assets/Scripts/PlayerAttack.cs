@@ -9,14 +9,13 @@ public class PlayerAttack : MonoBehaviour
     public Vector2 hitDirection;
     public float reach; // The maximum distance something can be from the player for the player to still be able to hit it
     public float playerHealth; // The playerHealth of the player
-    float attackReloadTimer;
+    [SerializeField] float attackReloadTimer;
     float timer;
 
     // Start is called before the first frame update
     void Start()
     {
         reach = 3;
-        attackReloadTimer = 1.6f;
         timer = attackReloadTimer;
     }
 

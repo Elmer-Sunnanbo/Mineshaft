@@ -763,6 +763,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7345593342667593509}
+  - component: {fileID: 7310503161557490958}
   m_Layer: 0
   m_Name: RoomV2-LDownLeftVari1
   m_TagString: Untagged
@@ -803,6 +804,23 @@ Transform:
   - {fileID: 5682395359957133077}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7310503161557490958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7058765272046142809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7503f6be8e86ea4ba3207487c8ef2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  borderRailNorth: {fileID: 6805556659924488836}
+  borderRailEast: {fileID: 2961226577529231829}
+  borderRailSouth: {fileID: 3603415417326679939}
+  borderRailWest: {fileID: 7838888434869117584}
+  enemiesInRoom: []
 --- !u!1 &8918807793749924267
 GameObject:
   m_ObjectHideFlags: 0

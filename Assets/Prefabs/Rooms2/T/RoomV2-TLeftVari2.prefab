@@ -1272,6 +1272,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7578560512604371343}
+  - component: {fileID: 4210296770677600470}
   m_Layer: 0
   m_Name: RoomV2-TLeftVari2
   m_TagString: Untagged
@@ -1317,6 +1318,23 @@ Transform:
   - {fileID: 3750069937069914992}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4210296770677600470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8162313967206287395}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7503f6be8e86ea4ba3207487c8ef2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  borderRailNorth: {fileID: 6188574002912684702}
+  borderRailEast: {fileID: 7522376429385830674}
+  borderRailSouth: {fileID: 6277739197974624641}
+  borderRailWest: {fileID: 3712285983324717450}
+  enemiesInRoom: []
 --- !u!1001 &719735739338422865
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -175,6 +175,7 @@ public class RailwayTools : MonoBehaviour
             latestManager.borderRailEast = rightMostTile;
             latestManager.borderRailWest = leftMostTile;
 
+            latestManager.enemiesInRoom = new List<GameObject>();
             for (int i = 0; i < room.transform.childCount; i++)
             {
                 if (room.transform.GetChild(i).TryGetComponent<IEnemy>(out _))

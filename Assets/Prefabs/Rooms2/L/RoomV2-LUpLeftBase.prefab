@@ -1194,6 +1194,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6078003973691607901}
+  - component: {fileID: 1896397918441399085}
   m_Layer: 0
   m_Name: RoomV2-LUpLeftBase
   m_TagString: Untagged
@@ -1226,6 +1227,23 @@ Transform:
   - {fileID: 2908168580714562289}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1896397918441399085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5226698753159082605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7503f6be8e86ea4ba3207487c8ef2ac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  borderRailNorth: {fileID: 741225784335239028}
+  borderRailEast: {fileID: 2551450660387980492}
+  borderRailSouth: {fileID: 8409162980566866185}
+  borderRailWest: {fileID: 8409162980566866185}
+  enemiesInRoom: []
 --- !u!1 &6664299957295160632
 GameObject:
   m_ObjectHideFlags: 0
