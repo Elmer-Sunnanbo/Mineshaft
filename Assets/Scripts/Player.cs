@@ -20,12 +20,12 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if(Input.GetMouseButtonDown(0))
+        {
+            PlayerAni.SetTrigger("Swing");
+        }
         iFrameTimer -= Time.deltaTime;
         myRigidbody.velocity = GetMoveVector() * speed;
-        if(GetMoveVector().magnitude != 0)
-        {
-            //We are walking
-        }
         Vector2 movement = GetMoveVector();
         if(movement.x > 0)
         {
