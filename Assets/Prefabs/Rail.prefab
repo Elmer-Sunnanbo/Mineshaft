@@ -53,14 +53,14 @@ MonoBehaviour:
   isStop: 0
   isTurntable: 0
   sprite: {fileID: 7661017173451103355}
-  straightSprite: {fileID: 4318055139850590575, guid: 0a79ec1cc28540a4a91ec30dc9b0bd3f, type: 3}
-  straightStopSprite: {fileID: -1754823910, guid: 0a79ec1cc28540a4a91ec30dc9b0bd3f, type: 3}
-  curveSprite: {fileID: -5238586301284649317, guid: 0a79ec1cc28540a4a91ec30dc9b0bd3f, type: 3}
+  straightSprite: {fileID: -6055965857462985470, guid: c7b680fb17d3d8e4aae866448fdeaed4, type: 3}
+  straightStopSprite: {fileID: -1950833957282293170, guid: 7b8e4fc7467cc6e43a5fb680ffdb3fdc, type: 3}
+  curveSprite: {fileID: 8600332164636163182, guid: e1b78ac9fce28284c8ba19ec5becdede, type: 3}
   tSpriteError: {fileID: -1079843579, guid: 0a79ec1cc28540a4a91ec30dc9b0bd3f, type: 3}
   orphanSpriteError: {fileID: 1400036360, guid: 0a79ec1cc28540a4a91ec30dc9b0bd3f, type: 3}
-  crossSprite: {fileID: 1056872529, guid: 0a79ec1cc28540a4a91ec30dc9b0bd3f, type: 3}
-  turntableSprite: {fileID: -6004633651823106174, guid: 0a79ec1cc28540a4a91ec30dc9b0bd3f, type: 3}
-  turntableSpriteRotated: {fileID: -232951250, guid: 0a79ec1cc28540a4a91ec30dc9b0bd3f, type: 3}
+  crossSprite: {fileID: -2620845610506633684, guid: 1d574d4e7978bf346891eadea6f39712, type: 3}
+  turntableSprite: {fileID: 3879261885274998186, guid: 499c0d1f0083bbd4f8f9d5d1d4a1b105, type: 3}
+  turntableSpriteRotated: {fileID: -5341804639897520780, guid: 21d39be2067789c438847012f4740352, type: 3}
 --- !u!1 &6790334114217227547
 GameObject:
   m_ObjectHideFlags: 0

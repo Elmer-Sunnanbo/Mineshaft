@@ -101,6 +101,96 @@ public class RailwayTools : MonoBehaviour
         }
     }
 
+    [MenuItem("Railway Tools/Auto Roommanager")]
+    static void AutoManager()
+    {
+        List<GameObject> rooms = Selection.gameObjects.ToList();
+        foreach (GameObject room in rooms)
+        {
+            RoomManager latestManager;
+            if (!room.TryGetComponent(out latestManager))
+            {
+                latestManager = room.AddComponent<RoomManager>();
+            }
+            
+            List<RailTile> railTiles = room.GetComponentsInChildren<RailTile>().ToList();
+
+            RailTile leftMostTile = null;
+            RailTile rightMostTile = null;
+            RailTile topMostTile = null;
+            RailTile bottomMostTile = null;
+            foreach (RailTile tile in railTiles)
+            {
+                if(leftMostTile != null)
+                {
+                    if(leftMostTile.transform.position.x > tile.transform.position.x)
+                    {
+                        leftMostTile = tile;
+                    }
+                }
+                else
+                {
+                    leftMostTile = tile;
+                }
+
+                if (rightMostTile != null)
+                {
+                    if (rightMostTile.transform.position.x < tile.transform.position.x)
+                    {
+                        rightMostTile = tile;
+                    }
+                }
+                else
+                {
+                    rightMostTile = tile;
+                }
+
+                if (topMostTile != null)
+                {
+                    if (topMostTile.transform.position.y < tile.transform.position.y)
+                    {
+                        topMostTile = tile;
+                    }
+                }
+                else
+                {
+                    topMostTile = tile;
+                }
+
+                if (bottomMostTile != null)
+                {
+                    if (bottomMostTile.transform.position.y > tile.transform.position.y)
+                    {
+                        bottomMostTile = tile;
+                    }
+                }
+                else
+                {
+                    bottomMostTile = tile;
+                }
+            }
+
+            latestManager.borderRailNorth = topMostTile;
+            latestManager.borderRailSouth = bottomMostTile;
+            latestManager.borderRailEast = rightMostTile;
+            latestManager.borderRailWest = leftMostTile;
+
+            for (int i = 0; i < room.transform.childCount; i++)
+            {
+                if (room.transform.GetChild(i).TryGetComponent<IEnemy>(out _))
+                {
+                    latestManager.enemiesInRoom.Add(room.transform.GetChild(i).gameObject);
+                }
+            }
+        }
+
+
+        if (rooms.Count > 0)
+        {
+            EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+        }
+    }
+
     static RailTile CheckForTileAtVector(Vector2 vector, List<RailTile> tiles, List<Vector2> vectors)
     {
         for(int i = 0; i < vectors.Count; i++)
