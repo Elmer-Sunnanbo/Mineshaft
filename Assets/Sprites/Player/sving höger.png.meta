@@ -112,12 +112,12 @@ TextureImporter:
       name: "sving h\xF6ger_0"
       rect:
         serializedVersion: 2
-        x: 11
+        x: 0
         y: 0
-        width: 11
+        width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -133,12 +133,12 @@ TextureImporter:
       name: "sving h\xF6ger_1"
       rect:
         serializedVersion: 2
-        x: 43
+        x: 32
         y: 0
-        width: 12
+        width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -154,12 +154,12 @@ TextureImporter:
       name: "sving h\xF6ger_2"
       rect:
         serializedVersion: 2
-        x: 69
+        x: 64
         y: 0
-        width: 17
+        width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -175,12 +175,12 @@ TextureImporter:
       name: "sving h\xF6ger_3"
       rect:
         serializedVersion: 2
-        x: 104
+        x: 96
         y: 0
-        width: 19
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        width: 32
+        height: 32
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -195,7 +195,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 996565026355da44fa6ed89510accc8e
     internalID: 0
     vertices: []
     indices: 

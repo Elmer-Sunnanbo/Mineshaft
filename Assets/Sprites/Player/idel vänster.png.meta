@@ -112,12 +112,12 @@ TextureImporter:
       name: "idel v\xE4nster_0"
       rect:
         serializedVersion: 2
-        x: 10
+        x: 0
         y: 0
-        width: 11
+        width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -133,12 +133,12 @@ TextureImporter:
       name: "idel v\xE4nster_1"
       rect:
         serializedVersion: 2
-        x: 42
+        x: 32
         y: 0
-        width: 11
+        width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -154,12 +154,12 @@ TextureImporter:
       name: "idel v\xE4nster_2"
       rect:
         serializedVersion: 2
-        x: 74
+        x: 64
         y: 0
-        width: 11
+        width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -175,12 +175,12 @@ TextureImporter:
       name: "idel v\xE4nster_3"
       rect:
         serializedVersion: 2
-        x: 106
+        x: 96
         y: 0
-        width: 11
+        width: 32
         height: 32
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0.5, y: 0.15}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
