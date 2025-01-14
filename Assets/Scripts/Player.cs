@@ -17,13 +17,15 @@ public class Player : MonoBehaviour
         playerHP = 4;
     }
 
-    void FixedUpdate()
-    {
-        myRigidbody.velocity = GetMoveVector() * speed;
-        iFrameTimer -= Time.deltaTime;
-    }
+
     void Update()
     {
+        myRigidbody.velocity = GetMoveVector() * speed;
+        if(GetMoveVector().magnitude != 0)
+        {
+            //We are walking
+        }
+        iFrameTimer -= Time.deltaTime;
         if(playerHP < 1)
         {
             Debug.Log("Player died now and here");
