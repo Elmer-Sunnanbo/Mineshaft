@@ -5,11 +5,36 @@ using UnityEngine.SceneManagement;
 
 public class deathSceneScript : MonoBehaviour
 {
+<<<<<<< Updated upstream
+=======
+    public float timeHighscore;
+    float currentTimescore;
+    GameManager gameManager;
+    // Start is called before the first frame update
+    void Start()
+    {
+        GetTimeScore();
+    }
+    void SaveTimeScore()
+    {
+        PlayerPrefs.SetFloat("TimeHighscore", timeHighscore);
+    }
+    void GetTimeScore()
+    {
+        timeHighscore = PlayerPrefs.GetFloat("TimeHighscore");
+    }
+
+    // Update is called once per frame
+>>>>>>> Stashed changes
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             SceneManager.LoadScene(0);
+        }
+        if(gameManager.timeScore < timeHighscore)
+        {
+            timeHighscore = gameManager.timeScore;
         }
     }
 }

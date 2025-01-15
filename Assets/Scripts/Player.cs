@@ -9,10 +9,12 @@ public class Player : MonoBehaviour
     Rigidbody2D myRigidbody;
     [SerializeField] float speed;
 
+    public static Player playerInstance;
     public int playerHP;
     float iFrameTimer;
     void Start()
     {
+        playerInstance = this;
         myRigidbody = GetComponent<Rigidbody2D>();
         playerHP = 4;
     }
