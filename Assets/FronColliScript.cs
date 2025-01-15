@@ -5,6 +5,7 @@ using UnityEngine;
 public class FronColliScript : MonoBehaviour
 {
     [SerializeField] MinecartInteraction mainTrigger;
+    [SerializeField] MinecartMovement movement;
     // Start is called before the first frame update
     bool isInTriggerFront;
     void Start()
@@ -17,8 +18,10 @@ public class FronColliScript : MonoBehaviour
     {
         if (isInTriggerFront && Input.GetKeyDown(KeyCode.E) && mainTrigger.isInTrigger == false)
         {
-            //Do shit
-            Debug.Log("you are in my front");
+            if (movement != null)
+            {
+                movement.AddFuel(-1);
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

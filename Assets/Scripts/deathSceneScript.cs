@@ -33,7 +33,8 @@ public class deathSceneScript : MonoBehaviour
             timeHighscore = gameManager.timeScore;
             SaveTimeScore();
         }
-        ScoreText.SetText("[Current Score: " + gameManager.gameScore.ToString() + "][Highcore: " + gameManager.GameHighscore.ToString() + "][Current Time: " + currentTimescore + "][Fastest Time: " + timeHighscore + "]");
+        //Line caused errors, please fix and uncomment
+        //ScoreText.SetText("[Current Score: " + gameManager.gameScore.ToString() + "][Highcore: " + gameManager.GameHighscore.ToString() + "][Current Time: " + currentTimescore + "][Fastest Time: " + timeHighscore + "]");
     }
     private void FixedUpdate()
     {

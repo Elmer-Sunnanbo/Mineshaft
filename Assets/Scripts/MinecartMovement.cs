@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class MinecartMovement : MonoBehaviour
 {
     [SerializeField] RailTile startTile;
     [SerializeField] Directions startDir;
     [SerializeField] float speed;
+    GameObject interacter;
     ParticleSystem smokeParticles;
     float currentTileProgress = 0;
     int currentFuel;
@@ -16,14 +18,16 @@ public class MinecartMovement : MonoBehaviour
 
     private void Start()
     {
+        interacter = transform.GetComponentInChildren<MinecartInteraction>().gameObject;
         smokeParticles = GetComponent<ParticleSystem>();
         currentTile = startTile;
         currentTileProgress = 0.5f;
+        currentDirection = new Direction((int)startDir);
         transform.position = currentTile.GetPosition(currentTileProgress, currentDirection);
-        currentDirection = new Direction((int) startDir);
+        
     }
 
-    void AddFuel(int fuel)
+    public void AddFuel(int fuel)
     {
         if(fuel < 0) //If we're going backwards, turn around (and go forwards)
         {
@@ -39,18 +43,7 @@ public class MinecartMovement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Debug.Log(currentFuel);
-        }
-        if(Input.GetKeyDown(KeyCode.M))
-        {
-            AddFuel(1);
-        }
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            AddFuel(-1);
-        }
+        interacter.transform.rotation = Quaternion.Euler(0, 0, currentDirection.Rotated(-1).direction * -90);
 
         if (moving)
         {

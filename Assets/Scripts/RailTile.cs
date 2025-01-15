@@ -20,13 +20,6 @@ public class RailTile : MonoBehaviour
     [SerializeField] Sprite crossSprite;
     [SerializeField] Sprite turntableSprite;
     [SerializeField] Sprite turntableSpriteRotated;
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.B) && isTurntable)
-        {
-            RotateTurntable();
-        }
-    }
 
     public void EnterTurntable(MinecartMovement minecart)
     {
@@ -178,7 +171,7 @@ public class RailTile : MonoBehaviour
         return vector;
     }
 
-    private void RotateTurntable()
+    public void RotateTurntable()
     {
         turnTurntable.Invoke();
     }

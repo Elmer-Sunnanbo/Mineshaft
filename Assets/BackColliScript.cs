@@ -5,6 +5,7 @@ using UnityEngine;
 public class BackColliScript : MonoBehaviour
 {
     [SerializeField] MinecartInteraction mainTrigger;
+    [SerializeField] MinecartMovement movement;
     // Start is called before the first frame update
     bool isInTriggerBack;
     void Start()
@@ -17,8 +18,10 @@ public class BackColliScript : MonoBehaviour
     {
         if (isInTriggerBack && Input.GetKeyDown(KeyCode.E) && mainTrigger.isInTrigger == false)
         {
-            //Do shit
-            Debug.Log("you are in my Back");
+            if(movement != null)
+            {
+                movement.AddFuel(1);
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
