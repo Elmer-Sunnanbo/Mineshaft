@@ -1548,6 +1548,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 3626194758869080629}
     m_Modifications:
     - target: {fileID: 4891484587549447306, guid: ecfa25958627962439ad98ba9cda89a2, type: 3}
+      propertyPath: isStop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4891484587549447306, guid: ecfa25958627962439ad98ba9cda89a2, type: 3}
       propertyPath: 'neighbours.Array.data[1]'
       value: 
       objectReference: {fileID: 1250039373217909181}
