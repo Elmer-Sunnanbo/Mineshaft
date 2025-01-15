@@ -262,7 +262,7 @@ public class MazeBuilder : MonoBehaviour
                     {
                         if (manager.borderRailSouth != null)
                         {
-                            if (neighbourManager.borderRailSouth != null)
+                            if (neighbourManager.borderRailNorth != null)
                             {
                                 manager.borderRailSouth.neighbours[2] = neighbourManager.borderRailNorth;
                                 manager.borderRailSouth.AutoSetSprite();
