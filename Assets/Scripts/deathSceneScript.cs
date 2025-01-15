@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class deathSceneScript : MonoBehaviour
 {
-<<<<<<< Updated upstream
-=======
     public float timeHighscore;
     float currentTimescore;
     GameManager gameManager;
@@ -25,7 +23,6 @@ public class deathSceneScript : MonoBehaviour
     }
 
     // Update is called once per frame
->>>>>>> Stashed changes
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
