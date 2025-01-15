@@ -46,6 +46,7 @@ public class EnemyProjectileScript : MonoBehaviour
     {
         if(collision.gameObject.TryGetComponent<Player>(out Player hitPlayer))
         {
+            hitPlayer.Hit();
             Destroy(gameObject);
         }
         else

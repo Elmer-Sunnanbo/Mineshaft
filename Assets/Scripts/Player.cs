@@ -67,17 +67,6 @@ public class Player : MonoBehaviour
             SceneManager.LoadScene(1);
         }
     }
-    private void OnCollisionStay2D(Collision2D col)
-    {
-        if(col.gameObject.tag == "enemy")
-        {
-            if(iFrameTimer < 0)
-            {
-                playerHP -= 1;
-                iFrameTimer = 1;
-            }
-        }
-    }
     public Animator PlayerAni;
     Vector2 GetMoveVector()
     {
@@ -100,5 +89,29 @@ public class Player : MonoBehaviour
             yComponent--;
         }
         return new Vector2(xComponent, yComponent).normalized;
+    }
+
+    public void Hit()
+    {
+        if (iFrameTimer < 0)
+        {
+            playerHP -= 1;
+            iFrameTimer = 1;
+        }
+    }
+
+    public void PiercingHit()
+    {
+        if (iFrameTimer < 0)
+        {
+            playerHP -= 1;
+            iFrameTimer = 1;
+            myRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+        }
+    }
+
+    public void UnPierce()
+    {
+        myRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 }
