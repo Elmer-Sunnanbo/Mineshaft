@@ -9,6 +9,7 @@ public class PlayerAttack : MonoBehaviour
     public Vector2 hitDirection;
     public float reach; // The maximum distance something can be from the player for the player to still be able to hit it
     [SerializeField] float attackReloadTimer;
+    [SerializeField] GameObject swing;
     float timer;
 
     // Start is called before the first frame update
@@ -45,6 +46,20 @@ public class PlayerAttack : MonoBehaviour
                     }
                 }
                 timer = attackReloadTimer;
+
+                //Create swing effect
+                Vector2 vectorToMouse = mousePosition - (Vector2) transform.position;
+                Vector2 swingPosition;
+                if(vectorToMouse.magnitude <= reach)
+                {
+                    swingPosition = mousePosition;
+                }
+                else
+                {
+                    swingPosition = (Vector2) transform.position + (vectorToMouse.normalized*reach);
+                }
+                float swingRotationDegrees = Mathf.Atan2(vectorToMouse.y, vectorToMouse.x) * Mathf.Rad2Deg;
+                Instantiate(swing, swingPosition, Quaternion.Euler(0, 0, swingRotationDegrees - 90));
             }
         }
         else //the attack reload counts down if you release an attack

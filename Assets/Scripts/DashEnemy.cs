@@ -225,8 +225,6 @@ public class DashEnemy : MonoBehaviour, IHittable, IEnemy
             case States.Dashing:
                 //Dash toward selected position
                 myRigidbody.velocity = dashDirection * dashSpeed;
-                Debug.Log("Direction: " + dashDirection);
-                Debug.Log(dashSpeed);
 
                 if (timeUntilDashEnds == null) //If the timer hasn't been set
                 {
