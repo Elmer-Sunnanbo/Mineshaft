@@ -1283,6 +1283,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 5372391977432217836}
     m_Modifications:
     - target: {fileID: 4891484587549447306, guid: ecfa25958627962439ad98ba9cda89a2, type: 3}
+      propertyPath: isStop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4891484587549447306, guid: ecfa25958627962439ad98ba9cda89a2, type: 3}
       propertyPath: 'neighbours.Array.data[0]'
       value: 
       objectReference: {fileID: 8995488179172336864}
@@ -1349,7 +1353,7 @@ PrefabInstance:
     - target: {fileID: 7661017173451103355, guid: ecfa25958627962439ad98ba9cda89a2, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -6055965857462985470, guid: c7b680fb17d3d8e4aae866448fdeaed4, type: 3}
+      objectReference: {fileID: -1950833957282293170, guid: 7b8e4fc7467cc6e43a5fb680ffdb3fdc, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1379,6 +1383,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5372391977432217836}
     m_Modifications:
+    - target: {fileID: 4891484587549447306, guid: ecfa25958627962439ad98ba9cda89a2, type: 3}
+      propertyPath: isStop
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4891484587549447306, guid: ecfa25958627962439ad98ba9cda89a2, type: 3}
       propertyPath: 'neighbours.Array.data[0]'
       value: 
@@ -1644,6 +1652,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5372391977432217836}
     m_Modifications:
+    - target: {fileID: 4891484587549447306, guid: ecfa25958627962439ad98ba9cda89a2, type: 3}
+      propertyPath: isStop
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4891484587549447306, guid: ecfa25958627962439ad98ba9cda89a2, type: 3}
       propertyPath: 'neighbours.Array.data[2]'
       value: 
