@@ -20,14 +20,14 @@ public class PlayerAttack : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         if(timer < 0)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0)) // If mouse (left-)button is clicked
             {
                 Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); // Get the mouse position in world coordinates
-                Debug.Log(mousePosition); // Log the mouse position (for debugging)
+                Debug.Log("Attack started"); // Log the mouse position (for debugging)
     
                 // Calculate the direction from the player to the mouse position
                 Vector2 direction = (mousePosition - (Vector2)transform.position).normalized;
@@ -40,9 +40,11 @@ public class PlayerAttack : MonoBehaviour
 
                 if (hit.collider != null) // If a hitObj is found
                 {
+                    Debug.Log("Found collider");
                     //Hit everything that should be hit
                     foreach (IHittable hittable in hit.collider.GetComponents<IHittable>())
                     {
+                        Debug.Log("Found hittable");
                         hittable.Hit();
                     }
                 }

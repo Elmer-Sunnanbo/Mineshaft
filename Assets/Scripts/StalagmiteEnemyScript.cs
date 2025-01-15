@@ -261,6 +261,8 @@ public class StalagmiteEnemy : MonoBehaviour, IHittable, IEnemy
     public void Hit()
     {
         StalagmiteHealth--;
+        Debug.Log("Stalagmite hit");
+        Debug.Log(StalagmiteHealth);
     }
     public void SetTarget(GameObject target)
     {

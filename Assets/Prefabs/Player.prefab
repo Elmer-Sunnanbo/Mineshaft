@@ -199,7 +199,7 @@ MonoBehaviour:
   hitDirection: {x: 0, y: 0}
   reach: 3
   playerHealth: 4
-  attackReloadTimer: 0.5
+  attackReloadTimer: 0.4
 --- !u!95 &1107956966843604732
 Animator:
   serializedVersion: 7
