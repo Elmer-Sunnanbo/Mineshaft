@@ -236,10 +236,6 @@ public class MazeBuilder : MonoBehaviour
                                 manager.borderRailNorth.AutoSetSprite();
                             }
                         }
-                        else
-                        {
-                            Debug.LogWarning("Maze builder found manager with missing connection at " + x + ", " + y + " - north");
-                        }
                     }
                     //East
                     if (x == maxX) //If we can't go further east
@@ -255,10 +251,6 @@ public class MazeBuilder : MonoBehaviour
                                 manager.borderRailEast.neighbours[1] = neighbourManager.borderRailWest;
                                 manager.borderRailEast.AutoSetSprite();
                             }
-                        }
-                        else
-                        {
-                            Debug.LogWarning("Maze builder found manager with missing connection at " + x + ", " + y + " - east");
                         }
                     }
                     //South
@@ -276,10 +268,6 @@ public class MazeBuilder : MonoBehaviour
                                 manager.borderRailSouth.AutoSetSprite();
                             }
                         }
-                        else
-                        {
-                            Debug.LogWarning("Maze builder found manager with missing connection at " + x + ", " + y + " - south");
-                        }
                     }
                     //West
                     if (x == minX) //If we can't go further west
@@ -295,10 +283,6 @@ public class MazeBuilder : MonoBehaviour
                                 manager.borderRailWest.neighbours[3] = neighbourManager.borderRailEast;
                                 manager.borderRailWest.AutoSetSprite();
                             }
-                        }
-                        else
-                        {
-                            Debug.LogWarning("Maze builder found manager with missing connection at " + x + ", " + y + " - west");
                         }
                     }
                 }
