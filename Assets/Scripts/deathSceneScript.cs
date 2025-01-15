@@ -7,14 +7,13 @@ using UnityEngine.SceneManagement;
 public class deathSceneScript : MonoBehaviour
 {
     public float timeHighscore;
-    float currentTimescore;
     GameManager gameManager;
 
-    public TextMeshProUGUI ScoreText;
+    TextMeshProUGUI ScoreText;
     // Start is called before the first frame update
     void Start()
     {
-        ScoreText.GetComponent<TextMeshProUGUI>();
+        ScoreText = GetComponent<TextMeshProUGUI>();
         GetTimeScore();
     }
     void SaveTimeScore()
@@ -29,17 +28,18 @@ public class deathSceneScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(gameManager.timeScore < timeHighscore)//If currect time is less than highscore. Change the highscore to the new score.
+        {
+            timeHighscore = gameManager.timeScore;
+            SaveTimeScore();
+        }
+        ScoreText.SetText("[Current Score: " + gameManager.gameScore.ToString() + "][Highcore: " + gameManager.GameHighscore.ToString() + "][Current Time: " + currentTimescore + "][Fastest Time: " + timeHighscore + "]");
+    }
+    private void FixedUpdate()
+    {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             SceneManager.LoadScene(0);
         }
-        if(gameManager.timeScore < timeHighscore)
-        {
-            timeHighscore = gameManager.timeScore;
-        }
-
-
-
-        ScoreText.text = "[Current Score: " + (gameManager.gameScore.ToString()) + "][Highcore: " + (gameManager.GameHighscore.ToString()) + "][Current Time: " + currentTimescore + "][Fastest Time: " + timeHighscore + "]";
     }
 }
