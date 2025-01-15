@@ -541,7 +541,7 @@ MonoBehaviour:
   borderRailNorth: {fileID: 5245329957316343560}
   borderRailEast: {fileID: 6209448861792747150}
   borderRailSouth: {fileID: 6550922446727371481}
-  borderRailWest: {fileID: 991482728789048614}
+  borderRailWest: {fileID: 0}
   enemiesInRoom: []
 --- !u!1 &8651193699186562064
 GameObject:

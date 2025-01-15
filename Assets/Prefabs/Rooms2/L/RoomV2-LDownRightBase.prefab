@@ -1285,10 +1285,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7503f6be8e86ea4ba3207487c8ef2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  borderRailNorth: {fileID: 1021670680721482676}
+  borderRailNorth: {fileID: 0}
   borderRailEast: {fileID: 1021670680721482676}
   borderRailSouth: {fileID: 2036450091672470722}
-  borderRailWest: {fileID: 5478002476256038783}
+  borderRailWest: {fileID: 0}
   enemiesInRoom: []
 --- !u!1001 &481889000266305605
 PrefabInstance:

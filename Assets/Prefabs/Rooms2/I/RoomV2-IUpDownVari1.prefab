@@ -543,9 +543,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   borderRailNorth: {fileID: 3963495241023015249}
-  borderRailEast: {fileID: 4040561970528316900}
+  borderRailEast: {fileID: 0}
   borderRailSouth: {fileID: 2765818031910031795}
-  borderRailWest: {fileID: 983979053022460566}
+  borderRailWest: {fileID: 0}
   enemiesInRoom:
   - {fileID: 5618528817486507224}
 --- !u!1 &5262967490708254532

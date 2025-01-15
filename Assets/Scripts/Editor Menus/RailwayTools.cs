@@ -9,18 +9,6 @@ using UnityEngine.Tilemaps;
 
 public class RailwayTools : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     [MenuItem("Building Tools/Snap and connect")]
     static void SnapAndConnectRails()
     {
@@ -122,59 +110,42 @@ public class RailwayTools : MonoBehaviour
             RailTile bottomMostTile = null;
             foreach (RailTile tile in railTiles)
             {
-                if(leftMostTile != null)
-                {
-                    if(leftMostTile.transform.position.x > tile.transform.position.x)
-                    {
-                        leftMostTile = tile;
-                    }
-                }
-                else
+                if (-3.5f > tile.transform.position.x)
                 {
                     leftMostTile = tile;
                 }
 
-                if (rightMostTile != null)
-                {
-                    if (rightMostTile.transform.position.x < tile.transform.position.x)
-                    {
-                        rightMostTile = tile;
-                    }
-                }
-                else
+                if (3.5f < tile.transform.position.x)
                 {
                     rightMostTile = tile;
                 }
 
-                if (topMostTile != null)
-                {
-                    if (topMostTile.transform.position.y < tile.transform.position.y)
-                    {
-                        topMostTile = tile;
-                    }
-                }
-                else
+                if (3.5f < tile.transform.position.y)
                 {
                     topMostTile = tile;
                 }
 
-                if (bottomMostTile != null)
-                {
-                    if (bottomMostTile.transform.position.y > tile.transform.position.y)
-                    {
-                        bottomMostTile = tile;
-                    }
-                }
-                else
+                if (-3.5f > tile.transform.position.y)
                 {
                     bottomMostTile = tile;
                 }
             }
-
+            SerializedObject serManager = new SerializedObject(latestManager);
+            SerializedProperty serNorth = serManager.FindProperty("borderRailNorth");
+            SerializedProperty serSouth = serManager.FindProperty("borderRailSouth");
+            SerializedProperty serEast = serManager.FindProperty("borderRailEast");
+            SerializedProperty serWest = serManager.FindProperty("borderRailWest");
+            serNorth.objectReferenceValue = topMostTile;
+            serSouth.objectReferenceValue = bottomMostTile;
+            serEast.objectReferenceValue = rightMostTile;
+            serWest.objectReferenceValue = leftMostTile;
+            serManager.ApplyModifiedProperties();
+            /*
             latestManager.borderRailNorth = topMostTile;
             latestManager.borderRailSouth = bottomMostTile;
             latestManager.borderRailEast = rightMostTile;
             latestManager.borderRailWest = leftMostTile;
+            */
 
             latestManager.enemiesInRoom = new List<GameObject>();
             for (int i = 0; i < room.transform.childCount; i++)

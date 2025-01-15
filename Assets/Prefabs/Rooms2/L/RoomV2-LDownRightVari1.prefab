@@ -816,10 +816,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7503f6be8e86ea4ba3207487c8ef2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  borderRailNorth: {fileID: 3215418313442244344}
+  borderRailNorth: {fileID: 0}
   borderRailEast: {fileID: 35836100400824976}
   borderRailSouth: {fileID: 3667216586176988621}
-  borderRailWest: {fileID: 7269768229638845065}
+  borderRailWest: {fileID: 0}
   enemiesInRoom: []
 --- !u!1 &8639533307290296723
 GameObject:

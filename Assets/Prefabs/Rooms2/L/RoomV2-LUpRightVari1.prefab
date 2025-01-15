@@ -1313,8 +1313,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   borderRailNorth: {fileID: 8205381842812500230}
   borderRailEast: {fileID: 208290168404329765}
-  borderRailSouth: {fileID: 2936430575346763335}
-  borderRailWest: {fileID: 7488441053039388948}
+  borderRailSouth: {fileID: 0}
+  borderRailWest: {fileID: 0}
   enemiesInRoom: []
 --- !u!1001 &711383118384569943
 PrefabInstance:
