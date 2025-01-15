@@ -4,10 +4,10 @@ using Unity.Mathematics;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class ProjectileEnemy : MonoBehaviour
+public class ProjectileEnemy : MonoBehaviour, IHittable, IEnemy
 {
     [Header("Chase parameters")]
-    [SerializeField] GameObject target;
+    public GameObject target;
     [SerializeField] GameObject projectile;
     [SerializeField] float speed;
     [SerializeField] float wakeUpDistance;
@@ -256,5 +256,14 @@ public class ProjectileEnemy : MonoBehaviour
                 mySpriteRenderer.color = inRangeColor;
                 break;
         }
+    }
+
+    public void Hit()
+    {
+        ProEnemyHealth--;
+    }
+    public void SetTarget(GameObject target)
+    {
+        this.target = target;
     }
 }

@@ -11,9 +11,9 @@ public class GameManager : MonoBehaviour
     public int gameScore;
     public int GameHighscore;
     public float timeScore;
-    public GameObject player;
     Player getPlayer;
     private int playerHealth;
+    public GameObject player;
 
     private void Awake()
     {

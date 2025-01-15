@@ -5,22 +5,11 @@ using UnityEditor;
 using System.Linq;
 using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
+using UnityEngine.Tilemaps;
 
 public class RailwayTools : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    [MenuItem("Railway Tools/Snap and connect")]
+    [MenuItem("Building Tools/Snap and connect")]
     static void SnapAndConnectRails()
     {
         List<RailTile> tiles = new List<RailTile>();
@@ -73,7 +62,7 @@ public class RailwayTools : MonoBehaviour
         }
     }
 
-    [MenuItem("Railway Tools/Auto Sprite")]
+    [MenuItem("Building Tools/Auto Sprite")]
     static void AutoSprite()
     {
         List<RailTile> tiles = new List<RailTile>();
@@ -96,6 +85,109 @@ public class RailwayTools : MonoBehaviour
             tile.AutoSetSprite();
         }
         if(tiles.Count > 0)
+        {
+            EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+        }
+    }
+
+    [MenuItem("Building Tools/Auto Roommanager")]
+    static void AutoManager()
+    {
+        List<GameObject> rooms = Selection.gameObjects.ToList();
+        foreach (GameObject room in rooms)
+        {
+            RoomManager latestManager;
+            if (!room.TryGetComponent(out latestManager))
+            {
+                latestManager = room.AddComponent<RoomManager>();
+            }
+            
+            List<RailTile> railTiles = room.GetComponentsInChildren<RailTile>().ToList();
+
+            RailTile leftMostTile = null;
+            RailTile rightMostTile = null;
+            RailTile topMostTile = null;
+            RailTile bottomMostTile = null;
+            foreach (RailTile tile in railTiles)
+            {
+                if (-3.5f > tile.transform.position.x)
+                {
+                    leftMostTile = tile;
+                }
+
+                if (3.5f < tile.transform.position.x)
+                {
+                    rightMostTile = tile;
+                }
+
+                if (3.5f < tile.transform.position.y)
+                {
+                    topMostTile = tile;
+                }
+
+                if (-3.5f > tile.transform.position.y)
+                {
+                    bottomMostTile = tile;
+                }
+            }
+            SerializedObject serManager = new SerializedObject(latestManager);
+            SerializedProperty serNorth = serManager.FindProperty("borderRailNorth");
+            SerializedProperty serSouth = serManager.FindProperty("borderRailSouth");
+            SerializedProperty serEast = serManager.FindProperty("borderRailEast");
+            SerializedProperty serWest = serManager.FindProperty("borderRailWest");
+            serNorth.objectReferenceValue = topMostTile;
+            serSouth.objectReferenceValue = bottomMostTile;
+            serEast.objectReferenceValue = rightMostTile;
+            serWest.objectReferenceValue = leftMostTile;
+            serManager.ApplyModifiedProperties();
+            /*
+            latestManager.borderRailNorth = topMostTile;
+            latestManager.borderRailSouth = bottomMostTile;
+            latestManager.borderRailEast = rightMostTile;
+            latestManager.borderRailWest = leftMostTile;
+            */
+
+            latestManager.enemiesInRoom = new List<GameObject>();
+            for (int i = 0; i < room.transform.childCount; i++)
+            {
+                if (room.transform.GetChild(i).TryGetComponent<IEnemy>(out _))
+                {
+                    latestManager.enemiesInRoom.Add(room.transform.GetChild(i).gameObject);
+                }
+            }
+        }
+
+
+        if (rooms.Count > 0)
+        {
+            EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+        }
+    }
+
+    [MenuItem("Building Tools/Align Room")]
+    static void AlignRoom()
+    {
+        List<GameObject> rooms = Selection.gameObjects.ToList();
+        foreach (GameObject room in rooms)
+        {
+            if(!room.TryGetComponent<RoomManager>(out _)) //If it's not a room
+            {
+                continue;
+            }
+
+            room.transform.position = Vector2.zero;
+            for(int roomChildIndex = 0; roomChildIndex < room.transform.childCount; roomChildIndex++)
+            {
+                GameObject currentChild = room.transform.GetChild(roomChildIndex).gameObject;
+                if(currentChild.TryGetComponent(out Grid foundGrid))
+                {
+                    foundGrid.transform.position = Vector2.zero;
+                }
+            }
+        }
+
+
+        if (rooms.Count > 0)
         {
             EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
         }

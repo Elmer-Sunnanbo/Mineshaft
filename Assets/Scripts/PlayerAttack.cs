@@ -9,14 +9,13 @@ public class PlayerAttack : MonoBehaviour
     public Vector2 hitDirection;
     public float reach; // The maximum distance something can be from the player for the player to still be able to hit it
     public float playerHealth; // The playerHealth of the player
-    float attackReloadTimer;
+    [SerializeField] float attackReloadTimer;
     float timer;
 
     // Start is called before the first frame update
     void Start()
     {
         reach = 3;
-        attackReloadTimer = 1.6f;
         timer = attackReloadTimer;
     }
 
@@ -25,7 +24,6 @@ public class PlayerAttack : MonoBehaviour
     {
         if(timer < 0)
         {
-            Debug.Log("Attack ready");
             if (Input.GetKeyDown(KeyCode.Mouse0)) // If mouse (left-)button is clicked
             {
                 Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition); // Get the mouse position in world coordinates
@@ -42,18 +40,10 @@ public class PlayerAttack : MonoBehaviour
 
                 if (hit.collider != null) // If a hitObj is found
                 {
-                    // Checks for enemy script to decrease enemy health
-                    if (hit.collider.TryGetComponent(out StalagmiteEnemy stalagmiteEnemy))
+                    //Hit everything that should be hit
+                    foreach (IHittable hittable in hit.collider.GetComponents<IHittable>())
                     {
-                        stalagmiteEnemy.StalagmiteHealth -= 1;
-                    }
-                    if (hit.collider.TryGetComponent(out ProjectileEnemy projectileEnemy))
-                    {
-                        projectileEnemy.ProEnemyHealth -= 1;
-                    }
-                    if(hit.collider.TryGetComponent(out EnemyDash enemyDash))
-                    {
-                        enemyDash.enemyDashHealth -= 1;
+                        hittable.Hit();
                     }
                 }
                 timer = attackReloadTimer;
