@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6729708775494336139}
   - component: {fileID: 292433756656197248}
   - component: {fileID: 973711327486982664}
-  - component: {fileID: 994259574496046390}
+  - component: {fileID: 4517899422460227615}
   m_Layer: 6
   m_Name: Projectile Enemy
   m_TagString: enemy
@@ -104,10 +104,11 @@ MonoBehaviour:
   target: {fileID: 0}
   projectile: {fileID: 1524146364226564162, guid: 56688ca322a6550489714fcfcfa6cbe7, type: 3}
   speed: 3
-  wakeUpDistance: 14
-  sleepDelay: 1
-  maxDistance: 14
-  minDistance: 7
+  wakeUpDistance: 6
+  sleepDelay: 2
+  projectileChargeTime: 1
+  maxDistance: 10
+  minDistance: 5
   sleepColor: {r: 0.35686275, g: 0.60784316, b: 0.3529412, a: 1}
   chaseColor: {r: 1, g: 0.98193586, b: 0.42452818, a: 1}
   chaseLKPColor: {r: 0.78616345, g: 0.37824836, b: 0.37824836, a: 1}
@@ -141,8 +142,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &994259574496046390
-BoxCollider2D:
+--- !u!58 &4517899422460227615
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -176,14 +177,4 @@ BoxCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.5

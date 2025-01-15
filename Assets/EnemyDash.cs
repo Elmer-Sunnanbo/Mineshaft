@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Old script for rat ai
+/// </summary>
+
 [RequireComponent(typeof(Rigidbody2D))]
 
 public class EnemyDash : MonoBehaviour, IHittable, IEnemy
@@ -259,7 +263,6 @@ public class EnemyDash : MonoBehaviour, IHittable, IEnemy
 
         // Ensure the final position is exactly the player's position
         transform.position = lastKnownPosition;
-
         // Start the countdown coroutine
         yield return StartCoroutine(DashCountDown());
     }

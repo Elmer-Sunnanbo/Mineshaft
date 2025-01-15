@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4754450254229079266}
   - component: {fileID: 3703951147466567697}
-  - component: {fileID: 2476124061269050635}
   - component: {fileID: 8668928001678260918}
   - component: {fileID: 3372214438332468965}
+  - component: {fileID: 660596360520744930}
   m_Layer: 6
   m_Name: Stalagmite Enemy
   m_TagString: enemy
@@ -89,52 +89,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &2476124061269050635
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 822513868020973154}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!50 &8668928001678260918
 Rigidbody2D:
   serializedVersion: 4
@@ -176,14 +130,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   stalagmiteProjectile: {fileID: 4230843036859359607, guid: c7112113b722eb643bb10c51f5e40a6c, type: 3}
-  speed: 0.5
-  wakeUpDistance: 8
+  speed: 2
+  wakeUpDistance: 5
   sleepDelay: 3
-  maxDistance: 10
-  minDistance: 6
+  projectileChargeTime: 1.5
+  maxDistance: 6
+  minDistance: 4
   sleepColor: {r: 0.18238991, g: 0.18238991, b: 0.18238991, a: 1}
   chaseColor: {r: 0.509434, g: 0.10269139, b: 0, a: 1}
   chaseLKPColor: {r: 0.6855345, g: 0.26013952, b: 0, a: 1}
   chaseEndColor: {r: 0.76729554, g: 0.5985276, b: 0, a: 1}
   inRangeColor: {r: 0, g: 0.51572317, b: 0.006394799, a: 1}
   StalagmiteHealth: 0
+--- !u!58 &660596360520744930
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 822513868020973154}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
