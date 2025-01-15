@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CoalScript : MonoBehaviour, IHittable
+public class GoldScript : MonoBehaviour, IHittable
 {
     public GameManager gameManager;
 
@@ -10,7 +10,8 @@ public class CoalScript : MonoBehaviour, IHittable
     {
         // When coal is hit the gameObject is destroyed and the player gains coal
 
-        gameManager.coal += 1;
+        gameManager.gold += 1;
         Destroy(gameObject);
     }
 }
+
