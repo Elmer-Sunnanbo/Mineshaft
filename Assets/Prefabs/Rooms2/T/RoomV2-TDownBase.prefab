@@ -104,7 +104,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7503f6be8e86ea4ba3207487c8ef2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  borderRailNorth: {fileID: 2386464918350551552}
+  borderRailNorth: {fileID: 0}
   borderRailEast: {fileID: 5957402204152003028}
   borderRailSouth: {fileID: 2837891291276827625}
   borderRailWest: {fileID: 2386464918350551552}

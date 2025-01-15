@@ -827,9 +827,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7503f6be8e86ea4ba3207487c8ef2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  borderRailNorth: {fileID: 9132774821756915626}
+  borderRailNorth: {fileID: 0}
   borderRailEast: {fileID: 6828272618728579078}
-  borderRailSouth: {fileID: 8529933148848587620}
+  borderRailSouth: {fileID: 0}
   borderRailWest: {fileID: 744696035646039714}
   enemiesInRoom:
   - {fileID: 1892953504183441812}

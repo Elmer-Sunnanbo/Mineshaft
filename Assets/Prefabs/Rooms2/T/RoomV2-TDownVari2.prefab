@@ -67,7 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7503f6be8e86ea4ba3207487c8ef2ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  borderRailNorth: {fileID: 5106793915655237152}
+  borderRailNorth: {fileID: 0}
   borderRailEast: {fileID: 1633720533620019521}
   borderRailSouth: {fileID: 2901714428404505933}
   borderRailWest: {fileID: 4326027992989599088}
