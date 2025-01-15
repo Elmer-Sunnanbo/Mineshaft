@@ -1,36 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class StalagmiteEnemy : MonoBehaviour, IHittable, IEnemy
+public class DashEnemy : MonoBehaviour, IHittable, IEnemy
 {
     [Header("Chase parameters")]
     [SerializeField] GameObject target;
-    [SerializeField] GameObject stalagmiteProjectile;
     [SerializeField] float speed;
+    [SerializeField] float dashSpeed;
     [SerializeField] float wakeUpDistance;
     [SerializeField] float sleepDelay;
-    [SerializeField] float projectileChargeTime;
+    [SerializeField] float dashChargeTime;
+    [SerializeField] float dashDuration;
     [SerializeField] float maxDistance;
     [SerializeField] float minDistance;
 
-    [Header("Colors")]
-    [SerializeField] Color sleepColor;
-    [SerializeField] Color chaseColor;
-    [SerializeField] Color chaseLKPColor;
-    [SerializeField] Color chaseEndColor;
-    [SerializeField] Color inRangeColor;
 
     float? timeUntilSleep = null;
-    float? timeUntilProjectile = null;
+    float? timeUntilDash = null;
+    float? timeUntilDashEnds = null;
     float lastKnownPosMinDistance = 0.2f;
-    float attackReloadTimer;
-    public int StalagmiteHealth;
+    public int Health;
     Rigidbody2D myRigidbody;
-    SpriteRenderer mySpriteRenderer;
     Vector2 lastKnownPosition;
+    Vector2 dashDirection;
     bool lastKnownPositionActive;
     States state;
 
@@ -42,17 +37,17 @@ public class StalagmiteEnemy : MonoBehaviour, IHittable, IEnemy
         ChaseEnd,
         InRange,
         Charging,
+        Dashing
     }
     void Start()
     {
         myRigidbody = GetComponent<Rigidbody2D>();
-        mySpriteRenderer = GetComponent<SpriteRenderer>();
         state = States.Sleeping;
-        StalagmiteHealth = 4;
+        Health = 4;
     }
     private void FixedUpdate()
     {
-        if(StalagmiteHealth < 1)
+        if (Health < 1)
         {
             Destroy(gameObject);
         }
@@ -60,7 +55,6 @@ public class StalagmiteEnemy : MonoBehaviour, IHittable, IEnemy
 
     void Update()
     {
-        RenderState();
         Vector2 targetPos = target.transform.position;
         Vector2 vectorToTarget = targetPos - (Vector2)transform.position;
         bool hasLOS = LineOfSightCheck();
@@ -154,8 +148,6 @@ public class StalagmiteEnemy : MonoBehaviour, IHittable, IEnemy
             case States.InRange:
                 if (vectorToTarget.magnitude < minDistance && hasLOS) //If the target is still in range
                 {
-                    lastKnownPosition = targetPos;
-                    lastKnownPositionActive = true;
                     state = States.Charging;
                     myRigidbody.velocity = Vector2.zero;
                     goto CheckStatesAgain;
@@ -184,7 +176,7 @@ public class StalagmiteEnemy : MonoBehaviour, IHittable, IEnemy
                     {
                         timeUntilSleep = sleepDelay;
                     }
-                    
+
                     timeUntilSleep -= Time.deltaTime;
 
                     if (timeUntilSleep <= 0)
@@ -200,25 +192,54 @@ public class StalagmiteEnemy : MonoBehaviour, IHittable, IEnemy
             case States.Charging:
                 //Chill and wait for attack to charge
                 myRigidbody.velocity = Vector2.zero;
-                if(vectorToTarget.magnitude < minDistance && hasLOS)
+
+                if (timeUntilDash == null) //If the timer hasn't been set
                 {
-                    lastKnownPosition = targetPos;
-                    lastKnownPositionActive = true;
+                    timeUntilDash = dashChargeTime;
                 }
 
-                if (timeUntilProjectile == null) //If the timer hasn't been set
-                {
-                    timeUntilProjectile = projectileChargeTime;
-                }
+                timeUntilDash -= Time.deltaTime;
 
-                timeUntilProjectile -= Time.deltaTime;
-
-                if (timeUntilProjectile <= 0)
+                if (timeUntilDash <= 0)
                 {
                     //Fire it off
-                    timeUntilProjectile = null;
+                    timeUntilDash = null;
+                    if (LineOfSightCheck())
+                    {
+                        state = States.Dashing;
+                        dashDirection = (target.transform.position - transform.position).normalized;
+                    }
+                    else if (lastKnownPositionActive)
+                    {
+                        state = States.Dashing;
+                        dashDirection = (lastKnownPosition - (Vector2) transform.position).normalized;
+                    }
+                    else
+                    {
+                        state = States.ChaseEnd;
+                    }
+                    goto CheckStatesAgain;
+                }
+                break;
+
+            case States.Dashing:
+                //Dash toward selected position
+                myRigidbody.velocity = dashDirection * dashSpeed;
+                Debug.Log("Direction: " + dashDirection);
+                Debug.Log(dashSpeed);
+
+                if (timeUntilDashEnds == null) //If the timer hasn't been set
+                {
+                    timeUntilDashEnds = dashDuration;
+                }
+
+                timeUntilDashEnds -= Time.deltaTime;
+
+                if (timeUntilDashEnds <= 0)
+                {
+                    //End it
+                    timeUntilDashEnds = null;
                     state = States.Chasing;
-                    SummonStalagmite();
                     goto CheckStatesAgain;
                 }
                 break;
@@ -249,56 +270,31 @@ public class StalagmiteEnemy : MonoBehaviour, IHittable, IEnemy
         return false;
     }
 
-    /// <summary>
-    /// Changes the color of the object to represent it's state
-    /// </summary>
-    void SummonStalagmite()
-    {
-        Vector2 shotTarget;
-        if (LineOfSightCheck())
-        {
-            shotTarget = target.transform.position;
-        }
-        else if (lastKnownPositionActive)
-        {
-            shotTarget = lastKnownPosition;
-        }
-        else
-        {
-            return;
-        }
-        Vector2 angleTarget = shotTarget - (Vector2) transform.position;
-        float angle = Mathf.Atan2(angleTarget.y, angleTarget.x) * Mathf.Rad2Deg;
-        GameObject latestSpawn = Instantiate(stalagmiteProjectile, transform.position, Quaternion.Euler(0, 0, angle));//Instantiating the stalagmite bullet in the direction of the player.
-    }
-    void RenderState()
-    {
-        switch (state)
-        {
-            case States.Sleeping:
-                mySpriteRenderer.color = sleepColor;
-                break;
-            case States.Chasing:
-                mySpriteRenderer.color = chaseColor;
-                break;
-            case States.ChasingLKP:
-                mySpriteRenderer.color = chaseLKPColor;
-                break;
-            case States.ChaseEnd:
-                mySpriteRenderer.color = chaseEndColor;
-                break;
-            case States.InRange:
-                mySpriteRenderer.color = inRangeColor;
-                break;
-        }
-    }
 
     public void Hit()
     {
-        StalagmiteHealth--;
+        Health--;
     }
     public void SetTarget(GameObject target)
     {
         this.target = target;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (state == States.Dashing)
+        {
+            if (collision.gameObject.layer == 9) //If we've hit a wall
+            {
+                if (state == States.Dashing)
+                {
+                    timeUntilDashEnds = 0;
+                }
+            }
+            if (collision.gameObject.TryGetComponent<Player>(out Player hitPlayer))
+            {
+                hitPlayer.Hit();
+            }
+        }
     }
 }

@@ -165,6 +165,8 @@ public class ProjectileEnemy : MonoBehaviour, IHittable, IEnemy
                 if (vectorToTarget.magnitude < minDistance && hasLOS) //If the target is still in range
                 {
                     //Attack or something
+                    lastKnownPosition = targetPos;
+                    lastKnownPositionActive = true;
                     myRigidbody.velocity = Vector2.zero;
                 }
                 else
