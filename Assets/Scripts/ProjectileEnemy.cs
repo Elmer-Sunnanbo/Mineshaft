@@ -251,7 +251,7 @@ public class ProjectileEnemy : MonoBehaviour, IHittable, IEnemy
         {
             return;
         }
-        Vector2 angleTarget = target.transform.position - transform.position;
+        Vector2 angleTarget = shotTarget - (Vector2) transform.position;
         float angle = Mathf.Atan2(angleTarget.y, angleTarget.x) * Mathf.Rad2Deg;
         GameObject latestSpawn = Instantiate(projectile, transform.position, Quaternion.Euler(0, 0, angle)); //Summons projectile in the direction to the player.
         //myRigidbody.velocity = angleTarget * -10;//Move backwards after shooting. (Was buggy)

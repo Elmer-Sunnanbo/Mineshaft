@@ -100,6 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf86c6219ed48304ba7721730f95cbbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ObstacleActivationTimer: 0.25
+  ObstacleDespawnTimer: 0.75
 --- !u!61 &1722356585940229744
 BoxCollider2D:
   m_ObjectHideFlags: 0
