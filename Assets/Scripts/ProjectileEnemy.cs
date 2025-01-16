@@ -31,6 +31,7 @@ public class ProjectileEnemy : MonoBehaviour, IHittable, IEnemy
     Vector2 lastKnownPosition;
     bool lastKnownPositionActive;
     States state;
+    [SerializeField] Animator BatAni;
 
     enum States
     {
@@ -201,6 +202,65 @@ public class ProjectileEnemy : MonoBehaviour, IHittable, IEnemy
                 break;
         }
     SkipStateChecking:;
+// everything inbeetween these two messages are for the animations and nothing else
+        if(myRigidbody.velocityX == 0 && myRigidbody.velocityY == 0)
+        {
+            BatAni.SetBool("BatUp", false);
+            BatAni.SetBool("BatDown", false);
+            BatAni.SetBool("BatRight", false);
+            BatAni.SetBool("BatLeft", false);
+            BatAni.SetBool("BatIdle", true);
+        }
+        else if(Mathf.Abs(myRigidbody.velocityX) > Mathf.Abs(myRigidbody.velocityY))
+        {
+            if (myRigidbody.velocityX > 0)
+            {
+                BatAni.SetBool("BatUp", false);
+                BatAni.SetBool("BatDown", false);
+                BatAni.SetBool("BatRight", true);
+                BatAni.SetBool("BatLeft", false);
+                BatAni.SetBool("BatIdle", false);
+                Debug.Log("batRight is really true");
+            }
+            if (myRigidbody.velocityX < 0)
+            {
+                BatAni.SetBool("BatUp", false);
+                BatAni.SetBool("BatDown", false);
+                BatAni.SetBool("BatRight", false);
+                BatAni.SetBool("BatLeft", true);
+                BatAni.SetBool("BatIdle", false);
+                Debug.Log("batleft is really true");
+            }
+        }
+        else
+        {
+            if (0 < myRigidbody.velocityY)
+            {
+                if (myRigidbody.velocityY > 0)
+                {
+                    BatAni.SetBool("BatUp", true);
+                    BatAni.SetBool("BatDown", false);
+                    BatAni.SetBool("BatRight", false);
+                    BatAni.SetBool("BatLeft", false);
+                    BatAni.SetBool("BatIdle", false);
+                    Debug.Log("batup is really true");
+                }
+            }
+            else
+            {
+                if (myRigidbody.velocityY < 0)
+                {
+                    BatAni.SetBool("BatUp", false);
+                    BatAni.SetBool("BatDown", true);
+                    BatAni.SetBool("BatRight", false);
+                    BatAni.SetBool("BatLeft", false);
+                    BatAni.SetBool("BatIdle", false);
+                    Debug.Log("batdown is really true");
+                }
+            }
+        }
+       
+// this is the end of the code for animation
     }
 
     bool LineOfSightCheck()
