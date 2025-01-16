@@ -130,7 +130,8 @@ GameObject:
   - component: {fileID: 4689644196263532947}
   - component: {fileID: 1241041207570337098}
   - component: {fileID: 5664470924842215434}
-  m_Layer: 0
+  - component: {fileID: 4946801259502638080}
+  m_Layer: 9
   m_Name: Tilemap Collsion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -613,6 +614,18 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &4946801259502638080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7022102826736249332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1bc8e4fe7051af4eab77fbe7c5059fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8550525177505285129
 GameObject:
   m_ObjectHideFlags: 0
