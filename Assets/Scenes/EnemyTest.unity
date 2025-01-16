@@ -176,6 +176,106 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0156cd583051a224d847777e7c757b03, type: 3}
+--- !u!1 &602215628 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4837868057007593676, guid: 0156cd583051a224d847777e7c757b03, type: 3}
+  m_PrefabInstance: {fileID: 266357506}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1626191725
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 822513868020973154, guid: 4f8231d2ebc9f0544ae4f256fdb67ccc, type: 3}
+      propertyPath: m_Name
+      value: Stalagmite Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3372214438332468965, guid: 4f8231d2ebc9f0544ae4f256fdb67ccc, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 602215628}
+    - target: {fileID: 3372214438332468965, guid: 4f8231d2ebc9f0544ae4f256fdb67ccc, type: 3}
+      propertyPath: MoleAni
+      value: 
+      objectReference: {fileID: 1626191727}
+    - target: {fileID: 4754450254229079266, guid: 4f8231d2ebc9f0544ae4f256fdb67ccc, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754450254229079266, guid: 4f8231d2ebc9f0544ae4f256fdb67ccc, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754450254229079266, guid: 4f8231d2ebc9f0544ae4f256fdb67ccc, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754450254229079266, guid: 4f8231d2ebc9f0544ae4f256fdb67ccc, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754450254229079266, guid: 4f8231d2ebc9f0544ae4f256fdb67ccc, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754450254229079266, guid: 4f8231d2ebc9f0544ae4f256fdb67ccc, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754450254229079266, guid: 4f8231d2ebc9f0544ae4f256fdb67ccc, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754450254229079266, guid: 4f8231d2ebc9f0544ae4f256fdb67ccc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754450254229079266, guid: 4f8231d2ebc9f0544ae4f256fdb67ccc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4754450254229079266, guid: 4f8231d2ebc9f0544ae4f256fdb67ccc, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 822513868020973154, guid: 4f8231d2ebc9f0544ae4f256fdb67ccc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1626191727}
+  m_SourcePrefab: {fileID: 100100000, guid: 4f8231d2ebc9f0544ae4f256fdb67ccc, type: 3}
+--- !u!1 &1626191726 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 822513868020973154, guid: 4f8231d2ebc9f0544ae4f256fdb67ccc, type: 3}
+  m_PrefabInstance: {fileID: 1626191725}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1626191727
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1626191726}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 83af906b035c7d84aad01b6828c023e5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1949511480
 GameObject:
   m_ObjectHideFlags: 0
@@ -274,3 +374,4 @@ SceneRoots:
   m_Roots:
   - {fileID: 1949511483}
   - {fileID: 266357506}
+  - {fileID: 1626191725}
