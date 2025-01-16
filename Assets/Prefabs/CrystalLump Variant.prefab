@@ -54,7 +54,7 @@ PrefabInstance:
       objectReference: {fileID: -2317314943121728168, guid: 2c4be6afde1d08e4285c3c12a36d21f7, type: 3}
     - target: {fileID: 7257859815690126019, guid: a5f300550868fc74cb9aa13fcb3eb610, type: 3}
       propertyPath: m_SortingOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9143182159333758967, guid: a5f300550868fc74cb9aa13fcb3eb610, type: 3}
       propertyPath: m_Name
@@ -86,4 +86,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80eecc0b7ad6945469e217c3547398a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shardsInCrystal: 3
+  shardsInCrystal: -10

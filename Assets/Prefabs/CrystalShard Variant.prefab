@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 5705781637342902198, guid: c1cb246284a41744186976ced85890c9, type: 3}
+    - target: {fileID: 811538034161487987, guid: 0eafd506de4046344937e6daf6624ddb, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2826773895827144012, guid: 0eafd506de4046344937e6daf6624ddb, type: 3}
       propertyPath: m_Name
       value: CrystalShard Variant
@@ -82,5 +86,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80eecc0b7ad6945469e217c3547398a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
   shardsInCrystal: 3

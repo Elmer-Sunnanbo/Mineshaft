@@ -99,4 +99,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9412c4af5e457a943b60d6cf0c853ec9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  goldInPile: 3
+  goldInPile: 2
