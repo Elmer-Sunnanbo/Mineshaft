@@ -192,7 +192,22 @@ public class RailwayTools : MonoBehaviour
             EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
         }
     }
+    [MenuItem("Building Tools/Walls fixes")]
+    static void FixTilemapWalls()
+    {
+        List<TilemapCollider2D> colliders = FindObjectsByType<TilemapCollider2D>(FindObjectsSortMode.None).ToList();
+        foreach (TilemapCollider2D colllider in colliders)
+        {
+            colllider.gameObject.AddComponent<PathfindingBlocker>();
+            colllider.gameObject.layer = 9;
+        }
 
+
+        if (colliders.Count > 0)
+        {
+            EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+        }
+    }
     static RailTile CheckForTileAtVector(Vector2 vector, List<RailTile> tiles, List<Vector2> vectors)
     {
         for(int i = 0; i < vectors.Count; i++)
