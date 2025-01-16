@@ -223,7 +223,6 @@ public class ProjectileEnemy : MonoBehaviour, IHittable, IEnemy
                 BatAni.SetBool("BatRight", true);
                 BatAni.SetBool("BatLeft", false);
                 BatAni.SetBool("BatIdle", false);
-                Debug.Log("batRight is really true");
             }
             if (myRigidbody.velocityX < 0)
             {
@@ -232,7 +231,6 @@ public class ProjectileEnemy : MonoBehaviour, IHittable, IEnemy
                 BatAni.SetBool("BatRight", false);
                 BatAni.SetBool("BatLeft", true);
                 BatAni.SetBool("BatIdle", false);
-                Debug.Log("batleft is really true");
             }
         }
         else
@@ -246,7 +244,6 @@ public class ProjectileEnemy : MonoBehaviour, IHittable, IEnemy
                     BatAni.SetBool("BatRight", false);
                     BatAni.SetBool("BatLeft", false);
                     BatAni.SetBool("BatIdle", false);
-                    Debug.Log("batup is really true");
                 }
             }
             else
@@ -258,7 +255,6 @@ public class ProjectileEnemy : MonoBehaviour, IHittable, IEnemy
                     BatAni.SetBool("BatRight", false);
                     BatAni.SetBool("BatLeft", false);
                     BatAni.SetBool("BatIdle", false);
-                    Debug.Log("batdown is really true");
                 }
             }
         }
