@@ -12,6 +12,7 @@ public class ProjectileEnemy : MonoBehaviour, IHittable, IEnemy
     [SerializeField] float speed;
     [SerializeField] float wakeUpDistance;
     [SerializeField] float sleepDelay;
+    [SerializeField] float projectileChargeTime;
     [SerializeField] float maxDistance;
     [SerializeField] float minDistance;
 
@@ -25,7 +26,7 @@ public class ProjectileEnemy : MonoBehaviour, IHittable, IEnemy
     float? timeUntilSleep = null;
     public float ProEnemyHealth;
     float lastKnownPosMinDistance = 0.2f;
-    float attackReloadTimer;
+    float? timeUntilProjectile;
     Rigidbody2D myRigidbody;
     SpriteRenderer mySpriteRenderer;
     Vector2 lastKnownPosition;
@@ -46,19 +47,10 @@ public class ProjectileEnemy : MonoBehaviour, IHittable, IEnemy
         myRigidbody = GetComponent<Rigidbody2D>();
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         state = States.Sleeping;
-        ProEnemyHealth = 2;
+        ProEnemyHealth = 3;
     }
     private void FixedUpdate()
     {
-        if(state == States.Chasing||state == States.InRange)
-        {
-            if(attackReloadTimer < 0)
-            {
-                SummonProjectile();
-                attackReloadTimer = 3;
-            }
-            attackReloadTimer -= Time.deltaTime;
-        }
         if(ProEnemyHealth < 1)
         {
             Destroy(gameObject);
@@ -72,6 +64,15 @@ public class ProjectileEnemy : MonoBehaviour, IHittable, IEnemy
         bool hasLOS = LineOfSightCheck();
         int StateCheckPasses = 0;
 
+        if (timeUntilProjectile <= 0)
+        {
+            SummonProjectile();
+            timeUntilProjectile = null;
+        }
+        else if (timeUntilProjectile != null)
+        {
+            timeUntilProjectile -= Time.deltaTime;
+        }
     CheckStatesAgain:
 
         StateCheckPasses++;
@@ -100,6 +101,10 @@ public class ProjectileEnemy : MonoBehaviour, IHittable, IEnemy
                     myRigidbody.velocity = MoveDir * speed;
                     lastKnownPosition = targetPos;
                     lastKnownPositionActive = true;
+                    if(timeUntilProjectile == null)
+                    {
+                        timeUntilProjectile = projectileChargeTime;
+                    }
                 }
                 else if (vectorToTarget.magnitude < minDistance && hasLOS) //If we've reached the target
                 {
@@ -161,6 +166,8 @@ public class ProjectileEnemy : MonoBehaviour, IHittable, IEnemy
                 if (vectorToTarget.magnitude < minDistance && hasLOS) //If the target is still in range
                 {
                     //Attack or something
+                    lastKnownPosition = targetPos;
+                    lastKnownPositionActive = true;
                     myRigidbody.velocity = Vector2.zero;
                 }
                 else
@@ -168,6 +175,10 @@ public class ProjectileEnemy : MonoBehaviour, IHittable, IEnemy
                     //Target has left the range, chase after it
                     state = States.Chasing;
                     goto CheckStatesAgain;
+                }
+                if (timeUntilProjectile == null)
+                {
+                    timeUntilProjectile = projectileChargeTime;
                 }
                 break;
 
@@ -286,16 +297,30 @@ public class ProjectileEnemy : MonoBehaviour, IHittable, IEnemy
         return false;
     }
 
+    
+    void SummonProjectile()
+    {
+        Vector2 shotTarget;
+        if(LineOfSightCheck())
+        {
+            shotTarget = target.transform.position;
+        }
+        else if (lastKnownPositionActive)
+        {
+            shotTarget = lastKnownPosition;
+        }
+        else
+        {
+            return;
+        }
+        Vector2 angleTarget = shotTarget - (Vector2) transform.position;
+        float angle = Mathf.Atan2(angleTarget.y, angleTarget.x) * Mathf.Rad2Deg;
+        GameObject latestSpawn = Instantiate(projectile, transform.position, Quaternion.Euler(0, 0, angle)); //Summons projectile in the direction to the player.
+        //myRigidbody.velocity = angleTarget * -10;//Move backwards after shooting. (Was buggy)
+    }
     /// <summary>
     /// Changes the color of the object to represent it's state
     /// </summary>
-    void SummonProjectile()
-    {
-        Vector2 angleTarget = target.transform.position - transform.position;
-        float angle = Mathf.Atan2(angleTarget.y, angleTarget.x) * Mathf.Rad2Deg;
-        GameObject latestSpawn = Instantiate(projectile, transform.position, Quaternion.Euler(0, 0, angle)); //Summons projectile in the direction to the player.
-        myRigidbody.velocity = angleTarget * -10;//Move backwards after shooting.
-    }
     void RenderState()
     {
         switch (state)

@@ -12,6 +12,7 @@ public class StalagmiteEnemy : MonoBehaviour, IHittable, IEnemy
     [SerializeField] float speed;
     [SerializeField] float wakeUpDistance;
     [SerializeField] float sleepDelay;
+    [SerializeField] float projectileChargeTime;
     [SerializeField] float maxDistance;
     [SerializeField] float minDistance;
 
@@ -23,6 +24,7 @@ public class StalagmiteEnemy : MonoBehaviour, IHittable, IEnemy
     [SerializeField] Color inRangeColor;
 
     float? timeUntilSleep = null;
+    float? timeUntilProjectile = null;
     float lastKnownPosMinDistance = 0.2f;
     float attackReloadTimer;
     public int StalagmiteHealth;
@@ -38,7 +40,8 @@ public class StalagmiteEnemy : MonoBehaviour, IHittable, IEnemy
         Chasing,
         ChasingLKP,
         ChaseEnd,
-        InRange
+        InRange,
+        Charging,
     }
     void Start()
     {
@@ -49,15 +52,6 @@ public class StalagmiteEnemy : MonoBehaviour, IHittable, IEnemy
     }
     private void FixedUpdate()
     {
-        if(state == States.Chasing||state == States.InRange)
-        {
-            if(attackReloadTimer < 0)
-            {
-                SummonStalagmite();
-                attackReloadTimer = 4;
-            }
-            attackReloadTimer -= Time.deltaTime;
-        }
         if(StalagmiteHealth < 1)
         {
             Destroy(gameObject);
@@ -160,8 +154,11 @@ public class StalagmiteEnemy : MonoBehaviour, IHittable, IEnemy
             case States.InRange:
                 if (vectorToTarget.magnitude < minDistance && hasLOS) //If the target is still in range
                 {
-                    //Attack or something
+                    lastKnownPosition = targetPos;
+                    lastKnownPositionActive = true;
+                    state = States.Charging;
                     myRigidbody.velocity = Vector2.zero;
+                    goto CheckStatesAgain;
                 }
                 else
                 {
@@ -169,7 +166,6 @@ public class StalagmiteEnemy : MonoBehaviour, IHittable, IEnemy
                     state = States.Chasing;
                     goto CheckStatesAgain;
                 }
-                break;
 
             case States.ChaseEnd:
                 if (vectorToTarget.magnitude < maxDistance && hasLOS) //If the target is in range
@@ -198,6 +194,32 @@ public class StalagmiteEnemy : MonoBehaviour, IHittable, IEnemy
                         state = States.Sleeping;
                         goto CheckStatesAgain;
                     }
+                }
+                break;
+
+            case States.Charging:
+                //Chill and wait for attack to charge
+                myRigidbody.velocity = Vector2.zero;
+                if(vectorToTarget.magnitude < minDistance && hasLOS)
+                {
+                    lastKnownPosition = targetPos;
+                    lastKnownPositionActive = true;
+                }
+
+                if (timeUntilProjectile == null) //If the timer hasn't been set
+                {
+                    timeUntilProjectile = projectileChargeTime;
+                }
+
+                timeUntilProjectile -= Time.deltaTime;
+
+                if (timeUntilProjectile <= 0)
+                {
+                    //Fire it off
+                    timeUntilProjectile = null;
+                    state = States.Chasing;
+                    SummonStalagmite();
+                    goto CheckStatesAgain;
                 }
                 break;
         }
@@ -232,7 +254,20 @@ public class StalagmiteEnemy : MonoBehaviour, IHittable, IEnemy
     /// </summary>
     void SummonStalagmite()
     {
-        Vector2 angleTarget = target.transform.position - transform.position;
+        Vector2 shotTarget;
+        if (LineOfSightCheck())
+        {
+            shotTarget = target.transform.position;
+        }
+        else if (lastKnownPositionActive)
+        {
+            shotTarget = lastKnownPosition;
+        }
+        else
+        {
+            return;
+        }
+        Vector2 angleTarget = shotTarget - (Vector2) transform.position;
         float angle = Mathf.Atan2(angleTarget.y, angleTarget.x) * Mathf.Rad2Deg;
         GameObject latestSpawn = Instantiate(stalagmiteProjectile, transform.position, Quaternion.Euler(0, 0, angle));//Instantiating the stalagmite bullet in the direction of the player.
     }

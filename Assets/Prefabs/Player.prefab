@@ -198,8 +198,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitDirection: {x: 0, y: 0}
   reach: 3
-  playerHealth: 4
-  attackReloadTimer: 0.5
+  attackReloadTimer: 0.4
+  swing: {fileID: 6008754123163952181, guid: 58940d78940663b42875961919c364f4, type: 3}
 --- !u!95 &1107956966843604732
 Animator:
   serializedVersion: 7

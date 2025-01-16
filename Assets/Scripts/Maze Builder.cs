@@ -236,10 +236,6 @@ public class MazeBuilder : MonoBehaviour
                                 manager.borderRailNorth.AutoSetSprite();
                             }
                         }
-                        else
-                        {
-                            Debug.LogWarning("Maze builder found manager with missing connection at " + x + ", " + y + " - north");
-                        }
                     }
                     //East
                     if (x == maxX) //If we can't go further east
@@ -256,10 +252,6 @@ public class MazeBuilder : MonoBehaviour
                                 manager.borderRailEast.AutoSetSprite();
                             }
                         }
-                        else
-                        {
-                            Debug.LogWarning("Maze builder found manager with missing connection at " + x + ", " + y + " - east");
-                        }
                     }
                     //South
                     if (y == minY) //If we can't go further north
@@ -270,15 +262,11 @@ public class MazeBuilder : MonoBehaviour
                     {
                         if (manager.borderRailSouth != null)
                         {
-                            if (neighbourManager.borderRailSouth != null)
+                            if (neighbourManager.borderRailNorth != null)
                             {
                                 manager.borderRailSouth.neighbours[2] = neighbourManager.borderRailNorth;
                                 manager.borderRailSouth.AutoSetSprite();
                             }
-                        }
-                        else
-                        {
-                            Debug.LogWarning("Maze builder found manager with missing connection at " + x + ", " + y + " - south");
                         }
                     }
                     //West
@@ -295,10 +283,6 @@ public class MazeBuilder : MonoBehaviour
                                 manager.borderRailWest.neighbours[3] = neighbourManager.borderRailEast;
                                 manager.borderRailWest.AutoSetSprite();
                             }
-                        }
-                        else
-                        {
-                            Debug.LogWarning("Maze builder found manager with missing connection at " + x + ", " + y + " - west");
                         }
                     }
                 }

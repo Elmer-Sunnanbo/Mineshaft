@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - enemy
+  - Pile
   layers:
   - Default
   - TransparentFX
@@ -14,9 +15,9 @@ TagManager:
   - UI
   - Enemy
   - Projectile
-  - 
-  - 
-  - 
+  - SemiProjectile
+  - Walls
+  - NoCollisionHittable
   - 
   - 
   - 

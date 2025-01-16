@@ -4,32 +4,41 @@ using UnityEngine;
 
 public class StalagmiteObstacleScript : MonoBehaviour
 {
-    private float ObstacleActivationTimer;
-    private float ObstacleDespawnTimer;
+    [SerializeField] float ObstacleActivationTimer;
+    [SerializeField] float ObstacleDespawnTimer;
     BoxCollider2D ObstacleCol;
+    List<Player> HitPlayers = new List<Player>();
     void Start()
     {
         ObstacleCol = GetComponent<BoxCollider2D>();
         ObstacleCol.enabled = false;
-        ObstacleActivationTimer = 0.2f;
-        ObstacleDespawnTimer = 2;
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        if(ObstacleDespawnTimer < 0)
-        {
-            Destroy(gameObject);
-        }
-        ObstacleDespawnTimer -= Time.deltaTime;
-    }
+
     void Update()
     {
-        if(ObstacleActivationTimer < 0)
+        ObstacleActivationTimer -= Time.deltaTime;
+        ObstacleDespawnTimer -= Time.deltaTime;
+        if (ObstacleActivationTimer < 0)
         {
+            foreach (RaycastHit2D hit in Physics2D.BoxCastAll(transform.position, new Vector2(0.2f,0.2f), 0, Vector2.zero, 0))
+            {
+                if(hit.collider.gameObject.TryGetComponent(out Player player))
+                {
+                    player.PiercingHit();
+                    HitPlayers.Add(player);
+                }
+            }
+
             ObstacleCol.enabled = true;
         }
-        ObstacleActivationTimer -= Time.deltaTime;
+        if (ObstacleDespawnTimer < 0)
+        {
+            foreach(Player player in HitPlayers)
+            {
+                player.UnPierce();
+            }
+            Destroy(gameObject);
+        }
     }
 }

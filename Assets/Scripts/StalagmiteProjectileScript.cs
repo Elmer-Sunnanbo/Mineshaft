@@ -47,6 +47,7 @@ public class StalagmiteProjectileScript : MonoBehaviour
             Destroy(gameObject);
         }
         projectileLongetivityTimer -= Time.deltaTime;
+        myRigidBody.velocity = myRigidBody.velocity.normalized * speed; //Ensure the projectile is always moving at max speed
     }
     private void OnCollisionEnter2D(Collision2D col)
     {
