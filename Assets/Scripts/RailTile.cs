@@ -176,6 +176,18 @@ public class RailTile : MonoBehaviour
         turnTurntable.Invoke();
     }
 
+    public Direction GetDisplayDirection(Direction realDirection, float progress)
+    {
+        if(progress < 0.5f)
+        {
+            return realDirection;
+        }
+        else
+        {
+            return GetDirectionAfterTravel(realDirection);
+        }
+    }
+
     public void AutoSetSprite()
     {
         Sprite selectedSprite = null;

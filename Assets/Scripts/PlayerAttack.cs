@@ -36,7 +36,6 @@ public class PlayerAttack : MonoBehaviour
 
                 // Create the raycast
                 RaycastHit2D hit = Physics2D.Raycast(raycastOrigin, direction, reach); // Send raycast
-
                 if (hit.collider != null) // If a hitObj is found
                 {
                     //Hit everything that should be hit
