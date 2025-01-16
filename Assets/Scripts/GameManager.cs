@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        getPlayer = player.GetComponent<Player>();
         instance = this;
     }
     void SaveHighscore()
