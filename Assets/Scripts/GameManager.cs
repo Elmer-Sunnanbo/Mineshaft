@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -14,6 +17,7 @@ public class GameManager : MonoBehaviour
     private int playerHealth;
     public GameObject player;
 
+    public TextMeshProUGUI ScoreDisplay;
     private void Awake()
     {
         instance = this;
@@ -28,6 +32,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
+        ScoreDisplay = GetComponent<TextMeshProUGUI>();
         gold = 0;
         gameScore = 0;
         coal = 0;
@@ -36,14 +41,16 @@ public class GameManager : MonoBehaviour
     public void Update()
     {
         playerHealth = getPlayer.playerHP;
-        gameScore = (gold + playerHealth - 4);
+        gameScore = (coal + (gold * 2) + (playerHealth * gold));
         if(GameHighscore < gameScore)
         {
             GameHighscore = gameScore;
         }
+        ScoreDisplay.SetText("[Highscore: " + GameHighscore + "]");
     }
     private void FixedUpdate()
     {
         SaveHighscore();
+        
     }
 }
