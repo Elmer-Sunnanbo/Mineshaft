@@ -12,7 +12,7 @@ public class GoldScript : MonoBehaviour, IHittable
 
         if (gameObject.tag == "Pile")
         {
-            // When goldpile is hit the gameObject is loses one gold and player gains one gold. After all the gold is gon from the pile it´s destroyed 
+            // When goldpile is hit the gameObject is loses one gold and player gains one gold. After all the gold is gone from the pile it´s destroyed 
             goldInPile -= 1;
             gameManager.gold += 1;
 

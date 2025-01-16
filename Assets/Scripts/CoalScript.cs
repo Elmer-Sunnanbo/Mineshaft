@@ -12,7 +12,7 @@ public class CoalScript : MonoBehaviour, IHittable
         
         if (gameObject.tag == "Pile")
         {
-            // When coalpile is hit the gameObject is loses one coal and player gains one coal. After all the coal is gon from the pile it´s destroyed 
+            // When coalpile is hit the gameObject is loses one coal and player gains one coal. After all the coal is gone from the pile it´s destroyed 
             coalInPile -= 1;
             gameManager.coal += 1;
 
