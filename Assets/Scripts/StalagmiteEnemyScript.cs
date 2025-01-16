@@ -33,6 +33,7 @@ public class StalagmiteEnemy : MonoBehaviour, IHittable, IEnemy
     Vector2 lastKnownPosition;
     bool lastKnownPositionActive;
     States state;
+    [SerializeField] Animator MoleAni;
 
     enum States
     {
@@ -224,6 +225,61 @@ public class StalagmiteEnemy : MonoBehaviour, IHittable, IEnemy
                 break;
         }
     SkipStateChecking:;
+        // everything inbeetween these two messages are for the animations and nothing else
+        if (myRigidbody.velocityX == 0 && myRigidbody.velocityY == 0)
+        {
+            MoleAni.SetBool("Mole+y", false);
+            MoleAni.SetBool("Mole-y", false);
+            MoleAni.SetBool("Mole+x", false);
+            MoleAni.SetBool("Mole-x", false);
+            MoleAni.SetBool("StopMoling", true);
+        }
+        else if (Mathf.Abs(myRigidbody.velocityX) > Mathf.Abs(myRigidbody.velocityY))
+        {
+            if (myRigidbody.velocityX > 0)
+            {
+                MoleAni.SetBool("Mole+y", false);
+                MoleAni.SetBool("Mole-y", false);
+                MoleAni.SetBool("Mole+x", true);
+                MoleAni.SetBool("Mole-x", false);
+                MoleAni.SetBool("StopMoling", false);
+            }
+            if (myRigidbody.velocityX < 0)
+            {
+                MoleAni.SetBool("Mole+y", false);
+                MoleAni.SetBool("Mole-y", false);
+                MoleAni.SetBool("Mole+x", false);
+                MoleAni.SetBool("Mole-x", true);
+                MoleAni.SetBool("StopMoling", false);
+            }
+        }
+        else
+        {
+            if (0 < myRigidbody.velocityY)
+            {
+                if (myRigidbody.velocityY > 0)
+                {
+                    MoleAni.SetBool("Mole+y", false);
+                    MoleAni.SetBool("Mole-y", true);
+                    MoleAni.SetBool("Mole+x", false);
+                    MoleAni.SetBool("Mole-x", false);
+                    MoleAni.SetBool("StopMoling", false);
+                }
+            }
+            else
+            {
+                if (myRigidbody.velocityY < 0)
+                {
+                    MoleAni.SetBool("Mole+y", true);
+                    MoleAni.SetBool("Mole-y", false);
+                    MoleAni.SetBool("Mole+x", false);
+                    MoleAni.SetBool("Mole-x", false);
+                    MoleAni.SetBool("StopMoling", false);
+                }
+            }
+        }
+
+        // this is the end of the code for animation
     }
 
     bool LineOfSightCheck()
