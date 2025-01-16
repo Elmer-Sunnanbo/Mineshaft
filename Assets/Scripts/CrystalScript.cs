@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class CrystalScript : MonoBehaviour, IHittable
 {
-    public Player player;
+    Player player;
     public int shardsInCrystal = 3; // Standard amount of shards in a crystal is 3
+
+    void Start()
+    {
+        player = GameManager.instance.player.GetComponent<Player>();
+    }
 
     public void Hit() // When obj is hit
     {

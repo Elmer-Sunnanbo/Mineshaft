@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CoalScript : MonoBehaviour, IHittable
 {
-    public GameManager gameManager; // Reference to script
     public int coalInPile = 3; // Standard amount of coal in a coalpile is 3
 
     public void Hit() // When obj is hit
@@ -14,7 +13,7 @@ public class CoalScript : MonoBehaviour, IHittable
         {
             // When coalpile is hit the gameObject is loses one coal and player gains one coal. After all the coal is gone from the pile it´s destroyed 
             coalInPile -= 1;
-            gameManager.coal += 1;
+            GameManager.instance.coal += 1;
 
             if(coalInPile < 1)
             {
@@ -25,7 +24,7 @@ public class CoalScript : MonoBehaviour, IHittable
         else
         {
             // When coal is hit the gameObject is imediatley destroyed and the player gains coal
-            gameManager.coal += 1;
+            GameManager.instance.coal += 1;
             Destroy(gameObject);
         }
     }
