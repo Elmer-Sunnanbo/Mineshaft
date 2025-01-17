@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
     public int coal;
     public int gameScore;
     public int GameHighscore;
-    Player getPlayer;
+    public Player getPlayer;
     private int playerHealth;
     public GameObject player;
 
