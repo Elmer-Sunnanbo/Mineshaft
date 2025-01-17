@@ -16,7 +16,7 @@ public class FronColliScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isInTriggerFront && Input.GetKeyDown(KeyCode.E) && mainTrigger.isInTrigger == false)
+        if (isInTriggerFront && Input.GetKeyDown(KeyCode.E) && mainTrigger.isInTrigger == false && !mainTrigger.playerIn)
         {
             if (movement != null)
             {

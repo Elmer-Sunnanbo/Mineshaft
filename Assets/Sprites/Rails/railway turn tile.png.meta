@@ -103,10 +103,10 @@ TextureImporter:
       name: railway turn tile_0
       rect:
         serializedVersion: 2
-        x: 1
+        x: 0
         y: 0
-        width: 15
-        height: 15
+        width: 16
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -123,7 +123,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 988a8f767c6a0ee4993a91ae42e763a8
     internalID: 0
     vertices: []
     indices: 
