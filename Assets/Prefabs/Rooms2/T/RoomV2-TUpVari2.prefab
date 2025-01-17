@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 497545648415798372}
   - component: {fileID: 3466425038809050508}
   - component: {fileID: 5584154376395183438}
-  m_Layer: 0
+  - component: {fileID: 6113169301901316464}
+  m_Layer: 9
   m_Name: Tilemap Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -425,6 +426,18 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &6113169301901316464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1322564360702190179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1bc8e4fe7051af4eab77fbe7c5059fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2464675124399853598
 GameObject:
   m_ObjectHideFlags: 0
@@ -2053,7 +2066,7 @@ PrefabInstance:
       objectReference: {fileID: 7319185310666276905}
     - target: {fileID: 6742672106268620938, guid: ecfa25958627962439ad98ba9cda89a2, type: 3}
       propertyPath: m_Name
-      value: Rail (1)
+      value: TTE
       objectReference: {fileID: 0}
     - target: {fileID: 7057338897633038607, guid: ecfa25958627962439ad98ba9cda89a2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2224,7 +2237,7 @@ PrefabInstance:
       objectReference: {fileID: 3980949805000215409}
     - target: {fileID: 6742672106268620938, guid: ecfa25958627962439ad98ba9cda89a2, type: 3}
       propertyPath: m_Name
-      value: Rail (2)
+      value: TTN
       objectReference: {fileID: 0}
     - target: {fileID: 7057338897633038607, guid: ecfa25958627962439ad98ba9cda89a2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2430,7 +2443,7 @@ PrefabInstance:
       objectReference: {fileID: 5626265592535362477}
     - target: {fileID: 6742672106268620938, guid: ecfa25958627962439ad98ba9cda89a2, type: 3}
       propertyPath: m_Name
-      value: Rail
+      value: TTW
       objectReference: {fileID: 0}
     - target: {fileID: 7057338897633038607, guid: ecfa25958627962439ad98ba9cda89a2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2711,6 +2724,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8419124830139757527}
     m_Modifications:
+    - target: {fileID: 1497243352163085083, guid: 1ee3de995dc5f0e4f8cada400837698d, type: 3}
+      propertyPath: 'connectedTables.Array.data[0]'
+      value: 
+      objectReference: {fileID: 9197139758028722903}
     - target: {fileID: 6535255991039154545, guid: 1ee3de995dc5f0e4f8cada400837698d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1
@@ -2967,6 +2984,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8419124830139757527}
     m_Modifications:
+    - target: {fileID: 1497243352163085083, guid: 1ee3de995dc5f0e4f8cada400837698d, type: 3}
+      propertyPath: 'connectedTables.Array.data[0]'
+      value: 
+      objectReference: {fileID: 623770074465578642}
     - target: {fileID: 6535255991039154545, guid: 1ee3de995dc5f0e4f8cada400837698d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1
@@ -3760,6 +3781,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8419124830139757527}
     m_Modifications:
+    - target: {fileID: 1497243352163085083, guid: 1ee3de995dc5f0e4f8cada400837698d, type: 3}
+      propertyPath: 'connectedTables.Array.data[0]'
+      value: 
+      objectReference: {fileID: 808338640701211476}
     - target: {fileID: 6535255991039154545, guid: 1ee3de995dc5f0e4f8cada400837698d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

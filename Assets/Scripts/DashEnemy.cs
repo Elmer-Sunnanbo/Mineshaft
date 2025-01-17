@@ -320,7 +320,6 @@ public class DashEnemy : MonoBehaviour, IHittable, IEnemy
                 return false; //There were obstrucions before the player
             }
         }
-        Debug.LogWarning("An enemy's line of sight check did not find the player object");
         return false;
     }
 

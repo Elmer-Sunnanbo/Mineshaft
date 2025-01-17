@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        getPlayer = player.GetComponent<Player>();
         instance = this;
     }
     void SaveHighscore()
@@ -36,7 +37,7 @@ public class GameManager : MonoBehaviour
     public void Update()
     {
         playerHealth = getPlayer.playerHP;
-        gameScore = (gold + playerHealth - 4);
+        gameScore = (coal + (gold * 2) + (playerHealth * gold));
         if(GameHighscore < gameScore)
         {
             GameHighscore = gameScore;

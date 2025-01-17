@@ -88,7 +88,8 @@ GameObject:
   - component: {fileID: 290294318066754491}
   - component: {fileID: 6478189179606091950}
   - component: {fileID: 6387123766984121517}
-  m_Layer: 0
+  - component: {fileID: 6110857300684841135}
+  m_Layer: 9
   m_Name: Tilemap Collision
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -501,6 +502,18 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &6110857300684841135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7678826837652191208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1bc8e4fe7051af4eab77fbe7c5059fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7801445759863260274
 GameObject:
   m_ObjectHideFlags: 0
@@ -2116,7 +2129,7 @@ PrefabInstance:
       objectReference: {fileID: 145269814079394112}
     - target: {fileID: 6742672106268620938, guid: ecfa25958627962439ad98ba9cda89a2, type: 3}
       propertyPath: m_Name
-      value: Rail (16)
+      value: TT3
       objectReference: {fileID: 0}
     - target: {fileID: 7057338897633038607, guid: ecfa25958627962439ad98ba9cda89a2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2203,6 +2216,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 227391961671561268}
     m_Modifications:
+    - target: {fileID: 1497243352163085083, guid: 1ee3de995dc5f0e4f8cada400837698d, type: 3}
+      propertyPath: 'connectedTables.Array.data[0]'
+      value: 
+      objectReference: {fileID: 8589763828463602570}
     - target: {fileID: 6535255991039154545, guid: 1ee3de995dc5f0e4f8cada400837698d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1
@@ -2287,7 +2304,7 @@ PrefabInstance:
       objectReference: {fileID: 7306901158670594050}
     - target: {fileID: 6742672106268620938, guid: ecfa25958627962439ad98ba9cda89a2, type: 3}
       propertyPath: m_Name
-      value: Rail (2)
+      value: TT1
       objectReference: {fileID: 0}
     - target: {fileID: 7057338897633038607, guid: ecfa25958627962439ad98ba9cda89a2, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2475,6 +2492,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 227391961671561268}
     m_Modifications:
+    - target: {fileID: 1497243352163085083, guid: 1ee3de995dc5f0e4f8cada400837698d, type: 3}
+      propertyPath: 'connectedTables.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2946232175618507453}
     - target: {fileID: 6535255991039154545, guid: 1ee3de995dc5f0e4f8cada400837698d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1
@@ -3030,6 +3051,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 227391961671561268}
     m_Modifications:
+    - target: {fileID: 1497243352163085083, guid: 1ee3de995dc5f0e4f8cada400837698d, type: 3}
+      propertyPath: 'connectedTables.Array.data[0]'
+      value: 
+      objectReference: {fileID: 7977341150693020042}
     - target: {fileID: 6535255991039154545, guid: 1ee3de995dc5f0e4f8cada400837698d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3215,7 +3240,7 @@ PrefabInstance:
       objectReference: {fileID: 5850290968574019723}
     - target: {fileID: 6742672106268620938, guid: ecfa25958627962439ad98ba9cda89a2, type: 3}
       propertyPath: m_Name
-      value: Rail (10)
+      value: TT2
       objectReference: {fileID: 0}
     - target: {fileID: 7057338897633038607, guid: ecfa25958627962439ad98ba9cda89a2, type: 3}
       propertyPath: m_LocalPosition.x

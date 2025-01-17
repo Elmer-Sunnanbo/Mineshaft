@@ -877,7 +877,8 @@ GameObject:
   - component: {fileID: 4081477933632206600}
   - component: {fileID: 8092413856422585286}
   - component: {fileID: 9020267615427302208}
-  m_Layer: 0
+  - component: {fileID: 7773781789377538541}
+  m_Layer: 9
   m_Name: Tilemap Collsion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1280,6 +1281,18 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!114 &7773781789377538541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7102012261987407898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1bc8e4fe7051af4eab77fbe7c5059fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &210402130016601562
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1553,6 +1566,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 8569309229837342364}
     m_Modifications:
+    - target: {fileID: 1497243352163085083, guid: 1ee3de995dc5f0e4f8cada400837698d, type: 3}
+      propertyPath: 'connectedTables.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3675329061181697187}
     - target: {fileID: 6535255991039154545, guid: 1ee3de995dc5f0e4f8cada400837698d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1
@@ -2572,7 +2589,7 @@ PrefabInstance:
       objectReference: {fileID: 5397573189917640192}
     - target: {fileID: 6742672106268620938, guid: ecfa25958627962439ad98ba9cda89a2, type: 3}
       propertyPath: m_Name
-      value: Rail (4)
+      value: TT
       objectReference: {fileID: 0}
     - target: {fileID: 7057338897633038607, guid: ecfa25958627962439ad98ba9cda89a2, type: 3}
       propertyPath: m_LocalPosition.x

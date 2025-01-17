@@ -16,7 +16,7 @@ public class BackColliScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isInTriggerBack && Input.GetKeyDown(KeyCode.E) && mainTrigger.isInTrigger == false)
+        if (isInTriggerBack && Input.GetKeyDown(KeyCode.E) && mainTrigger.isInTrigger == false && !mainTrigger.playerIn)
         {
             if(movement != null)
             {
