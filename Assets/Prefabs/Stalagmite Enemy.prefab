@@ -58,7 +58,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -137,11 +137,6 @@ MonoBehaviour:
   projectileChargeTime: 1.5
   maxDistance: 6
   minDistance: 4
-  sleepColor: {r: 0.18238991, g: 0.18238991, b: 0.18238991, a: 1}
-  chaseColor: {r: 0.509434, g: 0.10269139, b: 0, a: 1}
-  chaseLKPColor: {r: 0.6855345, g: 0.26013952, b: 0, a: 1}
-  chaseEndColor: {r: 0.76729554, g: 0.5985276, b: 0, a: 1}
-  inRangeColor: {r: 0, g: 0.51572317, b: 0.006394799, a: 1}
   StalagmiteHealth: 0
   MoleAni: {fileID: 5729150653395399002}
 --- !u!58 &660596360520744930

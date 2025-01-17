@@ -16,13 +16,6 @@ public class StalagmiteEnemy : MonoBehaviour, IHittable, IEnemy
     [SerializeField] float maxDistance;
     [SerializeField] float minDistance;
 
-    [Header("Colors")]
-    [SerializeField] Color sleepColor;
-    [SerializeField] Color chaseColor;
-    [SerializeField] Color chaseLKPColor;
-    [SerializeField] Color chaseEndColor;
-    [SerializeField] Color inRangeColor;
-
     float? timeUntilSleep = null;
     float? timeUntilProjectile = null;
     float lastKnownPosMinDistance = 0.2f;
@@ -61,7 +54,6 @@ public class StalagmiteEnemy : MonoBehaviour, IHittable, IEnemy
 
     void Update()
     {
-        RenderState();
         Vector2 targetPos = target.transform.position;
         Vector2 vectorToTarget = targetPos - (Vector2)transform.position;
         bool hasLOS = LineOfSightCheck();
@@ -304,9 +296,6 @@ public class StalagmiteEnemy : MonoBehaviour, IHittable, IEnemy
         return false;
     }
 
-    /// <summary>
-    /// Changes the color of the object to represent it's state
-    /// </summary>
     void SummonStalagmite()
     {
         Vector2 shotTarget;
@@ -325,27 +314,6 @@ public class StalagmiteEnemy : MonoBehaviour, IHittable, IEnemy
         Vector2 angleTarget = shotTarget - (Vector2) transform.position;
         float angle = Mathf.Atan2(angleTarget.y, angleTarget.x) * Mathf.Rad2Deg;
         GameObject latestSpawn = Instantiate(stalagmiteProjectile, transform.position, Quaternion.Euler(0, 0, angle));//Instantiating the stalagmite bullet in the direction of the player.
-    }
-    void RenderState()
-    {
-        switch (state)
-        {
-            case States.Sleeping:
-                mySpriteRenderer.color = sleepColor;
-                break;
-            case States.Chasing:
-                mySpriteRenderer.color = chaseColor;
-                break;
-            case States.ChasingLKP:
-                mySpriteRenderer.color = chaseLKPColor;
-                break;
-            case States.ChaseEnd:
-                mySpriteRenderer.color = chaseEndColor;
-                break;
-            case States.InRange:
-                mySpriteRenderer.color = inRangeColor;
-                break;
-        }
     }
 
     public void Hit()
