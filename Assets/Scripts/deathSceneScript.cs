@@ -28,9 +28,9 @@ public class deathSceneScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(gameManager.timeScore < timeHighscore)//If currect time is less than highscore. Change the highscore to the new score.
+        //if(gameManager.timeScore < timeHighscore)//If currect time is less than highscore. Change the highscore to the new score.
         {
-            timeHighscore = gameManager.timeScore;
+            //timeHighscore = gameManager.timeScore;
             SaveTimeScore();
         }
         //Line caused errors, please fix and uncomment

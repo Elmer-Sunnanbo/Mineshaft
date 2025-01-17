@@ -16,13 +16,6 @@ public class ProjectileEnemy : MonoBehaviour, IHittable, IEnemy
     [SerializeField] float maxDistance;
     [SerializeField] float minDistance;
 
-    [Header("Colors")]
-    [SerializeField] Color sleepColor;
-    [SerializeField] Color chaseColor;
-    [SerializeField] Color chaseLKPColor;
-    [SerializeField] Color chaseEndColor;
-    [SerializeField] Color inRangeColor;
-
     float? timeUntilSleep = null;
     public float ProEnemyHealth;
     float lastKnownPosMinDistance = 0.2f;
@@ -32,6 +25,7 @@ public class ProjectileEnemy : MonoBehaviour, IHittable, IEnemy
     Vector2 lastKnownPosition;
     bool lastKnownPositionActive;
     States state;
+    [SerializeField] Animator BatAni;
 
     enum States
     {
@@ -57,7 +51,6 @@ public class ProjectileEnemy : MonoBehaviour, IHittable, IEnemy
     }
     void Update()
     {
-        RenderState();
         Vector2 targetPos = target.transform.position;
         Vector2 vectorToTarget = targetPos - (Vector2)transform.position;
         bool hasLOS = LineOfSightCheck();
@@ -212,6 +205,61 @@ public class ProjectileEnemy : MonoBehaviour, IHittable, IEnemy
                 break;
         }
     SkipStateChecking:;
+// everything inbeetween these two messages are for the animations and nothing else
+        if(myRigidbody.velocityX == 0 && myRigidbody.velocityY == 0)
+        {
+            BatAni.SetBool("BatUp", false);
+            BatAni.SetBool("BatDown", false);
+            BatAni.SetBool("BatRight", false);
+            BatAni.SetBool("BatLeft", false);
+            BatAni.SetBool("BatIdle", true);
+        }
+        else if(Mathf.Abs(myRigidbody.velocityX) > Mathf.Abs(myRigidbody.velocityY))
+        {
+            if (myRigidbody.velocityX > 0)
+            {
+                BatAni.SetBool("BatUp", false);
+                BatAni.SetBool("BatDown", false);
+                BatAni.SetBool("BatRight", true);
+                BatAni.SetBool("BatLeft", false);
+                BatAni.SetBool("BatIdle", false);
+            }
+            if (myRigidbody.velocityX < 0)
+            {
+                BatAni.SetBool("BatUp", false);
+                BatAni.SetBool("BatDown", false);
+                BatAni.SetBool("BatRight", false);
+                BatAni.SetBool("BatLeft", true);
+                BatAni.SetBool("BatIdle", false);
+            }
+        }
+        else
+        {
+            if (0 < myRigidbody.velocityY)
+            {
+                if (myRigidbody.velocityY > 0)
+                {
+                    BatAni.SetBool("BatUp", true);
+                    BatAni.SetBool("BatDown", false);
+                    BatAni.SetBool("BatRight", false);
+                    BatAni.SetBool("BatLeft", false);
+                    BatAni.SetBool("BatIdle", false);
+                }
+            }
+            else
+            {
+                if (myRigidbody.velocityY < 0)
+                {
+                    BatAni.SetBool("BatUp", false);
+                    BatAni.SetBool("BatDown", true);
+                    BatAni.SetBool("BatRight", false);
+                    BatAni.SetBool("BatLeft", false);
+                    BatAni.SetBool("BatIdle", false);
+                }
+            }
+        }
+       
+// this is the end of the code for animation
     }
 
     bool LineOfSightCheck()
@@ -233,7 +281,6 @@ public class ProjectileEnemy : MonoBehaviour, IHittable, IEnemy
                 return false; //There were obstrucions before the player
             }
         }
-        Debug.LogWarning("An enemy's line of sight check did not find the player object");
         return false;
     }
 
@@ -257,30 +304,6 @@ public class ProjectileEnemy : MonoBehaviour, IHittable, IEnemy
         float angle = Mathf.Atan2(angleTarget.y, angleTarget.x) * Mathf.Rad2Deg;
         GameObject latestSpawn = Instantiate(projectile, transform.position, Quaternion.Euler(0, 0, angle)); //Summons projectile in the direction to the player.
         //myRigidbody.velocity = angleTarget * -10;//Move backwards after shooting. (Was buggy)
-    }
-    /// <summary>
-    /// Changes the color of the object to represent it's state
-    /// </summary>
-    void RenderState()
-    {
-        switch (state)
-        {
-            case States.Sleeping:
-                mySpriteRenderer.color = sleepColor;
-                break;
-            case States.Chasing:
-                mySpriteRenderer.color = chaseColor;
-                break;
-            case States.ChasingLKP:
-                mySpriteRenderer.color = chaseLKPColor;
-                break;
-            case States.ChaseEnd:
-                mySpriteRenderer.color = chaseEndColor;
-                break;
-            case States.InRange:
-                mySpriteRenderer.color = inRangeColor;
-                break;
-        }
     }
 
     public void Hit()

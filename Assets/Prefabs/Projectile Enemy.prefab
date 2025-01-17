@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 6729708775494336139}
   - component: {fileID: 292433756656197248}
   - component: {fileID: 973711327486982664}
-  - component: {fileID: 4517899422460227615}
+  - component: {fileID: 2341093842305448961}
+  - component: {fileID: 9210117831486412675}
   m_Layer: 6
   m_Name: Projectile Enemy
   m_TagString: enemy
@@ -57,7 +58,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -78,8 +79,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.35759187, g: 0.61006284, b: 0.35491073, a: 1}
+  m_Sprite: {fileID: 5473265040171442211, guid: 46dee0b98ec184949a7c08d3fa9803e5, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -103,18 +104,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   projectile: {fileID: 1524146364226564162, guid: 56688ca322a6550489714fcfcfa6cbe7, type: 3}
-  speed: 3
+  speed: 2.5
   wakeUpDistance: 6
   sleepDelay: 2
-  projectileChargeTime: 1
+  projectileChargeTime: 0.7
   maxDistance: 10
   minDistance: 5
-  sleepColor: {r: 0.35686275, g: 0.60784316, b: 0.3529412, a: 1}
-  chaseColor: {r: 1, g: 0.98193586, b: 0.42452818, a: 1}
-  chaseLKPColor: {r: 0.78616345, g: 0.37824836, b: 0.37824836, a: 1}
-  chaseEndColor: {r: 0.5660378, g: 0.080099605, b: 0.31723717, a: 1}
-  inRangeColor: {r: 0.40850827, g: 0.632074, b: 0.8490566, a: 1}
-  ProEnemyHealth: 0
+  ProEnemyHealth: 3
+  BatAni: {fileID: 2341093842305448961}
 --- !u!50 &973711327486982664
 Rigidbody2D:
   serializedVersion: 4
@@ -142,7 +139,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!58 &4517899422460227615
+--- !u!95 &2341093842305448961
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6836246627311624206}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f852fa2daf4b5824a9e347ab4599e0aa, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!58 &9210117831486412675
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -177,4 +196,4 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 0.5
+  m_Radius: 0.35

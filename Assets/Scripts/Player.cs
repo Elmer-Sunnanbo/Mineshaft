@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
     public static Player playerInstance;
     public int playerHP;
     float iFrameTimer;
+
+    bool isInMinecart;
     void Start()
     {
         playerInstance = this;
@@ -93,7 +95,7 @@ public class Player : MonoBehaviour
 
     public void Hit()
     {
-        if (iFrameTimer < 0)
+        if (iFrameTimer < 0 && !isInMinecart)
         {
             playerHP -= 1;
             iFrameTimer = 1;
@@ -102,7 +104,7 @@ public class Player : MonoBehaviour
 
     public void PiercingHit()
     {
-        if (iFrameTimer < 0)
+        if (iFrameTimer < 0 && !isInMinecart)
         {
             playerHP -= 1;
             iFrameTimer = 1;
@@ -112,6 +114,22 @@ public class Player : MonoBehaviour
 
     public void UnPierce()
     {
+        if(!isInMinecart)
+        {
+            myRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
+    }
+
+    public void EnterMinecart()
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
+        isInMinecart = true;
+        myRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;
+    }
+    public void ExitMinecart()
+    {
+        GetComponent<SpriteRenderer>().enabled = true;
+        isInMinecart = false;
         myRigidbody.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 }
