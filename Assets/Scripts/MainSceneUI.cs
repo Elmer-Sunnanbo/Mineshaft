@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class TitleScreen : MonoBehaviour
+public class MainSceneUI : MonoBehaviour
 {
     public Button GameButton;
 
@@ -12,12 +12,12 @@ public class TitleScreen : MonoBehaviour
     void Start()
     {
         // Listener for the button to call LoadMainScene when clicked
-        GameButton.onClick.AddListener(LoadMainScene);
+        GameButton.onClick.AddListener(LoadTitleScreen);
     }
-    
-    public void LoadMainScene()
+
+    public void LoadTitleScreen()
     {
         Debug.Log("play");
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("TitleScreen");
     }
 }
