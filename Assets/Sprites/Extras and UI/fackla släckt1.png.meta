@@ -1,19 +1,10 @@
 fileFormatVersion: 2
-guid: c18c2782473743a4499551ad96f1810d
+guid: df44d31627cbfa74ca46d269bd23a459
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3264056436388322934
-    second: "fackla t\xE4nd_0"
-  - first:
-      213: -3928615300822212911
-    second: "fackla t\xE4nd_1"
-  - first:
-      213: -549690364590132631
-    second: "fackla t\xE4nd_2"
-  - first:
-      213: 2106535018608773000
-    second: "fackla t\xE4nd_3"
+      213: 2700738962262081215
+    second: "fackla sl\xE4ckt1_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -122,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "fackla t\xE4nd_0"
+      name: "fackla sl\xE4ckt1_0"
       rect:
         serializedVersion: 2
         x: 0
@@ -134,73 +125,10 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: bdbfa2fa128d3fd45b77d7523fb75121
-      internalID: 831310724
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "fackla t\xE4nd_1"
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f1686c70c4edfa348a63d2a7aba07a67
-      internalID: -1115599739
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "fackla t\xE4nd_2"
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0d49718b9e607484d80cb4c0d5943d2c
-      internalID: 14316629
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: "fackla t\xE4nd_3"
-      rect:
-        serializedVersion: 2
-        x: 48
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3055462b0c7953c49abda7a737342a8e
-      internalID: -1662740839
+      spriteID: fbe30bce6c3fa7520800000000000000
+      internalID: 2700738962262081215
       vertices: []
       indices: 
       edges: []
@@ -208,7 +136,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: ce5abe8b02c5346429a9af0d99080553
+    spriteID: 1ae39780f99540f4abb2167234c816a5
     internalID: 0
     vertices: []
     indices: 
@@ -216,10 +144,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "fackla t\xE4nd_0": 831310724
-      "fackla t\xE4nd_1": -1115599739
-      "fackla t\xE4nd_2": 14316629
-      "fackla t\xE4nd_3": -1662740839
+      "fackla sl\xE4ckt1_0": 2700738962262081215
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
