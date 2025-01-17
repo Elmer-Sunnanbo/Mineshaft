@@ -203,7 +203,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 461368821}
         m_TargetAssemblyTypeName: TitleScreen, Assembly-CSharp
-        m_MethodName: LoadScene
+        m_MethodName: LoadMainScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -367,7 +367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fe11c3e0bd38a6448492cb1d6a4707e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GameButton: {fileID: 0}
+  GameButton: {fileID: 406726865}
 --- !u!1 &584421348
 GameObject:
   m_ObjectHideFlags: 0
