@@ -16,15 +16,13 @@ public class TurntableLever : MonoBehaviour, IHittable
         }
         if(Lever2)
         {
-            LeverAni.SetBool("LeverPressed2", false);
-            LeverAni.SetBool("LeverPressed1", true);
+            LeverAni.SetTrigger("LeverPressed");
             Lever2 = false;
             Lever1 = true;
         }
         else if (Lever1)
         {
-            LeverAni.SetBool("LeverPressed1", false);
-            LeverAni.SetBool("LeverPressed2", true);
+            LeverAni.SetTrigger("LeverPressed");
             Lever1 = false;
             Lever2 = true;
         }
