@@ -11,8 +11,10 @@ public class Torch : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D col)
     {
-        lightOn = true;
-        Debug.Log("lighton = true");
+        if(col.gameObject.TryGetComponent<Player>(out _))
+        {
+            lightOn = true;
+        }
     }
 
     private void Update()
@@ -21,7 +23,6 @@ public class Torch : MonoBehaviour
         {
             Light = gameObject.GetComponent<Light2D>(); // Get light component
             Light.enabled = true; // Activate light component
-            Debug.Log("Light enabled"); // Debug message
         }
         else
         {
