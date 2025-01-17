@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b0aeebb013ff1db41992a32d28f64ec0
+guid: 75371348d9ff63a4a95a08485d9d78f5
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4271505084360096204
-    second: crossing railway tile_0
+      213: 2641894523120030478
+    second: title screen_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -75,7 +75,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: crossing railway tile_0
+      name: title screen_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 112
+        height: 112
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4360176d1c098b4c0800000000000000
-      internalID: -4271505084360096204
+      spriteID: e039e984215e9a420800000000000000
+      internalID: 2641894523120030478
       vertices: []
       indices: 
       edges: []
@@ -123,7 +123,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -131,7 +131,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      crossing railway tile_0: -4271505084360096204
+      title screen_0: 2641894523120030478
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
