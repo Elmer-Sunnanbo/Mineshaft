@@ -28,6 +28,7 @@ public class DashEnemy : MonoBehaviour, IHittable, IEnemy
     Vector2 dashDirection;
     bool lastKnownPositionActive;
     States state;
+    [SerializeField] Animator RATANI;
 
     enum States
     {
@@ -243,6 +244,61 @@ public class DashEnemy : MonoBehaviour, IHittable, IEnemy
                 break;
         }
     SkipStateChecking:;
+        // everything inbeetween these two messages are for the animations and nothing else
+        if (myRigidbody.velocityX == 0 && myRigidbody.velocityY == 0)
+        {
+            RATANI.SetBool("RATUP", false);
+            RATANI.SetBool("RATDOWN", false);
+            RATANI.SetBool("RATRIGHT", false);
+            RATANI.SetBool("RATLEFT", false);
+            RATANI.SetBool("RATIDLE", true);
+        }
+        else if (Mathf.Abs(myRigidbody.velocityX) > Mathf.Abs(myRigidbody.velocityY))
+        {
+            if (myRigidbody.velocityX > 0)
+            {
+                RATANI.SetBool("RATUP", false);
+                RATANI.SetBool("RATDOWN", false);
+                RATANI.SetBool("RATRIGHT", true);
+                RATANI.SetBool("RATLEFT", false);
+                RATANI.SetBool("RATIDLE", false);
+            }
+            if (myRigidbody.velocityX < 0)
+            {
+                RATANI.SetBool("RATUP", false);
+                RATANI.SetBool("RATDOWN", false);
+                RATANI.SetBool("RATRIGHT", false);
+                RATANI.SetBool("RATLEFT", true);
+                RATANI.SetBool("RATIDLE", false);
+            }
+        }
+        else
+        {
+            if (0 < myRigidbody.velocityY)
+            {
+                if (myRigidbody.velocityY > 0)
+                {
+                    RATANI.SetBool("RATUP", false);
+                    RATANI.SetBool("RATDOWN", true);
+                    RATANI.SetBool("RATRIGHT", false);
+                    RATANI.SetBool("RATLEFT", false);
+                    RATANI.SetBool("RATIDLE", false);
+                }
+            }
+            else
+            {
+                if (myRigidbody.velocityY < 0)
+                {
+                    RATANI.SetBool("RATUP", true);
+                    RATANI.SetBool("RATDOWN", false);
+                    RATANI.SetBool("RATRIGHT", false);
+                    RATANI.SetBool("RATLEFT", false);
+                    RATANI.SetBool("RATIDLE", false);
+                }
+            }
+        }
+
+        // this is the end of the code for animation
     }
 
     bool LineOfSightCheck()
