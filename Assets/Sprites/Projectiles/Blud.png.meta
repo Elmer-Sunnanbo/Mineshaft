@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: a3e90a9f78b9d6b49894df9c5a3adacb
+guid: 6eef0cf98ad69924bb67fe227d892b8f
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2735648273776670788
-    second: "Sk\xE4rmbild 2025-01-17 095503_0"
+      213: 9206115705936041917
+    second: Blud_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: "Sk\xE4rmbild 2025-01-17 095503_0"
+      name: Blud_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 343
-        height: 149
+        width: 5
+        height: 5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,8 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4487ed46c99f6f520800000000000000
-      internalID: 2735648273776670788
+      spriteID: db7567d5571b2cf70800000000000000
+      internalID: 9206115705936041917
       vertices: []
       indices: 
       edges: []
@@ -144,7 +144,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      "Sk\xE4rmbild 2025-01-17 095503_0": 2735648273776670788
+      Blud_0: 9206115705936041917
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
