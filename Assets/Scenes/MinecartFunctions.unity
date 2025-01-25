@@ -1095,6 +1095,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   connectedTables:
   - {fileID: 1836778665}
+  LeverAni: {fileID: 0}
 --- !u!1001 &1814768985
 PrefabInstance:
   m_ObjectHideFlags: 0
