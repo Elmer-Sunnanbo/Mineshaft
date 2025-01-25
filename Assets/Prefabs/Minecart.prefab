@@ -406,6 +406,7 @@ GameObject:
   - component: {fileID: 8268521455133567578}
   - component: {fileID: 8646009356859099970}
   - component: {fileID: 6316275061359802517}
+  - component: {fileID: -8384408311871485033}
   m_Layer: 0
   m_Name: Minecart
   m_TagString: Untagged
@@ -5675,6 +5676,29 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-8384408311871485033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5142904011674712455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9053d370ca494c046a3c6bbddfe4da1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlledLight: {fileID: 8750804785298037178}
+  smallFlickerStrength: 0.015
+  smallFlickerSpeed: 7
+  smallFlickerSpeedIntensity: 3
+  smallFlickerStrengthIntensity: 0.35
+  bigFlickerSpeed: 1
+  bigFlickerRadiusStrength: 0.07
+  bigFlickerIntensityStrength: 0.2
+  blink: 0
+  averageBlinkDelay: 0
+  blinkDuration: 0
 --- !u!1 &5376533769849763798
 GameObject:
   m_ObjectHideFlags: 0
