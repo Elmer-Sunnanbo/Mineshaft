@@ -30,6 +30,32 @@ public class RailTile : MonoBehaviour
         turnTurntable.RemoveListener(minecart.TurnTableRotation);
     }
 
+    public bool GetIsCurved()
+    {
+        if(isStop || isTurntable)
+        {
+            return true;
+        }
+        //Count number of neighbours
+        int count = 0;
+        if (neighbours[0] != null) { count++; }
+        if (neighbours[1] != null) { count++; }
+        if (neighbours[2] != null) { count++; }
+        if (neighbours[3] != null) { count++; }
+        if(count != 2) //If there aren't 2 ends
+        {
+            return false;
+        }
+        else if(neighbours[0] != null && neighbours[2] != null || neighbours[1] != null && neighbours[3] != null) //If the rail is straight
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
     public Direction GetDirectionAfterTravel(Direction startDir)
     {
         if (isTurntable)
