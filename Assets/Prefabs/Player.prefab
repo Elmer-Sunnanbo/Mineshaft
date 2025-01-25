@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 6462673467511928697}
   - component: {fileID: 1107956966843604732}
   - component: {fileID: 8387598045361166483}
+  - component: {fileID: 3868036003870919940}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -61,7 +62,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -239,7 +240,7 @@ MonoBehaviour:
   m_BlendStyleIndex: 0
   m_FalloffIntensity: 0.5
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.7
+  m_Intensity: 0.6
   m_LightVolumeIntensity: 1
   m_LightVolumeEnabled: 0
   m_ApplyToSortingLayers: 0decb596e3d6351353b2047100000000f9a74caa
@@ -262,7 +263,7 @@ MonoBehaviour:
     m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
-  m_PointLightInnerRadius: 2
+  m_PointLightInnerRadius: 2.5
   m_PointLightOuterRadius: 3
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
@@ -274,3 +275,26 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &3868036003870919940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4837868057007593676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9053d370ca494c046a3c6bbddfe4da1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controlledLight: {fileID: 8387598045361166483}
+  smallFlickerStrength: 0.015
+  smallFlickerSpeed: 7
+  smallFlickerSpeedIntensity: 3
+  smallFlickerStrengthIntensity: 0.35
+  bigFlickerSpeed: 0.5
+  bigFlickerRadiusStrength: 0.2
+  bigFlickerIntensityStrength: 0.5
+  blink: 1
+  averageBlinkDelay: 4
+  blinkDuration: 0.2
