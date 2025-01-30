@@ -2,21 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class DeathScene : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Button replayButton;
+    public Button menuButton;
     void Start()
     {
-        
+        replayButton.onClick.AddListener(ReplayGameScene);
+        menuButton.onClick.AddListener(ReturnToMenuScene);
     }
-
-    // Update is called once per frame
-    void Update()
+    public void ReplayGameScene()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SceneManager.LoadScene(0);
-        }
+        SceneManager.LoadScene(0);
+    }
+    public void ReturnToMenuScene()
+    {
+        SceneManager.LoadScene(2);
     }
 }
