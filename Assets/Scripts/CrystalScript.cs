@@ -14,7 +14,7 @@ public class CrystalScript : MonoBehaviour, IHittable
 
     public void Hit() // When obj is hit
     {
-        
+        UIUpdating.instance.FlashHPUp();
 
         if (gameObject.tag == "Pile")
         {

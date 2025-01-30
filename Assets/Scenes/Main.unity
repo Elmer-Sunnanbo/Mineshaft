@@ -878,6 +878,7 @@ MonoBehaviour:
   hpUI: {fileID: 1811613663}
   coalUI: {fileID: 1742575111}
   goldUI: {fileID: 9567890}
+  FlashDuration: 0.2
 --- !u!4 &1665373570
 Transform:
   m_ObjectHideFlags: 0

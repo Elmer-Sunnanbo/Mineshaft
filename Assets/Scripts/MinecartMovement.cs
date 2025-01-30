@@ -55,10 +55,12 @@ public class MinecartMovement : MonoBehaviour
         {
             if(GameManager.instance.coal - Mathf.Abs(fuel) < 0)
             {
+                UIUpdating.instance.FlashCoal0();
                 return;
             }
             else
             {
+                UIUpdating.instance.FlashCoalDown();
                 GameManager.instance.coal -= Mathf.Abs(fuel);
             }
         }

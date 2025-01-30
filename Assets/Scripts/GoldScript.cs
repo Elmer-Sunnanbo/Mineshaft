@@ -8,7 +8,7 @@ public class GoldScript : MonoBehaviour, IHittable
 
     public void Hit() // When obj is hit
     {
-        ScreenShake.Instance.ShakeCam(0.10f, 0.3f); //Screenshake
+        UIUpdating.instance.FlashGoldUp();
 
         if (gameObject.tag == "Pile")
         {

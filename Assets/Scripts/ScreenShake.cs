@@ -39,9 +39,7 @@ public class ScreenShake : MonoBehaviour
     /// <param name="Strength"></param>
     public void ShakeCam(float Time, float Strength)
     {
-        Debug.Log("Shake request recieved");
         ActiveShakes.Add(new Shake(Time, Strength));
-        Debug.Log(ActiveShakes.Count + " active shakes right now");
     }
 
     /// <summary>
