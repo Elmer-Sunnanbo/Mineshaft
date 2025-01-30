@@ -405,8 +405,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16c612a2924a9964a9041c40c1fd1bea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  replayButton: {fileID: 0}
-  menuButton: {fileID: 0}
+  replayButton: {fileID: 2129216514}
+  menuButton: {fileID: 793309406}
 --- !u!4 &859182409
 Transform:
   m_ObjectHideFlags: 0
