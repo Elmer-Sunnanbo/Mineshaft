@@ -319,7 +319,10 @@ public class StalagmiteEnemy : MonoBehaviour, IHittable, IEnemy
     public void Hit()
     {
         StalagmiteHealth--;
-        ScreenShake.Instance.ShakeCam(0.15f, 0.4f);
+        if (ScreenShake.Instance)
+        {
+            ScreenShake.Instance.ShakeCam(0.15f, 0.4f);
+        }
     }
     public void SetTarget(GameObject target)
     {

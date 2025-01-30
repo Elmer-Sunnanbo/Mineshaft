@@ -308,7 +308,10 @@ public class ProjectileEnemy : MonoBehaviour, IHittable, IEnemy
 
     public void Hit()
     {
-        ScreenShake.Instance.ShakeCam(0.15f, 0.4f);
+        if (ScreenShake.Instance)
+        {
+            ScreenShake.Instance.ShakeCam(0.15f, 0.4f);
+        }
         ProEnemyHealth--;
     }
     public void SetTarget(GameObject target)

@@ -8,7 +8,10 @@ public class CoalScript : MonoBehaviour, IHittable
 
     public void Hit() // When obj is hit
     {
-        UIUpdating.instance.FlashCoalUp();
+        if (UIUpdating.instance)
+        {
+            UIUpdating.instance.FlashCoalUp();
+        }
 
         if (gameObject.tag == "Pile")
         {
@@ -18,12 +21,20 @@ public class CoalScript : MonoBehaviour, IHittable
 
             if(coalInPile < 1)
             {
-                ScreenShake.Instance.ShakeCam(0.15f, 0.4f); //Screenshake
+                if (ScreenShake.Instance)
+                {
+                    ScreenShake.Instance.ShakeCam(0.15f, 0.4f); //Screenshake
+                }
+
                 Destroy(gameObject);
             }
             else
             {
-                ScreenShake.Instance.ShakeCam(0.07f, 0.2f); //Screenshake
+                if (ScreenShake.Instance)
+                {
+                    ScreenShake.Instance.ShakeCam(0.07f, 0.2f); //Screenshake
+                }
+
             }
         }
 
@@ -32,7 +43,10 @@ public class CoalScript : MonoBehaviour, IHittable
             // When coal is hit the gameObject is imediatley destroyed and the player gains coal
             GameManager.instance.coal += 1;
             Destroy(gameObject);
-            ScreenShake.Instance.ShakeCam(0.07f, 0.2f); //Screenshake
+            if (ScreenShake.Instance)
+            {
+                ScreenShake.Instance.ShakeCam(0.07f, 0.2f); //Screenshake
+            }
         }
     }
 }
