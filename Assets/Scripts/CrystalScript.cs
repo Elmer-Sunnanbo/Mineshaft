@@ -14,6 +14,7 @@ public class CrystalScript : MonoBehaviour, IHittable
 
     public void Hit() // When obj is hit
     {
+        
 
         if (gameObject.tag == "Pile")
         {
@@ -23,7 +24,12 @@ public class CrystalScript : MonoBehaviour, IHittable
 
             if (shardsInCrystal < 1)
             {
+                ScreenShake.Instance.ShakeCam(0.15f, 0.4f); //Screenshake
                 Destroy(gameObject);
+            }
+            else
+            {
+                ScreenShake.Instance.ShakeCam(0.07f, 0.2f); //Screenshake
             }
         }
 
@@ -32,6 +38,7 @@ public class CrystalScript : MonoBehaviour, IHittable
             // When shard is hit the gameObject is imediatley destroyed and the player gains health
             player.playerHP += 1;
             Destroy(gameObject);
+            ScreenShake.Instance.ShakeCam(0.07f, 0.2f); //Screenshake
         }
     }
 }

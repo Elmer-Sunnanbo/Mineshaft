@@ -326,6 +326,7 @@ public class DashEnemy : MonoBehaviour, IHittable, IEnemy
 
     public void Hit()
     {
+        ScreenShake.Instance.ShakeCam(0.15f, 0.4f);
         Health--;
     }
     public void SetTarget(GameObject target)
