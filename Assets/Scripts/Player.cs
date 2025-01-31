@@ -97,6 +97,15 @@ public class Player : MonoBehaviour
     {
         if (iFrameTimer < 0 && !isInMinecart)
         {
+            if(ScreenShake.Instance)
+            {
+                ScreenShake.Instance.ShakeCam(0.2f, 0.4f);
+            }
+
+            if (UIUpdating.instance)
+            {
+                UIUpdating.instance.FlashHPDown();
+            }
             playerHP -= 1;
             iFrameTimer = 1;
         }
@@ -106,6 +115,15 @@ public class Player : MonoBehaviour
     {
         if (iFrameTimer < 0 && !isInMinecart)
         {
+            if (ScreenShake.Instance)
+            {
+                ScreenShake.Instance.ShakeCam(0.2f, 0.2f);
+            }
+            if (UIUpdating.instance)
+            {
+                UIUpdating.instance.FlashHPDown();
+            }
+                
             playerHP -= 1;
             iFrameTimer = 1;
             myRigidbody.constraints = RigidbodyConstraints2D.FreezeAll;

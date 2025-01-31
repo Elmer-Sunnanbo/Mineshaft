@@ -10,6 +10,11 @@ public class TurntableLever : MonoBehaviour, IHittable
     bool Lever2 = false;
     public void Hit()
     {
+        if(ScreenShake.Instance)
+        {
+            ScreenShake.Instance.ShakeCam(0.07f, 0.2f);
+        }
+        
         foreach (RailTile table in connectedTables)
         {
             table.RotateTurntable();

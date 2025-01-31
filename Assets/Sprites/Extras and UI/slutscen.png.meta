@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 624d5898e0a4e9b4c86cf0e796e14bbe
+guid: 4a4de32a8fae4f14bb1ed0786981eb28
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 150448911277578444
-    second: opningscen_0
+      213: -1549877725194187685
+    second: slutscen_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,400 +100,337 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: opningscen_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 2016
-        width: 128
-        height: 112
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4797760834e444847b3052b085ac682b
-      internalID: -1362135420
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: opningscen_1
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1904
-        width: 128
-        height: 112
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5c029793ececee14e8ef220aedda84a0
-      internalID: -1221212425
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: opningscen_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 1792
-        width: 128
-        height: 112
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 819e064a404188f4ba848f9fefcb514a
-      internalID: -1384923899
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: opningscen_3
+      name: slutscen_0
       rect:
         serializedVersion: 2
         x: 0
         y: 1680
         width: 128
         height: 112
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b0d7c6a70c9d3b54e85d05ba08e77188
-      internalID: -928056023
+      spriteID: b5c8288ab6abd7ae0800000000000000
+      internalID: -1549877725194187685
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: opningscen_4
+      name: slutscen_1
       rect:
         serializedVersion: 2
         x: 0
         y: 1568
         width: 128
         height: 112
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4848a3443812d824fa132f659b2c0512
-      internalID: -501302739
+      spriteID: 597c8d8d316e01d41b2516ed540d3218
+      internalID: -350299542
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: opningscen_5
+      name: slutscen_2
       rect:
         serializedVersion: 2
         x: 0
         y: 1456
         width: 128
         height: 112
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40fbdeb5d2377fa4d8f13b21a16ac470
-      internalID: -463807310
+      spriteID: ff9d647eb632d7846bfa2003fe0cd983
+      internalID: -105180199
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: opningscen_6
+      name: slutscen_3
       rect:
         serializedVersion: 2
         x: 0
         y: 1344
         width: 128
         height: 112
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4aa6fa078fc4c4c40872caa7cb1c7082
-      internalID: -1138750544
+      spriteID: e2e85d6ac87de2c4aba13f90f839ee3e
+      internalID: -521107193
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: opningscen_7
+      name: slutscen_4
       rect:
         serializedVersion: 2
         x: 0
         y: 1232
         width: 128
         height: 112
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 99cdf4b9d5326804a96cc43b59d889ad
-      internalID: -425028177
+      spriteID: 1e7946a24bc4c284fa73bceb42a7a5d1
+      internalID: 1741350790
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: opningscen_8
+      name: slutscen_5
       rect:
         serializedVersion: 2
         x: 0
         y: 1120
         width: 128
         height: 112
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 456283c0928143443936015e2f236062
-      internalID: -1166448096
+      spriteID: 6f637d4f90e5af2469977668735c3830
+      internalID: 830081486
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: opningscen_9
+      name: slutscen_6
       rect:
         serializedVersion: 2
         x: 0
         y: 1008
         width: 128
         height: 112
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5a93fe0ab8656ea4896a568c50523fd4
-      internalID: -1213837641
+      spriteID: 70125e1ffec1dd94ca88eab32bb3ea26
+      internalID: -204231462
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: opningscen_10
+      name: slutscen_7
       rect:
         serializedVersion: 2
         x: 0
         y: 896
         width: 128
         height: 112
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20dd00c667c326643bb570f7906076db
-      internalID: -1235580150
+      spriteID: 8d644241f22fdb04b9f08121488e808a
+      internalID: -928982860
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: opningscen_11
+      name: slutscen_8
       rect:
         serializedVersion: 2
         x: 0
         y: 784
         width: 128
         height: 112
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1bfe48f448798d4d9396a8aabb53d1f
-      internalID: -1057969340
+      spriteID: 807ca895bf6da914590a1498f47d3643
+      internalID: 1542701237
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: opningscen_12
+      name: slutscen_9
       rect:
         serializedVersion: 2
         x: 0
         y: 672
         width: 128
         height: 112
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d6fb634cc4ff6da4fb22ad025bf685b0
-      internalID: 1047795987
+      spriteID: bc882b618e0ccac4aa2416bd8df9011f
+      internalID: 681588677
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: opningscen_13
+      name: slutscen_10
       rect:
         serializedVersion: 2
         x: 0
         y: 560
         width: 128
         height: 112
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7a40bc93ee5111c439115f73a10edf0a
-      internalID: 1148641536
+      spriteID: 660806f657d690042a9f2d320f780986
+      internalID: -1538221591
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: opningscen_14
+      name: slutscen_11
       rect:
         serializedVersion: 2
         x: 0
         y: 448
         width: 128
         height: 112
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 55edd76339753964c959f44882452cd6
-      internalID: 1621167142
+      spriteID: 36aec09ed8def93498a6e4a13afe5e2c
+      internalID: -1263582292
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: opningscen_15
+      name: slutscen_12
       rect:
         serializedVersion: 2
         x: 0
         y: 336
         width: 128
         height: 112
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86f078eef84b46546b4754a4b2bf0a6f
-      internalID: -2144317726
+      spriteID: e1927663aa7652c4bb3a05a980f4974c
+      internalID: 1427119955
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: opningscen_16
+      name: slutscen_13
       rect:
         serializedVersion: 2
         x: 0
         y: 224
         width: 128
         height: 112
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7199402570b51bc408a4176e1e0216ba
-      internalID: -1583190803
+      spriteID: 38ef144c8efbd654ab68835b40b3f964
+      internalID: 96428257
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: opningscen_17
+      name: slutscen_14
       rect:
         serializedVersion: 2
         x: 0
         y: 112
         width: 128
         height: 112
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 75d953997a9ba66418ceb13355edfdbe
-      internalID: 1012198764
+      spriteID: e9e4a9e066117ed4c8d348ac08cbd298
+      internalID: 1067375356
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: opningscen_18
+      name: slutscen_15
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 128
         height: 112
-      alignment: 2
-      pivot: {x: 0.5, y: 1}
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 64b322fcc69261e4c8ecdf9f068e3dfc
-      internalID: 1045762846
+      spriteID: f62af1429436aed4895509cfe94456f9
+      internalID: 1765357356
       vertices: []
       indices: 
       edges: []
@@ -501,7 +438,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 6c54e27a86cceb343b108ed576499db1
+    spriteID: 065e9353ec60320418a456f25b5cb5a4
     internalID: 0
     vertices: []
     indices: 
@@ -509,25 +446,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      opningscen_0: -1362135420
-      opningscen_1: -1221212425
-      opningscen_10: -1235580150
-      opningscen_11: -1057969340
-      opningscen_12: 1047795987
-      opningscen_13: 1148641536
-      opningscen_14: 1621167142
-      opningscen_15: -2144317726
-      opningscen_16: -1583190803
-      opningscen_17: 1012198764
-      opningscen_18: 1045762846
-      opningscen_2: -1384923899
-      opningscen_3: -928056023
-      opningscen_4: -501302739
-      opningscen_5: -463807310
-      opningscen_6: -1138750544
-      opningscen_7: -425028177
-      opningscen_8: -1166448096
-      opningscen_9: -1213837641
+      slutscen_0: -1549877725194187685
+      slutscen_1: -350299542
+      slutscen_10: -1538221591
+      slutscen_11: -1263582292
+      slutscen_12: 1427119955
+      slutscen_13: 96428257
+      slutscen_14: 1067375356
+      slutscen_15: 1765357356
+      slutscen_2: -105180199
+      slutscen_3: -521107193
+      slutscen_4: 1741350790
+      slutscen_5: 830081486
+      slutscen_6: -204231462
+      slutscen_7: -928982860
+      slutscen_8: 1542701237
+      slutscen_9: 681588677
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

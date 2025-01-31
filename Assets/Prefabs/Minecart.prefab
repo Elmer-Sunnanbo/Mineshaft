@@ -93,6 +93,68 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTrigger: {fileID: 6833819631417875301}
   movement: {fileID: 937557905044538530}
+--- !u!1 &1097807082099592487
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6822505907586694710}
+  m_Layer: 0
+  m_Name: FrontDisembarkPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6822505907586694710
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097807082099592487}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.6, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4950961823895670775}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2696019006386426879
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2493036297333872102}
+  m_Layer: 0
+  m_Name: BackDisembarkPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2493036297333872102
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2696019006386426879}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.6, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4950961823895670775}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3308318945216476693
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,7 +282,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4893559047658848495}
+  - {fileID: 6822505907586694710}
   - {fileID: 2865657970898331989}
+  - {fileID: 2493036297333872102}
   - {fileID: 903584221069940745}
   - {fileID: 3181431501137075128}
   m_Father: {fileID: 1340902571802733009}
@@ -296,6 +360,8 @@ MonoBehaviour:
   movementScript: {fileID: 937557905044538530}
   rightDisembark: {fileID: 4893559047658848495}
   leftDisembark: {fileID: 2865657970898331989}
+  frontDisembark: {fileID: 6822505907586694710}
+  backDisembark: {fileID: 2493036297333872102}
 --- !u!61 &1978026706101646063
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -386,7 +452,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.5, y: 1.4}
+  m_Size: {x: 1.6, y: 1.4}
   m_EdgeRadius: 0
 --- !u!1 &5142904011674712455
 GameObject:
@@ -472,7 +538,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -9101136560391991445, guid: f2624b3fb27a174439f9eb644675f917, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

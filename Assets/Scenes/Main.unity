@@ -766,6 +766,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ecf39e1e0106ce4fa60a45f700b0ecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &1454454049 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4075119366103766403, guid: 0156cd583051a224d847777e7c757b03, type: 3}
+  m_PrefabInstance: {fileID: 5857282298138399601}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1597523759
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,6 +878,7 @@ MonoBehaviour:
   hpUI: {fileID: 1811613663}
   coalUI: {fileID: 1742575111}
   goldUI: {fileID: 9567890}
+  FlashDuration: 0.2
 --- !u!4 &1665373570
 Transform:
   m_ObjectHideFlags: 0
@@ -1311,9 +1317,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1197200043158224416, guid: 144b7f6678fcfbf448ad5baef9a34e86, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1197200043158224416, guid: 144b7f6678fcfbf448ad5baef9a34e86, type: 3}
+      propertyPath: trackedTransform
+      value: 
+      objectReference: {fileID: 1454454049}
     - target: {fileID: 4018085500636641914, guid: 144b7f6678fcfbf448ad5baef9a34e86, type: 3}
       propertyPath: m_Name
       value: Follow Camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 6624949758854563376, guid: 144b7f6678fcfbf448ad5baef9a34e86, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6624949758854563376, guid: 144b7f6678fcfbf448ad5baef9a34e86, type: 3}
       propertyPath: objectToFollow
@@ -1359,7 +1377,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6624949758854563376, guid: 144b7f6678fcfbf448ad5baef9a34e86, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
