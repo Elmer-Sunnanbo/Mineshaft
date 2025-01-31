@@ -205,45 +205,65 @@ public class ProjectileEnemy : MonoBehaviour, IHittable, IEnemy
                 break;
         }
     SkipStateChecking:;
-// everything inbeetween these two messages are for the animations and nothing else
-        if(myRigidbody.velocityX == 0 && myRigidbody.velocityY == 0)
+        // everything inbeetween these two messages are for the animations and nothing else
+        bool BatIsDown = false;
+        bool BatIsUp = false;
+        bool BatIsLeft = false;
+        bool BatIsRight = false;
+        if (myRigidbody.velocityX == 0 && myRigidbody.velocityY == 0 && BatIsDown == true)
         {
             BatAni.SetBool("BatUp", false);
             BatAni.SetBool("BatDown", false);
             BatAni.SetBool("BatRight", false);
             BatAni.SetBool("BatLeft", false);
             BatAni.SetBool("BatIdle", true);
+            BatIsUp = false;
+            BatIsLeft = false;
+            BatIsRight = false;
+            BatIsDown = true;
         }
         else if(Mathf.Abs(myRigidbody.velocityX) > Mathf.Abs(myRigidbody.velocityY))
         {
-            if (myRigidbody.velocityX > 0)
+            if (myRigidbody.velocityX > 0 || myRigidbody.velocityX == 0 && myRigidbody.velocityY == 0 && BatIsRight == true)
             {
                 BatAni.SetBool("BatUp", false);
                 BatAni.SetBool("BatDown", false);
                 BatAni.SetBool("BatRight", true);
                 BatAni.SetBool("BatLeft", false);
                 BatAni.SetBool("BatIdle", false);
+                BatIsRight = true;
+                BatIsDown = false;
+                BatIsUp = false;
+                BatIsLeft = false;
             }
-            if (myRigidbody.velocityX < 0)
+            if (myRigidbody.velocityX < 0 || myRigidbody.velocityX == 0 && myRigidbody.velocityY == 0 && BatIsLeft == true)
             {
                 BatAni.SetBool("BatUp", false);
                 BatAni.SetBool("BatDown", false);
                 BatAni.SetBool("BatRight", false);
                 BatAni.SetBool("BatLeft", true);
                 BatAni.SetBool("BatIdle", false);
+                BatIsRight = false;
+                BatIsDown = false;
+                BatIsUp = false;
+                BatIsLeft = true;
             }
         }
         else
         {
             if (0 < myRigidbody.velocityY)
             {
-                if (myRigidbody.velocityY > 0)
+                if (myRigidbody.velocityY > 0 || myRigidbody.velocityX == 0 && myRigidbody.velocityY == 0 && BatIsRight == true)
                 {
                     BatAni.SetBool("BatUp", true);
                     BatAni.SetBool("BatDown", false);
                     BatAni.SetBool("BatRight", false);
                     BatAni.SetBool("BatLeft", false);
                     BatAni.SetBool("BatIdle", false);
+                    BatIsRight = false;
+                    BatIsDown = false;
+                    BatIsUp = true;
+                    BatIsLeft = false;
                 }
             }
             else
@@ -255,6 +275,10 @@ public class ProjectileEnemy : MonoBehaviour, IHittable, IEnemy
                     BatAni.SetBool("BatRight", false);
                     BatAni.SetBool("BatLeft", false);
                     BatAni.SetBool("BatIdle", false);
+                    BatIsRight = false;
+                    BatIsDown = true;
+                    BatIsUp = false;
+                    BatIsLeft = false;
                 }
             }
         }
