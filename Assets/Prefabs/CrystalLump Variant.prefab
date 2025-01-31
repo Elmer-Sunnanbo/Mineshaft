@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80eecc0b7ad6945469e217c3547398a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shardsInCrystal: -10
+  shardsInCrystal: 3
 --- !u!58 &-8764701477620139875
 CircleCollider2D:
   m_ObjectHideFlags: 0

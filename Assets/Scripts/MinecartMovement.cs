@@ -9,6 +9,9 @@ public class MinecartMovement : MonoBehaviour
     [SerializeField] Directions startDir;
     [SerializeField] float speed;
     [SerializeField] Animator animator;
+    [SerializeField] AudioSource puffSource;
+    [SerializeField] AudioSource rollSource;
+    [SerializeField] AudioSource scrapeSource;
     GameObject interacter;
     MinecartInteraction interacterScript;
     ParticleSystem smokeParticles;
@@ -52,10 +55,18 @@ public class MinecartMovement : MonoBehaviour
         {
             if(GameManager.instance.coal - Mathf.Abs(fuel) < 0)
             {
+                if (UIUpdating.instance)
+                {
+                    UIUpdating.instance.FlashCoal0();
+                }
                 return;
             }
             else
             {
+                if (UIUpdating.instance)
+                {
+                    UIUpdating.instance.FlashCoalDown();
+                }
                 GameManager.instance.coal -= Mathf.Abs(fuel);
             }
         }
@@ -79,6 +90,19 @@ public class MinecartMovement : MonoBehaviour
         if(animation != currentAnimation)
         {
             SetAnim(animation);
+        }
+
+        if(moving)
+        {
+            puffSource.volume = 1;
+            rollSource.volume = 1;
+            scrapeSource.volume = GetScrapeAmount();
+        }
+        else
+        {
+            puffSource.volume = 0;
+            rollSource.volume = 0;
+            scrapeSource.volume = 0;
         }
 
         if (moving)
@@ -219,5 +243,22 @@ public class MinecartMovement : MonoBehaviour
                 animator.SetTrigger("RightMovingSit");
                 break;
         }
+    }
+
+    float GetScrapeAmount()
+    {
+        if(currentTile.GetIsCurved())
+        {
+            if(currentTileProgress > 0.5f)
+            {
+                return (1 - currentTileProgress) * 2;
+            }
+            else
+            {
+                return currentTileProgress * 2;
+            }
+        }
+        //Don't scrape if the tile isn't curved
+        return 0;
     }
 }
