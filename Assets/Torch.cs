@@ -8,25 +8,33 @@ public class Torch : MonoBehaviour
 {
     public bool lightOn = false;
     Light2D Light;
+    Animator animator;
+
+    private void Awake()
+    {
+        Light = gameObject.GetComponent<Light2D>();
+        animator = GetComponent<Animator>();
+    }
 
     public void OnTriggerEnter2D(Collider2D col)
     {
-        lightOn = true;
-        Debug.Log("lighton = true");
+        if(col.gameObject.TryGetComponent<Player>(out _))
+        {
+            lightOn = true;
+        }
     }
 
     private void Update()
     {
         if(lightOn) // If lightOn bool = true
         {
-            Light = gameObject.GetComponent<Light2D>(); // Get light component
             Light.enabled = true; // Activate light component
-            Debug.Log("Light enabled"); // Debug message
+            animator.SetBool("Lit", true);
         }
         else
         {
-            Light = gameObject.GetComponent<Light2D>();
             Light.enabled = false; // Disable/inactivate light component
+            animator.SetBool("Lit", false);
         }
     }
 }

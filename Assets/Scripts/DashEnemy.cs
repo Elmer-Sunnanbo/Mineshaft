@@ -245,6 +245,7 @@ public class DashEnemy : MonoBehaviour, IHittable, IEnemy
         }
     SkipStateChecking:;
         // everything inbeetween these two messages are for the animations and nothing else
+        //in the anitmation tree rat up and rat down are swapped i do not know why i did it, this includes the idle antimations
         if (myRigidbody.velocityX == 0 && myRigidbody.velocityY == 0)
         {
             RATANI.SetBool("RATUP", false);
@@ -326,6 +327,10 @@ public class DashEnemy : MonoBehaviour, IHittable, IEnemy
 
     public void Hit()
     {
+        if (ScreenShake.Instance)
+        {
+            ScreenShake.Instance.ShakeCam(0.15f, 0.4f);
+        }
         Health--;
     }
     public void SetTarget(GameObject target)

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5145333090956269959}
   - component: {fileID: 3801941271706179785}
   - component: {fileID: 1497243352163085083}
+  - component: {fileID: 6454960321812894111}
   m_Layer: 10
   m_Name: Lever
   m_TagString: Untagged
@@ -76,8 +77,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: -6983475421716383862, guid: b95c5a181599b13439061136bb0c5c24, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -138,3 +139,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   connectedTables:
   - {fileID: 0}
+  LeverAni: {fileID: 6454960321812894111}
+--- !u!95 &6454960321812894111
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8402777285379125171}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e03c9524746448643a75c587a07d53ec, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

@@ -26,6 +26,7 @@ public class deathSceneScript : MonoBehaviour
     }
 
     // Update is called once per frame
+    /*
     void Update()
     {
         //if(gameManager.timeScore < timeHighscore)//If currect time is less than highscore. Change the highscore to the new score.
@@ -36,7 +37,8 @@ public class deathSceneScript : MonoBehaviour
         //Line caused errors, please fix and uncomment
         //ScoreText.SetText("[Current Score: " + gameManager.gameScore.ToString() + "][Highcore: " + gameManager.GameHighscore.ToString() + "][Current Time: " + currentTimescore + "][Fastest Time: " + timeHighscore + "]");
     }
-    private void FixedUpdate()
+    */
+    private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {

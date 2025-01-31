@@ -8,6 +8,10 @@ public class GoldScript : MonoBehaviour, IHittable
 
     public void Hit() // When obj is hit
     {
+        if (UIUpdating.instance)
+        {
+            UIUpdating.instance.FlashGoldUp();
+        }
 
         if (gameObject.tag == "Pile")
         {
@@ -17,7 +21,20 @@ public class GoldScript : MonoBehaviour, IHittable
 
             if (goldInPile < 1)
             {
+                if (ScreenShake.Instance)
+                {
+                    ScreenShake.Instance.ShakeCam(0.15f, 0.4f); //Screenshake
+                }
+
                 Destroy(gameObject);
+            }
+            else
+            {
+                if (ScreenShake.Instance)
+                {
+                    ScreenShake.Instance.ShakeCam(0.07f, 0.2f); //Screenshake
+                }
+                
             }
         }
 
@@ -26,6 +43,10 @@ public class GoldScript : MonoBehaviour, IHittable
             // When gold is hit the gameObject is imediatley destroyed and the player gains gold
             GameManager.instance.gold += 1;
             Destroy(gameObject);
+            if (ScreenShake.Instance)
+            {
+                ScreenShake.Instance.ShakeCam(0.07f, 0.2f); //Screenshake
+            }
         }
     }
 }
