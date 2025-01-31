@@ -12,6 +12,8 @@ public class MinecartInteraction : MonoBehaviour
     [SerializeField] MinecartMovement movementScript;
     [SerializeField] Transform rightDisembark;
     [SerializeField] Transform leftDisembark;
+    [SerializeField] Transform frontDisembark;
+    [SerializeField] Transform backDisembark;
 
     void Start()
     {
@@ -19,18 +21,38 @@ public class MinecartInteraction : MonoBehaviour
     }
     void Update()
     {
-        if (isInTrigger && Input.GetKeyDown(KeyCode.E) && !playerIn) //If the player attempts to enter the minecart
+        if (isInTrigger && Input.GetKeyDown(KeyCode.LeftShift) && !playerIn) //If the player attempts to enter the minecart
         {
             playerIn = true;
             currentPlayerInTrigger.EnterMinecart();
             currentPlayerInTrigger.transform.parent = transform.parent;
             currentPlayerInTrigger.transform.localPosition = Vector2.zero;
         }
-        else if(playerIn && Input.GetKeyDown(KeyCode.E))
+        else if(playerIn && Input.GetKeyDown(KeyCode.LeftShift))
         {
             Vector2 mouseVector = mainCam.ScreenToWorldPoint(Input.mousePosition) - transform.position;
             Direction clickDirection;
-            if (Mathf.Abs(mouseVector.x) > Mathf.Abs(mouseVector.y)) //If the x component (regardless of left/right) is bigger than the y component.
+            if(Input.GetKey(KeyCode.W))
+            {
+                //Up
+                clickDirection = new Direction(0).Rotated(-movementScript.displayDirection.direction);
+            }
+            else if (Input.GetKey(KeyCode.S))
+            {
+                //Down
+                clickDirection = new Direction(2).Rotated(-movementScript.displayDirection.direction);
+            }
+            else if (Input.GetKey(KeyCode.A))
+            {
+                //Left
+                clickDirection = new Direction(3).Rotated(-movementScript.displayDirection.direction);
+            }
+            else if (Input.GetKey(KeyCode.D))
+            {
+                //Right
+                clickDirection = new Direction(1).Rotated(-movementScript.displayDirection.direction);
+            }
+            else if (Mathf.Abs(mouseVector.x) > Mathf.Abs(mouseVector.y)) //If the x component (regardless of left/right) is bigger than the y component.
             {
                 if (mouseVector.x > 0)
                 {
@@ -56,11 +78,13 @@ public class MinecartInteraction : MonoBehaviour
                     clickDirection = new Direction(2).Rotated(-movementScript.displayDirection.direction);
                 }
             }
-
             switch (clickDirection.direction)
             {
                 case 0:
-                    movementScript.AddFuel(-1);
+                    playerIn = false;
+                    currentPlayerInTrigger.ExitMinecart();
+                    currentPlayerInTrigger.transform.parent = null;
+                    currentPlayerInTrigger.transform.position = frontDisembark.transform.position;
                     break;
                 case 1:
                     playerIn = false;
@@ -69,13 +93,126 @@ public class MinecartInteraction : MonoBehaviour
                     currentPlayerInTrigger.transform.position = rightDisembark.transform.position;
                     break;
                 case 2:
-                    movementScript.AddFuel(1);
+                    playerIn = false;
+                    currentPlayerInTrigger.ExitMinecart();
+                    currentPlayerInTrigger.transform.parent = null;
+                    currentPlayerInTrigger.transform.position = backDisembark.transform.position;
                     break;
                 case 3:
                     playerIn = false;
                     currentPlayerInTrigger.ExitMinecart();
                     currentPlayerInTrigger.transform.parent = null;
                     currentPlayerInTrigger.transform.position = leftDisembark.transform.position;
+                    break;
+            }
+        }
+        if (playerIn && Input.GetKeyDown(KeyCode.W))
+        {
+            Direction clickDirection;
+            //Up
+            clickDirection = new Direction(0).Rotated(-movementScript.displayDirection.direction);
+            switch(clickDirection.direction)
+            {
+                case 0:
+                    movementScript.AddFuel(1);
+                    break;
+                case 1:
+                    //Can't go that way
+                    if(ScreenShake.Instance)
+                    {
+                        ScreenShake.Instance.ShakeCam(0.05f, 0.3f);
+                    }
+                    break;
+                case 2:
+                    movementScript.AddFuel(-1);
+                    break;
+                case 3:
+                    //Can't go that way
+                    if (ScreenShake.Instance)
+                    {
+                        ScreenShake.Instance.ShakeCam(0.05f, 0.3f);
+                    }
+                    break;
+            }
+        }
+        if (playerIn && Input.GetKeyDown(KeyCode.S))
+        {
+            //Down
+            switch (new Direction(2).Rotated(-movementScript.displayDirection.direction).direction)
+            {
+                case 0:
+                    movementScript.AddFuel(1);
+                    break;
+                case 1:
+                    //Can't go that way
+                    if (ScreenShake.Instance)
+                    {
+                        ScreenShake.Instance.ShakeCam(0.05f, 0.3f);
+                    }
+                    break;
+                case 2:
+                    movementScript.AddFuel(-1);
+                    break;
+                case 3:
+                    //Can't go that way
+                    if (ScreenShake.Instance)
+                    {
+                        ScreenShake.Instance.ShakeCam(0.05f, 0.3f);
+                    }
+                    break;
+            }
+        }
+        if (playerIn && Input.GetKeyDown(KeyCode.A))
+        {
+            //Left
+            switch (new Direction(3).Rotated(-movementScript.displayDirection.direction).direction)
+            {
+                case 0:
+                    movementScript.AddFuel(1);
+                    break;
+                case 1:
+                    //Can't go that way
+                    if (ScreenShake.Instance)
+                    {
+                        ScreenShake.Instance.ShakeCam(0.05f, 0.3f);
+                    }
+                    break;
+                case 2:
+                    movementScript.AddFuel(-1);
+                    break;
+                case 3:
+                    //Can't go that way
+                    if (ScreenShake.Instance)
+                    {
+                        ScreenShake.Instance.ShakeCam(0.05f, 0.3f);
+                    }
+                    break;
+            }
+        }
+        if (playerIn && Input.GetKeyDown(KeyCode.D))
+        {
+            //Right
+            switch (new Direction(1).Rotated(-movementScript.displayDirection.direction).direction)
+            {
+                case 0:
+                    movementScript.AddFuel(1);
+                    break;
+                case 1:
+                    //Can't go that way
+                    if (ScreenShake.Instance)
+                    {
+                        ScreenShake.Instance.ShakeCam(0.05f, 0.3f);
+                    }
+                    break;
+                case 2:
+                    movementScript.AddFuel(-1);
+                    break;
+                case 3:
+                    //Can't go that way
+                    if (ScreenShake.Instance)
+                    {
+                        ScreenShake.Instance.ShakeCam(0.05f, 0.3f);
+                    }
                     break;
             }
         }
