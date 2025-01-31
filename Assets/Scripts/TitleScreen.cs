@@ -18,6 +18,6 @@ public class TitleScreen : MonoBehaviour
     public void LoadMainScene()
     {
         Debug.Log("play");
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("OpeningScene");
     }
 }
