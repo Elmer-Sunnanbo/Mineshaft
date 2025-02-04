@@ -12,6 +12,8 @@ public class MinecartMovement : MonoBehaviour
     [SerializeField] AudioSource puffSource;
     [SerializeField] AudioSource rollSource;
     [SerializeField] AudioSource scrapeSource;
+    [SerializeField] AudioSource shakeSource;
+    bool HasBouncedOnCurrentTile;
     GameObject interacter;
     MinecartInteraction interacterScript;
     ParticleSystem smokeParticles;
@@ -108,6 +110,8 @@ public class MinecartMovement : MonoBehaviour
         if (moving)
         {
             currentTileProgress += Time.deltaTime * speed;
+
+           
             if (currentTileProgress > 1)
             {
                 currentTileProgress -= 1;
@@ -126,11 +130,16 @@ public class MinecartMovement : MonoBehaviour
                     currentFuel--;
                 }
             }
+            else if (currentTileProgress >= 0.5f && !HasBouncedOnCurrentTile && currentTile.GetDirectionAfterTravel(currentDirection).direction == currentDirection.Rotated(2).direction) //If we just bounced
+            {
+                shakeSource.Play();
+            }
             if (currentTileProgress >= 0.5f && currentTile.isStop && currentFuel <= 0)
             {
                 currentTileProgress = 0.5f;
                 moving = false;
                 smokeParticles.Stop();
+                shakeSource.Play();
             }
             transform.position = currentTile.GetPosition(currentTileProgress, currentDirection);
         }

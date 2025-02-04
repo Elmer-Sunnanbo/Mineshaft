@@ -14,6 +14,7 @@ public class MinecartInteraction : MonoBehaviour
     [SerializeField] Transform leftDisembark;
     [SerializeField] Transform frontDisembark;
     [SerializeField] Transform backDisembark;
+    [SerializeField] AudioSource shakeSource;
 
     void Start()
     {
@@ -121,6 +122,7 @@ public class MinecartInteraction : MonoBehaviour
                     if(ScreenShake.Instance)
                     {
                         ScreenShake.Instance.ShakeCam(0.05f, 0.3f);
+                        shakeSource.Play();
                     }
                     break;
                 case 2:
@@ -131,6 +133,7 @@ public class MinecartInteraction : MonoBehaviour
                     if (ScreenShake.Instance)
                     {
                         ScreenShake.Instance.ShakeCam(0.05f, 0.3f);
+                        shakeSource.Play();
                     }
                     break;
             }
@@ -148,6 +151,7 @@ public class MinecartInteraction : MonoBehaviour
                     if (ScreenShake.Instance)
                     {
                         ScreenShake.Instance.ShakeCam(0.05f, 0.3f);
+                        shakeSource.Play();
                     }
                     break;
                 case 2:
@@ -158,6 +162,7 @@ public class MinecartInteraction : MonoBehaviour
                     if (ScreenShake.Instance)
                     {
                         ScreenShake.Instance.ShakeCam(0.05f, 0.3f);
+                        shakeSource.Play();
                     }
                     break;
             }
@@ -175,6 +180,7 @@ public class MinecartInteraction : MonoBehaviour
                     if (ScreenShake.Instance)
                     {
                         ScreenShake.Instance.ShakeCam(0.05f, 0.3f);
+                        shakeSource.Play();
                     }
                     break;
                 case 2:
@@ -185,6 +191,7 @@ public class MinecartInteraction : MonoBehaviour
                     if (ScreenShake.Instance)
                     {
                         ScreenShake.Instance.ShakeCam(0.05f, 0.3f);
+                        shakeSource.Play();
                     }
                     break;
             }
@@ -202,6 +209,7 @@ public class MinecartInteraction : MonoBehaviour
                     if (ScreenShake.Instance)
                     {
                         ScreenShake.Instance.ShakeCam(0.05f, 0.3f);
+                        shakeSource.Play();
                     }
                     break;
                 case 2:
@@ -212,6 +220,7 @@ public class MinecartInteraction : MonoBehaviour
                     if (ScreenShake.Instance)
                     {
                         ScreenShake.Instance.ShakeCam(0.05f, 0.3f);
+                        shakeSource.Play();
                     }
                     break;
             }
