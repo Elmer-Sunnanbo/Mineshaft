@@ -28,6 +28,7 @@ public class MinecartInteraction : MonoBehaviour
             currentPlayerInTrigger.EnterMinecart();
             currentPlayerInTrigger.transform.parent = transform.parent;
             currentPlayerInTrigger.transform.localPosition = Vector2.zero;
+            shakeSource.Play();
         }
         else if(playerIn && Input.GetKeyDown(KeyCode.LeftShift))
         {
@@ -86,24 +87,28 @@ public class MinecartInteraction : MonoBehaviour
                     currentPlayerInTrigger.ExitMinecart();
                     currentPlayerInTrigger.transform.parent = null;
                     currentPlayerInTrigger.transform.position = frontDisembark.transform.position;
+                    shakeSource.Play();
                     break;
                 case 1:
                     playerIn = false;
                     currentPlayerInTrigger.ExitMinecart();
                     currentPlayerInTrigger.transform.parent = null;
                     currentPlayerInTrigger.transform.position = rightDisembark.transform.position;
+                    shakeSource.Play();
                     break;
                 case 2:
                     playerIn = false;
                     currentPlayerInTrigger.ExitMinecart();
                     currentPlayerInTrigger.transform.parent = null;
                     currentPlayerInTrigger.transform.position = backDisembark.transform.position;
+                    shakeSource.Play();
                     break;
                 case 3:
                     playerIn = false;
                     currentPlayerInTrigger.ExitMinecart();
                     currentPlayerInTrigger.transform.parent = null;
                     currentPlayerInTrigger.transform.position = leftDisembark.transform.position;
+                    shakeSource.Play();
                     break;
             }
         }

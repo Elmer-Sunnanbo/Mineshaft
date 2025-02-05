@@ -8,6 +8,6 @@ public class SFXOnHit : MonoBehaviour, IHittable
     [SerializeField] AudioSource sound;
     public void Hit()
     {
-        sound.Play();
+        AudioSource.PlayClipAtPoint(sound.clip, Camera.main.transform.position);
     }
 }
