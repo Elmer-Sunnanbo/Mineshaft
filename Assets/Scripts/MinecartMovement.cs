@@ -12,11 +12,13 @@ public class MinecartMovement : MonoBehaviour
     [SerializeField] AudioSource puffSource;
     [SerializeField] AudioSource rollSource;
     [SerializeField] AudioSource scrapeSource;
+    [SerializeField] AudioSource shakeSource;
+    bool hasBouncedOnCurrentTile;
+    bool hasStoppedOnCurrentTile = true; //Prevents immediatley stopping after starting on stop tiles
     GameObject interacter;
     MinecartInteraction interacterScript;
     ParticleSystem smokeParticles;
     float currentTileProgress = 0;
-    int currentFuel;
     RailTile currentTile;
     public Direction displayDirection => currentTile.GetDisplayDirection(currentDirection, currentTileProgress);
     Direction currentDirection;
@@ -53,11 +55,11 @@ public class MinecartMovement : MonoBehaviour
     {
         if(GameManager.instance != null)
         {
-            if(GameManager.instance.coal - Mathf.Abs(fuel) < 0)
+            if(GameManager.instance.coal - Mathf.Abs(fuel) < 0) //If we're out of coal
             {
                 if (UIUpdating.instance)
                 {
-                    UIUpdating.instance.FlashCoal0();
+                    UIUpdating.instance.FlashCoal0(); //Show it on UI
                 }
                 return;
             }
@@ -65,7 +67,7 @@ public class MinecartMovement : MonoBehaviour
             {
                 if (UIUpdating.instance)
                 {
-                    UIUpdating.instance.FlashCoalDown();
+                    UIUpdating.instance.FlashCoalDown(); //Show coal reduction on UI
                 }
                 GameManager.instance.coal -= Mathf.Abs(fuel);
             }
@@ -73,9 +75,9 @@ public class MinecartMovement : MonoBehaviour
         if(fuel < 0) //If we're going backwards, turn around (and go forwards)
         {
             currentDirection.Rotate(2);
+            currentTileProgress = 1 - currentTileProgress; //Invert progress on current tile
         }
-        currentFuel += Mathf.Abs(fuel);
-        if(fuel != 0)
+        if(fuel != 0) //Start moving (unless supplied 0 fuel)
         {
             moving = true;
             smokeParticles.Play();
@@ -108,9 +110,13 @@ public class MinecartMovement : MonoBehaviour
         if (moving)
         {
             currentTileProgress += Time.deltaTime * speed;
+
+           
             if (currentTileProgress > 1)
             {
                 currentTileProgress -= 1;
+                hasBouncedOnCurrentTile = false;
+                hasStoppedOnCurrentTile = false;
                 currentDirection = currentTile.GetDirectionAfterTravel(currentDirection);
                 if (currentTile.isTurntable)
                 {
@@ -121,16 +127,19 @@ public class MinecartMovement : MonoBehaviour
                 {
                     currentTile.EnterTurntable(this);
                 }
-                if (currentTile.isStop)
-                {
-                    currentFuel--;
-                }
             }
-            if (currentTileProgress >= 0.5f && currentTile.isStop && currentFuel <= 0)
+            else if (currentTileProgress >= 0.5f && !hasBouncedOnCurrentTile && currentTile.GetDirectionAfterTravel(currentDirection).direction == currentDirection.Rotated(2).direction) //If we just bounced
             {
+                shakeSource.Play();
+            }
+            if (currentTileProgress >= 0.5f && currentTile.isStop && moving && !hasStoppedOnCurrentTile) //If we've reached the stop point on a stop tile
+            {
+                //Stop
                 currentTileProgress = 0.5f;
                 moving = false;
+                hasStoppedOnCurrentTile = true;
                 smokeParticles.Stop();
+                shakeSource.Play();
             }
             transform.position = currentTile.GetPosition(currentTileProgress, currentDirection);
         }
@@ -146,7 +155,7 @@ public class MinecartMovement : MonoBehaviour
     {
         if(!interacterScript.playerIn)
         {
-            if(currentFuel > 0)
+            if(moving)
             {
                 switch (displayDirection.direction)
                 {
@@ -174,7 +183,7 @@ public class MinecartMovement : MonoBehaviour
         }
         else
         {
-            if (currentFuel > 0)
+            if (moving)
             {
                 switch (displayDirection.direction)
                 {

@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     public static Player playerInstance;
     public int playerHP;
     float iFrameTimer;
+    Footstepper stepManager;
 
     bool isInMinecart;
     void Start()
@@ -19,6 +20,7 @@ public class Player : MonoBehaviour
         playerInstance = this;
         myRigidbody = GetComponent<Rigidbody2D>();
         playerHP = 4;
+        stepManager = GetComponent<Footstepper>();
     }
 
 
@@ -67,6 +69,15 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Player died now and here");
             SceneManager.LoadScene(1);
+        }
+
+        if (GetMoveVector().magnitude > 0)
+        {
+            stepManager.walking = true;
+        }
+        else
+        {
+            stepManager.walking = false;
         }
     }
     public Animator PlayerAni;

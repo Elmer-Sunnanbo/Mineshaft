@@ -11,6 +11,8 @@ public class RailTile : MonoBehaviour
     public RailTile[] neighbours;
     public bool isStop;
     public bool isTurntable;
+    [SerializeField] AudioSource turntableRotateSource;
+
     [SerializeField] SpriteRenderer sprite;
     [SerializeField] Sprite straightSprite;
     [SerializeField] Sprite straightStopSprite;
@@ -200,6 +202,7 @@ public class RailTile : MonoBehaviour
     public void RotateTurntable()
     {
         turnTurntable.Invoke();
+        turntableRotateSource.Play();
     }
 
     public Direction GetDisplayDirection(Direction realDirection, float progress)
