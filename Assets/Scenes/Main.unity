@@ -1160,6 +1160,9 @@ MonoBehaviour:
   hpUI: {fileID: 1811613663}
   coalUI: {fileID: 1742575111}
   goldUI: {fileID: 9567890}
+  hpUIoutline: {fileID: 1043454573}
+  coalUIoutline: {fileID: 1680086307}
+  goldUIoutline: {fileID: 447196512}
   FlashDuration: 0.2
 --- !u!4 &1665373570
 Transform:

@@ -13,6 +13,7 @@ public class MinecartMovement : MonoBehaviour
     [SerializeField] AudioSource rollSource;
     [SerializeField] AudioSource scrapeSource;
     [SerializeField] AudioSource shakeSource;
+    [SerializeField] TutorialManager tutorialManager;
     bool hasBouncedOnCurrentTile;
     bool hasStoppedOnCurrentTile = true; //Prevents immediatley stopping after starting on stop tiles
     GameObject interacter;
@@ -49,10 +50,22 @@ public class MinecartMovement : MonoBehaviour
         currentDirection = new Direction((int)startDir);
         transform.position = currentTile.GetPosition(currentTileProgress, currentDirection);
         SetAnim(GetAnim());
+        if(currentTile.isTurntable)
+        {
+            currentTile.EnterTurntable(this);
+        }
     }
 
     public void AddFuel(int fuel)
     {
+        //Make sure the tutorial isn't locking the minecart
+        if(tutorialManager != null)
+        {
+            if(!tutorialManager.minecartMoveAllowed)
+            {
+                return;
+            }
+        }
         if(GameManager.instance != null)
         {
             if(GameManager.instance.coal - Mathf.Abs(fuel) < 0) //If we're out of coal
@@ -81,6 +94,10 @@ public class MinecartMovement : MonoBehaviour
         {
             moving = true;
             smokeParticles.Play();
+            if(tutorialManager != null)
+            {
+                tutorialManager.MinecartMove();
+            }
         }
     }
 
