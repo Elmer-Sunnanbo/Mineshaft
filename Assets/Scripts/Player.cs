@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
 {
     Rigidbody2D myRigidbody;
     [SerializeField] float speed;
+    [SerializeField] AudioSource damageSource;
 
     public static Player playerInstance;
     public int playerHP;
@@ -108,7 +109,8 @@ public class Player : MonoBehaviour
     {
         if (iFrameTimer < 0 && !isInMinecart)
         {
-            if(ScreenShake.Instance)
+            damageSource.Play();
+            if (ScreenShake.Instance)
             {
                 ScreenShake.Instance.ShakeCam(0.2f, 0.4f);
             }
@@ -126,6 +128,7 @@ public class Player : MonoBehaviour
     {
         if (iFrameTimer < 0 && !isInMinecart)
         {
+            damageSource.Play();
             if (ScreenShake.Instance)
             {
                 ScreenShake.Instance.ShakeCam(0.2f, 0.2f);
