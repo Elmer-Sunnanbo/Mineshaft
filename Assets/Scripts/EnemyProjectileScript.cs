@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyProjectileScript : MonoBehaviour
 {
-    private float speed = 7;
+    [SerializeField] float speed = 7;
     private float projectileLongetivityTimer;
     private float prefireTimer;//Instantiate and colliders does not run the first couple of milliseconds.
     [SerializeField] int MaxBounceCount;
