@@ -2,12 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIUpdating : MonoBehaviour
 {
     [SerializeField] TextMeshProUGUI hpUI;
     [SerializeField] TextMeshProUGUI coalUI;
     [SerializeField] TextMeshProUGUI goldUI;
+    [SerializeField] Image hpUIoutline;
+    [SerializeField] Image coalUIoutline;
+    [SerializeField] Image goldUIoutline;
     Player playerScript;
     public static UIUpdating instance;
     [SerializeField] float FlashDuration;
@@ -39,31 +43,37 @@ public class UIUpdating : MonoBehaviour
         {
             GoldFlashUpRemainingTime -= Time.deltaTime;
             goldUI.color = new Color(1 - GoldFlashUpRemainingTime / FlashDuration, 1 , 1 - GoldFlashUpRemainingTime / FlashDuration);
+            goldUIoutline.color = new Color(1 - GoldFlashUpRemainingTime / FlashDuration, 1, 1 - GoldFlashUpRemainingTime / FlashDuration);
         }
         if (HPFlashUpRemainingTime > 0)
         {
             HPFlashUpRemainingTime -= Time.deltaTime;
             hpUI.color = new Color(1 - HPFlashUpRemainingTime / FlashDuration, 1, 1 - HPFlashUpRemainingTime / FlashDuration);
+            hpUIoutline.color = new Color(1 - HPFlashUpRemainingTime / FlashDuration, 1, 1 - HPFlashUpRemainingTime / FlashDuration);
         }
         if (HPFlashDownRemainingTime > 0)
         {
             HPFlashDownRemainingTime -= Time.deltaTime;
             hpUI.color = new Color(1, 1 - HPFlashDownRemainingTime / FlashDuration, 1 - HPFlashDownRemainingTime / FlashDuration);
+            hpUIoutline.color = new Color(1, 1 - HPFlashDownRemainingTime / FlashDuration, 1 - HPFlashDownRemainingTime / FlashDuration);
         }
         if (CoalFlashUpRemainingTime > 0)
         {
             CoalFlashUpRemainingTime -= Time.deltaTime;
             coalUI.color = new Color(1 - CoalFlashUpRemainingTime / FlashDuration, 1, 1 - CoalFlashUpRemainingTime / FlashDuration);
+            coalUIoutline.color = new Color(1 - CoalFlashUpRemainingTime / FlashDuration, 1, 1 - CoalFlashUpRemainingTime / FlashDuration);
         }
         if (CoalFlashDownRemainingTime > 0)
         {
             CoalFlashDownRemainingTime -= Time.deltaTime;
             coalUI.color = new Color(1, 1 - CoalFlashDownRemainingTime / FlashDuration, 1 - CoalFlashDownRemainingTime / FlashDuration);
+            coalUIoutline.color = new Color(1, 1 - CoalFlashDownRemainingTime / FlashDuration, 1 - CoalFlashDownRemainingTime / FlashDuration);
         }
         if (CoalFlash0RemainingTime > 0)
         {
             CoalFlash0RemainingTime -= Time.deltaTime;
             coalUI.color = new Color(1 - (CoalFlash0RemainingTime / (FlashDuration*3))/1.5f, 1 - CoalFlash0RemainingTime / (FlashDuration * 3), 1 - CoalFlash0RemainingTime / (FlashDuration * 3));
+            coalUIoutline.color = new Color(1 - (CoalFlash0RemainingTime / (FlashDuration * 3)) / 1.5f, 1 - CoalFlash0RemainingTime / (FlashDuration * 3), 1 - CoalFlash0RemainingTime / (FlashDuration * 3));
         }
     }
 
