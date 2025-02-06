@@ -2392,10 +2392,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Minecart
       objectReference: {fileID: 0}
-    - target: {fileID: 7190042090190632336, guid: 189c193d597e81040ba8e8e79bba6c59, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
