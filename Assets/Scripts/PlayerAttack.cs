@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -31,34 +33,51 @@ public class PlayerAttack : MonoBehaviour
                 // Calculate the direction from the player to the mouse position
                 Vector2 direction = (mousePosition - (Vector2)transform.position).normalized;
 
-                // Offset the starting position by 1 unit in the direction of the mouse
-                Vector2 raycastOrigin = (Vector2)transform.position + direction; // Offset by 1 unit
+                Vector2 raycastOrigin = transform.position;
 
-                // Create the raycast
-                RaycastHit2D hit = Physics2D.Raycast(raycastOrigin, direction, reach); // Send raycast
-                if (hit.collider != null) // If a hitObj is found
+                // Create raycast for wall detection
+                RaycastHit2D[] hitsRay = Physics2D.RaycastAll(raycastOrigin, direction, reach); // Send raycast
+
+                float attackDirectionDegrees = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+                // Create boxcast for hit detection
+                RaycastHit2D[] hitsBox = Physics2D.BoxCastAll(raycastOrigin, Vector2.one, attackDirectionDegrees, direction, reach); //Send boxcast
+                Vector2 swingPosition = Vector2.zero;
+                foreach (RaycastHit2D hit in hitsBox)
                 {
-                    //Hit everything that should be hit
-                    foreach (IHittable hittable in hit.collider.GetComponents<IHittable>())
+                    if (hit.collider != null) // If a hitObj is found
                     {
-                        hittable.Hit();
+                        //Hit everything that should be hit
+                        foreach (IHittable hittable in hit.collider.GetComponents<IHittable>())
+                        {
+                            //Hit the hittable
+                            hittable.Hit();
+
+                            //Place the swing on the furthest object hit
+                            //(this code always updates the position to anything with a hittable and the objects are handled from near to far)
+                            swingPosition = (Vector2)transform.position + direction * (hit.distance + 0.5f); 
+                        }
+
+                        if (hit.collider.TryGetComponent<PathfindingBlocker>(out _)) //If we hit a wall
+                        {
+                            if (hitsRay.ToList().Select(t => t.collider.gameObject).Contains(hit.collider.gameObject)) //If the raycast also hit the wall
+                            {
+                                //Don't check the rest of the hits
+                                swingPosition = (Vector2)transform.position + direction * (hit.distance + 0.5f); //Place the swing on the wall
+                                break;
+                            }
+                        }
                     }
+                }
+                
+                if(swingPosition == Vector2.zero) //If we didn't hit anything
+                {
+                    swingPosition = (Vector2) transform.position + direction * reach;
                 }
                 timer = attackReloadTimer;
 
                 //Create swing effect
-                Vector2 vectorToMouse = mousePosition - (Vector2) transform.position;
-                Vector2 swingPosition;
-                if(vectorToMouse.magnitude <= reach)
-                {
-                    swingPosition = mousePosition;
-                }
-                else
-                {
-                    swingPosition = (Vector2) transform.position + (vectorToMouse.normalized*reach);
-                }
-                float swingRotationDegrees = Mathf.Atan2(vectorToMouse.y, vectorToMouse.x) * Mathf.Rad2Deg;
-                Instantiate(swing, swingPosition, Quaternion.Euler(0, 0, swingRotationDegrees - 90));
+                Instantiate(swing, swingPosition, Quaternion.Euler(0, 0, attackDirectionDegrees - 90));
             }
         }
         else //the attack reload counts down if you release an attack
