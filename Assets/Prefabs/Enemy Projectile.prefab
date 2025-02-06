@@ -128,7 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 28bd9c22afc0b67468ebefaf244b896f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxBounceCount: 3
+  speed: 5
+  MaxBounceCount: 2
 --- !u!58 &3930004270735775243
 CircleCollider2D:
   m_ObjectHideFlags: 0

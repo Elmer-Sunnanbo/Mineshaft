@@ -109,7 +109,7 @@ MonoBehaviour:
   speed: 2.5
   wakeUpDistance: 6
   sleepDelay: 2
-  projectileChargeTime: 0.7
+  projectileChargeTime: 1.2
   maxDistance: 10
   minDistance: 5
   ProEnemyHealth: 3
