@@ -6,6 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class DashEnemy : MonoBehaviour, IHittable, IEnemy
 {
+    [SerializeField] AudioSource dashSound;
     [Header("Chase parameters")]
     [SerializeField] GameObject target;
     [SerializeField] float speed;
@@ -230,6 +231,7 @@ public class DashEnemy : MonoBehaviour, IHittable, IEnemy
                 if (timeUntilDashEnds == null) //If the timer hasn't been set
                 {
                     timeUntilDashEnds = dashDuration;
+                    dashSound.Play();
                 }
 
                 timeUntilDashEnds -= Time.deltaTime;

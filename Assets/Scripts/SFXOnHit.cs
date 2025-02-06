@@ -8,6 +8,13 @@ public class SFXOnHit : MonoBehaviour, IHittable
     [SerializeField] AudioSource sound;
     public void Hit()
     {
-        AudioSource.PlayClipAtPoint(sound.clip, Camera.main.transform.position);
+        if(GameManager.instance != null)
+        {
+            GameManager.instance.PlaySound(sound);
+        }
+        else
+        {
+            sound.Play();
+        }
     }
 }
