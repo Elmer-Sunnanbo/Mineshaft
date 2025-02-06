@@ -356,7 +356,7 @@ AudioSource:
   m_GameObject: {fileID: 330441639}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -4571093715789088684, guid: f97e67b446d3a374c9c4b4e44aa3b4fa, type: 2}
   m_audioClip: {fileID: 8300000, guid: a3287e3a9933a4e41a8cfbce710b5b50, type: 3}
   m_Resource: {fileID: 8300000, guid: a3287e3a9933a4e41a8cfbce710b5b50, type: 3}
   m_PlayOnAwake: 1
@@ -1447,10 +1447,6 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1197200043158224416, guid: 144b7f6678fcfbf448ad5baef9a34e86, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1197200043158224416, guid: 144b7f6678fcfbf448ad5baef9a34e86, type: 3}
       propertyPath: trackedTransform
       value: 
       objectReference: {fileID: 1454454049}
@@ -1458,14 +1454,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Follow Camera
       objectReference: {fileID: 0}
-    - target: {fileID: 6624949758854563376, guid: 144b7f6678fcfbf448ad5baef9a34e86, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6624949758854563376, guid: 144b7f6678fcfbf448ad5baef9a34e86, type: 3}
-      propertyPath: objectToFollow
-      value: 
-      objectReference: {fileID: 1454454035}
     - target: {fileID: 7722690641978533457, guid: 144b7f6678fcfbf448ad5baef9a34e86, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1506,8 +1494,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6624949758854563376, guid: 144b7f6678fcfbf448ad5baef9a34e86, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1547,6 +1534,7 @@ MonoBehaviour:
   GameHighscore: 0
   getPlayer: {fileID: 0}
   player: {fileID: 1454454035}
+  soundPlayer: {fileID: 2426334642067751424, guid: 95f8d21288c36eb4087daf20144e815e, type: 3}
 --- !u!4 &2013378012
 Transform:
   m_ObjectHideFlags: 0

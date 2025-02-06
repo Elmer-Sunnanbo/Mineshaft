@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     public Player getPlayer;
     private int playerHealth;
     public GameObject player;
+    [SerializeField] GameObject soundPlayer;
 
     private void Awake()
     {
@@ -46,5 +47,17 @@ public class GameManager : MonoBehaviour
     private void FixedUpdate()
     {
         SaveHighscore();
+    }
+
+    /// <summary>
+    /// Replicates a source playing a sound. Useful for playing a sound when an object will delete itself.
+    /// </summary>
+    /// <param name="copySource"></param>
+    public void PlaySound(AudioSource copySource)
+    {
+        GameObject currentSoundPlayer = Instantiate(soundPlayer, copySource.transform.position, Quaternion.identity);
+        currentSoundPlayer.GetComponent<AudioSource>().clip = copySource.clip;
+        currentSoundPlayer.GetComponent<AudioSource>().outputAudioMixerGroup = copySource.outputAudioMixerGroup;
+        currentSoundPlayer.GetComponent<AudioSource>().Play();
     }
 }

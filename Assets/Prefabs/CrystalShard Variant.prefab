@@ -20,6 +20,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: CrystalShard Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 7437128377742967230, guid: 0eafd506de4046344937e6daf6624ddb, type: 3}
+      propertyPath: m_Resource
+      value: 
+      objectReference: {fileID: 8300000, guid: 4d318ddc5bb1c6f4391483c388f8a6e4, type: 3}
+    - target: {fileID: 7437128377742967230, guid: 0eafd506de4046344937e6daf6624ddb, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4d318ddc5bb1c6f4391483c388f8a6e4, type: 3}
     - target: {fileID: 8885977146329406706, guid: 0eafd506de4046344937e6daf6624ddb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

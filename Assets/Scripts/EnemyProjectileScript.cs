@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyProjectileScript : MonoBehaviour
@@ -8,6 +9,7 @@ public class EnemyProjectileScript : MonoBehaviour
     private float projectileLongetivityTimer;
     private float prefireTimer;//Instantiate and colliders does not run the first couple of milliseconds.
     [SerializeField] int MaxBounceCount;
+    [SerializeField] AudioSource bounceSource;
     int TimesBounced;
     Rigidbody2D myRigidBody;
     CircleCollider2D myCollider;
@@ -47,12 +49,20 @@ public class EnemyProjectileScript : MonoBehaviour
         if(collision.gameObject.TryGetComponent<Player>(out Player hitPlayer))
         {
             hitPlayer.Hit();
+            if (GameManager.instance != null)
+            {
+                GameManager.instance.PlaySound(bounceSource);
+            }
             Destroy(gameObject);
         }
         else
         {
             TimesBounced++;
-            if(TimesBounced > MaxBounceCount)
+            if (GameManager.instance != null)
+            {
+                GameManager.instance.PlaySound(bounceSource);
+            }
+            if (TimesBounced > MaxBounceCount)
             {
                 Destroy(gameObject);
             }

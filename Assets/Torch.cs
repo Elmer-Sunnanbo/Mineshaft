@@ -9,9 +9,11 @@ public class Torch : MonoBehaviour
     public bool lightOn = false;
     Light2D Light;
     Animator animator;
+    AudioSource audioSource;
 
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         Light = gameObject.GetComponent<Light2D>();
         animator = GetComponent<Animator>();
     }
@@ -20,7 +22,11 @@ public class Torch : MonoBehaviour
     {
         if(col.gameObject.TryGetComponent<Player>(out _))
         {
-            lightOn = true;
+            if(!lightOn)
+            {
+                lightOn = true;
+                audioSource.Play();
+            }   
         }
     }
 
