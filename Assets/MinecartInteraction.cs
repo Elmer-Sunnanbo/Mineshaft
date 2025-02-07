@@ -26,6 +26,7 @@ public class MinecartInteraction : MonoBehaviour
         if (isInTrigger && Input.GetKeyDown(KeyCode.LeftShift) && !playerIn) //If the player attempts to enter the minecart
         {
             playerIn = true;
+            Debug.Log("Going in");
             currentPlayerInTrigger.EnterMinecart();
             currentPlayerInTrigger.transform.parent = transform.parent;
             currentPlayerInTrigger.transform.localPosition = Vector2.zero;
@@ -238,19 +239,19 @@ public class MinecartInteraction : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out Player playerScript) && currentPlayerInTrigger == null)
+        if (collision.gameObject.TryGetComponent(out Player playerScript) && currentPlayerInTrigger == null && !playerIn)
         {
             isInTrigger = true;
             currentPlayerInTrigger = playerScript;
         }
-        else if(collision.gameObject.TryGetComponent<Player>(out _))
+        else if(collision.gameObject.TryGetComponent<Player>(out _) && !playerIn)
         {
             Debug.LogWarning("A player entered the minecart trigger when there was already one in there");
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.TryGetComponent(out Player playerScript))
+        if (collision.gameObject.TryGetComponent(out Player playerScript) && !playerIn)
         {
             isInTrigger = false;
             currentPlayerInTrigger = null;

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3181431501137075128}
   - component: {fileID: 3923462657886383258}
   - component: {fileID: 7301489963562353638}
+  - component: {fileID: 6186669234133810070}
   m_Layer: 0
   m_Name: BackColli
   m_TagString: Untagged
@@ -93,6 +94,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTrigger: {fileID: 6833819631417875301}
   movement: {fileID: 937557905044538530}
+--- !u!50 &6186669234133810070
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 924230068696359258}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1097807082099592487
 GameObject:
   m_ObjectHideFlags: 0
@@ -166,6 +194,7 @@ GameObject:
   - component: {fileID: 903584221069940745}
   - component: {fileID: 2889505967748382550}
   - component: {fileID: 989879378804233826}
+  - component: {fileID: 2849873097519681041}
   m_Layer: 0
   m_Name: FrontColli
   m_TagString: Untagged
@@ -248,6 +277,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainTrigger: {fileID: 6833819631417875301}
   movement: {fileID: 937557905044538530}
+--- !u!50 &2849873097519681041
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3308318945216476693}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &4965510580701020648
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,6 +421,7 @@ MonoBehaviour:
   frontDisembark: {fileID: 6822505907586694710}
   backDisembark: {fileID: 2493036297333872102}
   shakeSource: {fileID: 3462092623663802734}
+  tutorialManager: {fileID: 0}
 --- !u!61 &1978026706101646063
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -684,6 +741,7 @@ MonoBehaviour:
   rollSource: {fileID: 8646009356859099970}
   scrapeSource: {fileID: 6316275061359802517}
   shakeSource: {fileID: 2694201400280014141}
+  tutorialManager: {fileID: 0}
 --- !u!198 &2133276700188253620
 ParticleSystem:
   m_ObjectHideFlags: 0
