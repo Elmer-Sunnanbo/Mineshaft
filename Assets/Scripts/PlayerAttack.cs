@@ -40,13 +40,22 @@ public class PlayerAttack : MonoBehaviour
 
                 float attackDirectionDegrees = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
 
-                // Create boxcast for hit detection
-                RaycastHit2D[] hitsBox = Physics2D.BoxCastAll(raycastOrigin, Vector2.one, attackDirectionDegrees, direction, reach); //Send boxcast
+                // Create circlecast for hit detection
+                RaycastHit2D[] hitsCircle = Physics2D.CircleCastAll(raycastOrigin, 0.3f, direction, reach); //Send circlecast
                 Vector2 swingPosition = Vector2.zero;
-                foreach (RaycastHit2D hit in hitsBox)
+                float? wallDistance = null; //The distance to a wall (hits beyond this distance are invalid)
+                foreach (RaycastHit2D hit in hitsCircle)
                 {
                     if (hit.collider != null) // If a hitObj is found
                     {
+                        if(wallDistance != null) //Ignore the hit if it's past a wall
+                        {
+                            if (hit.distance > wallDistance)
+                            {
+                                continue;
+                            }
+                        }
+                        
                         //Hit everything that should be hit
                         foreach (IHittable hittable in hit.collider.GetComponents<IHittable>())
                         {
@@ -62,9 +71,32 @@ public class PlayerAttack : MonoBehaviour
                         {
                             if (hitsRay.ToList().Select(t => t.collider.gameObject).Contains(hit.collider.gameObject)) //If the raycast also hit the wall
                             {
-                                //Don't check the rest of the hits
-                                swingPosition = (Vector2)transform.position + direction * (hit.distance + 0.5f); //Place the swing on the wall
-                                break;
+                                //Get the raycasthit that hit the wall
+                                RaycastHit2D matchedRay = new RaycastHit2D();
+                                float matchDistance = 0;
+                                foreach(RaycastHit2D rayHit in hitsRay)
+                                {
+                                    Debug.Log(rayHit.distance);
+                                    if (rayHit.collider.gameObject == hit.collider.gameObject)
+                                    {
+                                        matchedRay = rayHit;
+                                        matchDistance = rayHit.distance;
+                                        break;
+                                    }
+                                }
+                                if(matchedRay = new RaycastHit2D()) //If the loop failed to find a ray
+                                {
+                                    Debug.LogError("Player attack failed to match a wall ray");
+                                    continue;
+                                }
+                                if(wallDistance == null)
+                                {
+                                    wallDistance = matchDistance; //Ignore all hits beyond the wall
+                                }
+                                else if (wallDistance > matchDistance)
+                                {
+                                    wallDistance = matchDistance; //Ignore all hits beyond the wall
+                                }
                             }
                         }
                     }
@@ -72,7 +104,15 @@ public class PlayerAttack : MonoBehaviour
                 
                 if(swingPosition == Vector2.zero) //If we didn't hit anything
                 {
-                    swingPosition = (Vector2) transform.position + direction * reach;
+                    if(wallDistance != null) //If we hit a wall
+                    {
+                        swingPosition = (Vector2)transform.position + direction * ((float) wallDistance); //Place the swing on the wall
+                    }
+                    else
+                    {
+                        swingPosition = (Vector2)transform.position + direction * reach; //Place the swing at the end of our reach
+                    }
+                    
                 }
                 timer = attackReloadTimer;
 
