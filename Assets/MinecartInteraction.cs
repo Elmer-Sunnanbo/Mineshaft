@@ -15,6 +15,7 @@ public class MinecartInteraction : MonoBehaviour
     [SerializeField] Transform frontDisembark;
     [SerializeField] Transform backDisembark;
     [SerializeField] AudioSource shakeSource;
+    [SerializeField] TutorialManager tutorialManager;
 
     void Start()
     {
@@ -29,6 +30,10 @@ public class MinecartInteraction : MonoBehaviour
             currentPlayerInTrigger.transform.parent = transform.parent;
             currentPlayerInTrigger.transform.localPosition = Vector2.zero;
             shakeSource.Play();
+            if (tutorialManager != null)
+            {
+                tutorialManager.MinecartEntered();
+            }
         }
         else if(playerIn && Input.GetKeyDown(KeyCode.LeftShift))
         {

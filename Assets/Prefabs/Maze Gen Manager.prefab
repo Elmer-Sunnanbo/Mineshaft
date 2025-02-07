@@ -58,6 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomSize: 9
+  player: {fileID: 0}
   Rooms0:
   - {fileID: 2288629035082238555, guid: 82f2f55df51fb114284bbf3e9134b9b7, type: 3}
   Roomsi:
@@ -117,7 +118,7 @@ MonoBehaviour:
   - {fileID: 6423337373008181525, guid: 864a8b801bd356646b91f0b5b59d7ea8, type: 3}
   - {fileID: 8777808796625367177, guid: cf3c23f1beb882f4db30ab528d20bb3c, type: 3}
   RoomsStart:
-  - {fileID: 5827281127706793387, guid: f57e70b3161dbf64da8f985a41941836, type: 3}
+  - {fileID: 5827281127706793387, guid: dd013173dd883114a8f743e5f17ebb96, type: 3}
   RoomsTreasure:
   - {fileID: 7856692808511676403, guid: 3d2641348678d7f468559893973f4752, type: 3}
   RoomsTreasure1:

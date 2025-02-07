@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f2624b3fb27a174439f9eb644675f917
+guid: 6ab7af93d5c30c14fadb2c7414d814a4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9101136560391991445
-    second: MinecartLeftRightIdle_0
+      213: -7910127128901405170
+    second: Barrier_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -96,26 +96,39 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: MinecartLeftRightIdle_0
+      name: Barrier_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 48
-        height: 48
-      alignment: 9
-      pivot: {x: 0.5, y: 0.5}
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: b6fc389a48442b180800000000000000
-      internalID: -9101136560391991445
+      spriteID: e06b6a13945993290800000000000000
+      internalID: -7910127128901405170
       vertices: []
       indices: 
       edges: []
@@ -123,7 +136,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 7e4cafb2f70d78547a1b2598a5372de0
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -131,7 +144,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      MinecartLeftRightIdle_0: -9101136560391991445
+      Barrier_0: -7910127128901405170
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
