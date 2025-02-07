@@ -1014,6 +1014,7 @@ GameObject:
   - component: {fileID: 8551863212108407556}
   - component: {fileID: 3846153558928516643}
   - component: {fileID: 4351329692945243858}
+  - component: {fileID: 4636189946716387994}
   m_Layer: 9
   m_Name: Tilemap Collision
   m_TagString: Untagged
@@ -1477,6 +1478,18 @@ TilemapCollider2D:
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
 --- !u!114 &4351329692945243858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8660896229568973200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1bc8e4fe7051af4eab77fbe7c5059fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4636189946716387994
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
