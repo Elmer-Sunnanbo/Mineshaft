@@ -24,6 +24,7 @@ public class TutorialManager : MonoBehaviour
     bool coalHit;
     bool crystalHit;
     bool goldHit;
+    bool allThingsHit;
     bool minecartEntered;
     void Start()
     {
@@ -69,6 +70,12 @@ public class TutorialManager : MonoBehaviour
                 attackTextCrystal.Spawn();
             }
             attackTextLever.Spawn();
+        }
+
+        if (tutorialActive && !allThingsHit && coalHit && crystalHit && leverHit && goldHit)
+        {
+            allThingsHit = true;
+            enterMinecartText.Spawn();
         }
     }
 
@@ -127,7 +134,7 @@ public class TutorialManager : MonoBehaviour
     }
     public void MinecartEntered()
     {
-        if(tutorialActive && !minecartEntered && coalHit && crystalHit && leverHit && goldHit)
+        if(tutorialActive && !minecartEntered && allThingsHit)
         {
             minecartEntered = true;
             enterMinecartText.Despawn();
