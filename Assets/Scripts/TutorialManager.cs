@@ -57,18 +57,9 @@ public class TutorialManager : MonoBehaviour
         {
             attacked = true;
             attackText.Despawn();
-            if(!goldHit)
-            {
-                attackTextGold.Spawn();
-            }
-            if(!coalHit)
-            {
-                attackTextCoal.Spawn();
-            }
-            if (!crystalHit)
-            {
-                attackTextCrystal.Spawn();
-            }
+            attackTextGold.Spawn();
+            attackTextCoal.Spawn();
+            attackTextCrystal.Spawn();
             attackTextLever.Spawn();
         }
 
@@ -100,28 +91,28 @@ public class TutorialManager : MonoBehaviour
         switch(id)
         {
             case 1:
-                if(!coalHit)
+                if(!coalHit && attacked)
                 {
                     coalHit = true;
                     attackTextCoal.Despawn();
                 }
                 break;
             case 2:
-                if (!crystalHit)
+                if (!crystalHit && attacked)
                 {
                     crystalHit = true;
                     attackTextCrystal.Despawn();
                 }
                 break;
             case 3:
-                if (!goldHit)
+                if (!goldHit && attacked)
                 {
                     goldHit = true;
                     attackTextGold.Despawn();
                 }
                 break;
             case 4:
-                if (!leverHit && tutorialActive)
+                if (!leverHit && attacked)
                 {
                     leverHit = true;
                     attackTextLever.Despawn();
