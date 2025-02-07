@@ -11,10 +11,10 @@ public class TutorialText : MonoBehaviour
     float bobSpeed = 1;
     bool spawning;
     float spawnProgress = 0;
-    float spawnSpeed = 2;
+    float spawnSpeed = 1.5f;
     bool despawning;
     float despawnProgress = 0;
-    float despawnSpeed = 2;
+    float despawnSpeed = 3;
     SpriteRenderer spriteRenderer;
 
     void Start()
@@ -46,11 +46,39 @@ public class TutorialText : MonoBehaviour
             spawnProgress += Time.deltaTime * spawnSpeed;
             if(spawnProgress <= 0.5f)
             {
-                spriteRenderer.color = new Color(1, 1, 1, Mathf.Lerp(0,1,spawnProgress*2));
+                //Become less transparent and more blue
+                spriteRenderer.color = new Color(Mathf.Lerp(1, 0.5f, spawnProgress * 2), Mathf.Lerp(1, 0.5f, spawnProgress * 2), 1, Mathf.Lerp(0,1,spawnProgress*2));
             }
             else if(spawnProgress <= 1)
             {
+                //Become less blue
+                spriteRenderer.color = new Color(Mathf.Lerp(0.5f, 1, (spawnProgress - 0.5f) * 2), Mathf.Lerp(0.5f, 1, (spawnProgress-0.5f) * 2), 1, 1);
+            }
+            else
+            {
+                spriteRenderer.color = new Color(1, 1, 1, 1);
+                spawning = false;
+            }
+        }
 
+        //Depawn logic
+        if (despawning)
+        {
+            despawnProgress += Time.deltaTime * despawnSpeed;
+            if (despawnProgress <= 0.5f)
+            {
+                //Become more blue
+                spriteRenderer.color = new Color(Mathf.Lerp(1, 0.5f, despawnProgress * 2), Mathf.Lerp(1, 0.5f, despawnProgress * 2), 1, 1);
+            }
+            else if (despawnProgress <= 1)
+            {
+                //Become more transparent and less blue
+                spriteRenderer.color = new Color(Mathf.Lerp(0.5f, 1, (despawnProgress - 0.5f) * 2), Mathf.Lerp(0.5f, 1, (despawnProgress - 0.5f) * 2), 1, Mathf.Lerp(1, 0, (despawnProgress - 0.5f) * 2));
+            }
+            else
+            {
+                spriteRenderer.color = new Color(1, 1, 1, 0);
+                despawning = false;
             }
         }
     }
@@ -66,6 +94,6 @@ public class TutorialText : MonoBehaviour
     /// </summary>
     public void Despawn()
     {
-        Destroy(gameObject);
+        despawning = true;
     }
 }
