@@ -5,7 +5,7 @@ using UnityEngine;
 public class CrystalScript : MonoBehaviour, IHittable
 {
     Player player;
-    public int shardsInCrystal = 3; // Standard amount of shards in a crystal is 3
+    public int shardsInCrystal = 2; // Standard amount of shards in a crystal is 3
 
     void Start()
     {

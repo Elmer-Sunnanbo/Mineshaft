@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
     {
         playerInstance = this;
         myRigidbody = GetComponent<Rigidbody2D>();
-        playerHP = 4;
+        playerHP = 2;
         stepManager = GetComponent<Footstepper>();
     }
 

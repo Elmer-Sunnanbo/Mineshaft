@@ -174,7 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 4
   damageSource: {fileID: 1830498450143298985}
-  playerHP: 4
+  playerHP: 2
   PlayerAni: {fileID: 1107956966843604732}
 --- !u!114 &8876996048389024274
 MonoBehaviour:
