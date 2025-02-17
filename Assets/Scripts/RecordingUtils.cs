@@ -37,10 +37,14 @@ public class RecordingUtils : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyUp(KeyCode.H))
+        if (Input.GetKeyDown(KeyCode.H))
         {
             GameManager.instance.coal = 999;
             player.GetComponent<Player>().playerHP = 999;
+        }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            player.transform.position = (Vector2) mainCam.ScreenToWorldPoint(Input.mousePosition);
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
