@@ -30,7 +30,7 @@ public class Torch : MonoBehaviour
         }
     }
 
-    private void Update()
+    public void Update()
     {
         if(lightOn) // If lightOn bool = true
         {

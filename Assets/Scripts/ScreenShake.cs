@@ -24,7 +24,7 @@ public class ScreenShake : MonoBehaviour
 
     List<Shake> ActiveShakes = new List<Shake>(); //All ongoing shake effects.
     //Vector3 CameraPosition; //Camera position to return to.
-    [SerializeField] Transform trackedTransform; //The transform the camera follows
+    public Transform trackedTransform; //The transform the camera follows
 
     void Update()
     {

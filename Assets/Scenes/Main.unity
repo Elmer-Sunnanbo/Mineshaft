@@ -370,8 +370,14 @@ MonoBehaviour:
   - {fileID: 2000527655}
   - {fileID: 447196510}
   music: {fileID: 330441640}
-  bigLight: {fileID: 0}
+  bigLight: {fileID: 1926348314}
   mainCam: {fileID: 0}
+  enemyB: {fileID: 6836246627311624206, guid: 761a6bf3aa6f27e4eb8bfc87d93485b2, type: 3}
+  enemyR: {fileID: 9208268155612098937, guid: 32c59fca272df084da10a33a791bb3e0, type: 3}
+  enemyM: {fileID: 822513868020973154, guid: 4f8231d2ebc9f0544ae4f256fdb67ccc, type: 3}
+  player: {fileID: 1454454035}
+  torch: {fileID: 1678112797546562195, guid: 81be1010c6bb53d4ea33b2277da8cef7, type: 3}
+  cameraScript: {fileID: 1416437024}
 --- !u!4 &317121222
 Transform:
   m_ObjectHideFlags: 0
@@ -1090,6 +1096,17 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 5110161506993854877, guid: 144b7f6678fcfbf448ad5baef9a34e86, type: 3}
   m_PrefabInstance: {fileID: 2008562096}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1416437024 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1197200043158224416, guid: 144b7f6678fcfbf448ad5baef9a34e86, type: 3}
+  m_PrefabInstance: {fileID: 2008562096}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e87a0503c33e614faf172d81af6f1c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1454454035 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4837868057007593676, guid: 0156cd583051a224d847777e7c757b03, type: 3}
