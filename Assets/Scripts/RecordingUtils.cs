@@ -37,6 +37,11 @@ public class RecordingUtils : MonoBehaviour
     }
     void Update()
     {
+        if (Input.GetKeyUp(KeyCode.H))
+        {
+            GameManager.instance.coal = 999;
+            player.GetComponent<Player>().playerHP = 999;
+        }
         if (Input.GetKeyDown(KeyCode.G))
         {
             if(state == States.Enemies)
